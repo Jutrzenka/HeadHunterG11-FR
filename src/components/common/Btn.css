@@ -1,0 +1,10 @@
+button, .btn {
+    background: #E02735;
+    padding: 8px 12px;
+    color: white;
+    border: none;
+    font-size: 0.9rem;
+    line-height: 22px;
+    text-align: center;
+    text-decoration: none;
+}
