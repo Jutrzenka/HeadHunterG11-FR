@@ -6,11 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 
 export const LoginViews = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
+  // global variable redux toolkit
   const { token, type } = useSelector((state: RootState) => state.token);
   const dispatch = useDispatch();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const sendForm = (event: FormEvent) => {
     event.preventDefault();
@@ -20,9 +21,10 @@ export const LoginViews = () => {
 
   return (
     <div className="App">
+      <img src={'/logo_MegaK.png'} alt={'Website logo'} />
       <Form sendForm={sendForm}>
-        <Input nameValue={'E-mail'} value={setEmail} />
-        <Input nameValue={'Hasło'} value={setPassword} />
+        <Input nameValue={'E-mail'} type={'text'} value={setEmail} />
+        <Input nameValue={'Hasło'} type={'password'} value={setPassword} />
         <Button title={'Zaloguj się'} />
       </Form>
     </div>
