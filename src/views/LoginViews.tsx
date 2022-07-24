@@ -2,6 +2,7 @@ import React, { FormEvent, useState } from 'react';
 import { Button } from '../components/common/Button/Button';
 import { Form } from '../components/common/Form/Form';
 import { Input } from '../components/common/Input/Input';
+import { ForgotPassword } from '../components/common/ForgotPassword/ForgotPassword';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 
@@ -27,6 +28,11 @@ export const LoginViews = () => {
         <Input nameValue={'Hasło'} type={'password'} value={setPassword} />
         <Button title={'Zaloguj się'} />
       </Form>
+      <ForgotPassword
+        title={'Zapomniałeś hasła?'}
+        email={email}
+        url={'./recover'}
+      />
     </div>
   );
 };
