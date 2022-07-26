@@ -1,10 +1,12 @@
 import React, { FormEvent, useState } from 'react';
-import { Button } from '../components/common/Button/Button';
-import { Form } from '../components/common/Form/Form';
-import { Input } from '../components/common/Input/Input';
-import { ForgotPassword } from '../components/common/ForgotPassword/ForgotPassword';
+import { Button } from '../../components/common/Button/Button';
+import { Form } from '../../components/common/Form/Form';
+import { Input } from '../../components/common/Input/Input';
+import { ForgotPassword } from '../../components/common/ForgotPassword/ForgotPassword';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
+import { RootState } from '../../redux/store';
+
+import './_LoginView.scss';
 
 export const LoginViews = () => {
   // global variable redux toolkit
@@ -21,18 +23,18 @@ export const LoginViews = () => {
   };
 
   return (
-    <div className="App">
+    <div className="login-view">
       <img src={'/logo_MegaK.png'} alt={'Website logo'} />
       <Form sendForm={sendForm}>
         <Input nameValue={'E-mail'} type={'text'} value={setEmail} />
         <Input nameValue={'Hasło'} type={'password'} value={setPassword} />
+        <ForgotPassword
+          title={'Zapomniałeś hasła?'}
+          email={email}
+          url={'./recover'}
+        />
         <Button title={'Zaloguj się'} />
       </Form>
-      <ForgotPassword
-        title={'Zapomniałeś hasła?'}
-        email={email}
-        url={'./recover'}
-      />
     </div>
   );
 };
