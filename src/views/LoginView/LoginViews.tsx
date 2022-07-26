@@ -4,9 +4,7 @@ import { Form } from '../../components/common/Form/Form';
 import { Input } from '../../components/common/Input/Input';
 import { ForgotPassword } from '../../components/common/ForgotPassword/ForgotPassword';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
-
-import './_LoginView.scss';
+import { RootState } from '../redux/store';
 
 export const LoginViews = () => {
   // global variable redux toolkit
@@ -18,23 +16,40 @@ export const LoginViews = () => {
 
   const sendForm = (event: FormEvent) => {
     event.preventDefault();
-    console.log(email);
-    console.log(password);
+    // Wstępna walidacja na frontendzie
+    if (validateEmail(email) && validatePassword(password)) {
+      // Wysyłanie zapytania na backend
+    }
+    // Zwrot komunikatu z informacją o błędnej waldiacji
   };
 
   return (
     <div className="login-view">
-      <img src={'/img/logo_MegaK.png'} alt={'Website logo'} />
+      <img
+        className={'LoginViews_img'}
+        src={'/img/logo_MegaK.png'}
+        alt={'Website logo'}
+      />
       <Form sendForm={sendForm}>
-        <Input nameValue={'E-mail'} type={'text'} value={setEmail} />
-        <Input nameValue={'Hasło'} type={'password'} value={setPassword} />
-        <ForgotPassword
-          title={'Zapomniałeś hasła?'}
-          email={email}
-          url={'./recover'}
+        <Input
+          nameValue={'E-mail'}
+          type={'text'}
+          value={setEmail}
+          maxLength={255}
+        />
+        <Input
+          nameValue={'Hasło'}
+          type={'password'}
+          value={setPassword}
+          maxLength={60}
         />
         <Button title={'Zaloguj się'} />
       </Form>
+      <ForgotPassword
+        title={'Zapomniałeś hasła?'}
+        email={email}
+        url={'./recover'}
+      />
     </div>
   );
 };
