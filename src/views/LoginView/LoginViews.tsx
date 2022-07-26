@@ -1,10 +1,13 @@
 import React, { FormEvent, useState } from 'react';
+import { RootState } from '../../redux/store';
 import { Button } from '../../components/common/Button/Button';
 import { Form } from '../../components/common/Form/Form';
 import { Input } from '../../components/common/Input/Input';
 import { ForgotPassword } from '../../components/common/ForgotPassword/ForgotPassword';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
+import { validateEmail } from '../../utils/validateEmail';
+import { validatePassword } from '../../utils/validatePassword';
+import './_LoginView.scss';
 
 export const LoginViews = () => {
   // global variable redux toolkit
@@ -43,13 +46,15 @@ export const LoginViews = () => {
           value={setPassword}
           maxLength={60}
         />
-        <Button title={'Zaloguj się'} />
+        <div className={'validation-buttons'}>
+          <ForgotPassword
+            title={'Zapomniałeś hasła?'}
+            email={email}
+            url={'./recover'}
+          />
+          <Button title={'Zaloguj się'} />
+        </div>
       </Form>
-      <ForgotPassword
-        title={'Zapomniałeś hasła?'}
-        email={email}
-        url={'./recover'}
-      />
     </div>
   );
 };
