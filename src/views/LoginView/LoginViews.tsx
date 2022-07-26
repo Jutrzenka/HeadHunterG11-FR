@@ -24,7 +24,7 @@ export const LoginViews = () => {
 
   return (
     <div className="login-view">
-      <img src={'/logo_MegaK.png'} alt={'Website logo'} />
+      <img src={'/img/logo_MegaK.png'} alt={'Website logo'} />
       <Form sendForm={sendForm}>
         <Input nameValue={'E-mail'} type={'text'} value={setEmail} />
         <Input nameValue={'Hasło'} type={'password'} value={setPassword} />
