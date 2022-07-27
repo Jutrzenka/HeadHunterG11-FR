@@ -11,7 +11,12 @@ export const Insert = ({ title }: Props) => {
     <div className="radios">
       <p>{title}</p>
       <div className="radio-wrap">
-        <Input value={''} type={'number'} nameValue={'0 miesięcy'} min={0} />
+        <Input
+          value={''}
+          type={'number'}
+          nameValue={'0 miesięcy'}
+          minLength={0}
+        />
       </div>
     </div>
   );

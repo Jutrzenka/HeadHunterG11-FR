@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { LoginViews } from './views/LoginViews';
+import { LoginViews } from './views/LoginView/LoginViews';
 import { Students } from './views/Students/Students';
 
 export const App = () => {

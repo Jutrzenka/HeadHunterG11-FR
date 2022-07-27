@@ -16,6 +16,7 @@ export const Input = ({
   nameValue,
   value,
   type,
+  title,
   maxLength,
   minLength,
 }: Props) => {
