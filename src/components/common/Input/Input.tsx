@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './_Input.scss';
 
-type Type = 'text' | 'number' | 'password';
+type Type = 'text' | 'number' | 'password' | 'radio';
 
 interface Props {
-  nameValue: string;
+  nameValue?: string;
   value: any;
   type: Type;
+  title?: string;
   maxLength?: number;
   minLength?: number;
 }
@@ -21,6 +22,7 @@ export const Input = ({
   const [inputValue, setInputValue] = useState('');
   return (
     <label>
+      {title && <p>{title}</p>}
       <input
         value={inputValue}
         type={type}

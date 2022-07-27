@@ -17,6 +17,12 @@ body {
   text-align: left;
 }
 
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 1430px;
+}
+
 a {
   color: var(--main-color);
   text-decoration: none;
