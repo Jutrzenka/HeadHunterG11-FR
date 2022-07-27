@@ -1,0 +1,22 @@
+@import '../../../styles/mixins';
+
+.radios {
+  margin-top: 15px;
+
+  p {
+    font-size: var(--s-font-sizes);
+  }
+
+  input {
+    width: 95px;
+    height: 28px;
+    padding: 5px;
+    font-size: var(--xs-font-size);
+    background-color: var(--form-background-color);
+    color: var(--main-color);
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}

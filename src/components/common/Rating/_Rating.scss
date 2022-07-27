@@ -1,0 +1,33 @@
+@import '../../../styles/mixins';
+
+.rating {
+  margin-top: 10px;
+
+  p {
+    font-size: var(--s-font-sizes);
+  }
+
+  .stars-wrap {
+    @include flex(row, center, space-between);
+    margin-top: 4px;
+    width: 242px;
+
+    .stars {
+      @include flex(row, center, center);
+      width: 42px;
+      padding: 4px;
+      background-color: var(--form-background-color);
+      cursor: pointer;
+
+      p {
+        font-size: 12px;
+        margin-right: 5px;
+      }
+
+      svg {
+        width: 12px;
+        color: var(--first-color);
+      }
+    }
+  }
+}
