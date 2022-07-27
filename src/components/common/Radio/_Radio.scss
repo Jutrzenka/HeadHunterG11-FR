@@ -1,0 +1,43 @@
+@import '../../../styles/mixins';
+
+.radios {
+  margin-top: 15px;
+
+  .radio-wrap {
+    margin-top: 4px;
+
+    labels:focus-within {
+      color: var(--first-color);
+    }
+
+    label {
+      @include flex(row-reverse, center, flex-end);
+      font-size: var(--xs-font-sizes);
+      gap: 0.5em;
+
+      input[type='radio'] {
+        cursor: pointer;
+        /* Add if not using autoprefixer */
+        -webkit-appearance: none;
+        /* Remove most all native input styles */
+        appearance: none;
+        /* For iOS < 15 */
+        background-color: transparent;
+        /* Not removed via appearance */
+        margin: 0;
+
+        font: inherit;
+        color: var(--form-background-color);
+        width: 15px;
+        height: 15px;
+        border: 1px solid var(--form-background-color);
+        border-radius: 50%;
+      }
+
+      input[type='radio']:focus {
+        outline: max(2px, 2px) solid var(--first-color);
+        outline-offset: max(-1px, -1px);
+      }
+    }
+  }
+}
