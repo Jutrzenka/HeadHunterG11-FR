@@ -45,6 +45,38 @@
       background-color: transparent;
       color: var(--main-color);
       margin-left: 6px;
+      height: 100%;
+    }
+  }
+
+  .headline-wrap {
+    @include flex(row, center, space-between);
+
+    h3 {
+      font-size: var(--l-font-size);
+    }
+    button {
+      background-color: var(--clear-btn-color);
+      padding: 10px;
+      color: var(--main-color);
+    }
+  }
+
+  .btn-modal-wrap {
+    @include flex(row, center, flex-end);
+    margin-top: 22px;
+    button {
+      // width: 84px;
+      // height: 24px;
+      background-color: var(--first-color);
+      color: var(--main-color);
+      padding: 6px 10px;
+
+      &:first-child {
+        background-color: transparent;
+        color: var(--main-color);
+        margin-right: 10px;
+      }
     }
   }
 }
