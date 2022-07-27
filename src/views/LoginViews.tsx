@@ -1,10 +1,12 @@
 import React, { FormEvent, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
+import { Link } from 'react-router-dom';
+
 import { Button } from '../components/common/Button/Button';
 import { Form } from '../components/common/Form/Form';
 import { Input } from '../components/common/Input/Input';
 import { ForgotPassword } from '../components/common/ForgotPassword/ForgotPassword';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
 
 export const LoginViews = () => {
   // global variable redux toolkit
@@ -26,7 +28,9 @@ export const LoginViews = () => {
       <Form sendForm={sendForm}>
         <Input nameValue={'E-mail'} type={'text'} value={setEmail} />
         <Input nameValue={'Hasło'} type={'password'} value={setPassword} />
-        <Button title={'Zaloguj się'} />
+        <Link to={'/students'}>
+          <Button title={'Zaloguj się'} />
+        </Link>
       </Form>
       <ForgotPassword
         title={'Zapomniałeś hasła?'}
