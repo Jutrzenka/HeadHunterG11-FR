@@ -1,11 +1,36 @@
 :root {
   // colors
   --background-main-color: #222224;
-  --main-color: white;
+  --form-background-color: #292a2b;
+  --underline-color: #202122;
+  --input-text-color: #7e7e7e;
+  --text-rating-color: #cfcfcf;
+  --main-color: #f7f7f7;
   --first-color: #e02735;
+  --underline-btn-active-color: #c92929;
+  --section-background-color: #1e1e1f;
+  --input-raiting-text-color: #666666;
+  --icon-raiting-color: #4d4d4d;
+  --raiting-acordion-background-color: #222324;
+  --rate-text-color: #9e9e9e;
+  --clear-btn-color: #172a35;
+  --modal-background-color: #0a0a0a;
+  --link-color: #0b8bd4;
+
   // fonts
-  --base-font-family: Arial, Helvetica, sans-serif;
+  --base-font-family: 'Catamaran', sans-serif;
+  --xs-font-size: 12px;
+  --s-font-size: 14px;
   --base-font-size: 16px;
-  --base-font-weight: 400;
+  --md-font-size: 18px;
+  --l-font-size: 22px;
+  --xl-font-size: 24px;
+
+  --regular-font-weight: 400;
+  --medium-font-weight: 500;
+  --bold-font-weight: 700;
   --base-line-height: 1.7;
+
+  //transition
+  --transition: 0.2s linear;
 }
