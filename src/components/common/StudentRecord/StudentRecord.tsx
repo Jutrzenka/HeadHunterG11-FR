@@ -1,21 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AboutUserShortCut } from '../AboutUserShortCut/AboutUserShortCut';
 import { Button } from '../Button/Button';
+import { useToggle } from '../../../utils/hooks/useToggle';
 import './_StudentRecord.scss';
 
 export const StudentRecord = () => {
-  const [toggle, setToggle] = useState(false);
-
-  const toggleAcordion = () => {
-    setToggle(!toggle);
-  };
+  const [value, toggle] = useToggle();
 
   return (
-    <>
+    <div className={'component-StudentRecord'}>
       <div className="student-record">
         <div className="top-wrap">
           <div className="avatar-wrap">
-            <div className="rezerwation">
+            <div className="reservation">
               <p>Rezerwacja do</p>
               <p className="date">11.07.2022 r.</p>
             </div>
@@ -31,12 +28,12 @@ export const StudentRecord = () => {
             <img
               src="/img/icons/up.svg"
               alt="arrow"
-              className={toggle ? 'arrow-up' : ''}
-              onClick={toggleAcordion}
+              className={value ? 'arrow-up' : ''}
+              onClick={() => toggle}
             />
           </div>
         </div>
-        {toggle && (
+        {value && (
           <div className="acordion">
             {/* Get data. Map this component and pass data to component */}
             <div className="single-text">
@@ -49,6 +46,6 @@ export const StudentRecord = () => {
         )}
         <div className="bottom-border"></div>
       </div>
-    </>
+    </div>
   );
 };

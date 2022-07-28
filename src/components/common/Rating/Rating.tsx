@@ -8,7 +8,7 @@ interface Props {
 
 export const Rating = ({ title }: Props) => {
   return (
-    <div className="rating">
+    <div className="component-Rating">
       <p>{title}</p>
       <div className="stars-wrap">
         {[1, 2, 3, 4, 5].map((item, index) => (

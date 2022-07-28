@@ -1,6 +1,6 @@
-@import '../../../styles/mixins';
+@import '../../../styles/_mixins';
 
-header {
+header.component-Header {
   background-color: var(--section-background-color);
   height: 80px;
 

@@ -1,77 +1,79 @@
 @import '../../../styles/mixins';
 
-.student-record {
-  @include flex(column, center, space-between);
-  padding: 8px 0;
-  position: relative;
+div.component-StudentRecord {
+  .student-record {
+    @include flex(column, center, space-between);
+    padding: 8px 0;
+    position: relative;
 
-  .top-wrap {
-    @include flex(row, center, space-between);
-    width: 100%;
-
-    .avatar-wrap {
+    .top-wrap {
       @include flex(row, center, space-between);
-      padding: 0 24px;
-      min-height: 70px;
+      width: 100%;
 
-      .rezerwation {
-        font-size: var(--s-font-size);
-        color: var(--text-rating-color);
-        margin-right: 63px;
+      .avatar-wrap {
+        @include flex(row, center, space-between);
+        padding: 0 24px;
+        min-height: 70px;
 
-        .date {
-          font-size: var(--base-font-size);
-          color: var(--main-color);
-          font-weight: var(--bold-font-weight);
+        .reservation {
+          font-size: var(--s-font-size);
+          color: var(--text-rating-color);
+          margin-right: 63px;
+
+          .date {
+            font-size: var(--base-font-size);
+            color: var(--main-color);
+            font-weight: var(--bold-font-weight);
+          }
+        }
+
+        .img-wrap {
+          @include flex(row, center, space-between);
+
+          img {
+            width: 45px;
+            margin-right: 12px;
+          }
+
+          p {
+            font-size: var(--md-font-size);
+          }
         }
       }
 
-      .img-wrap {
-        @include flex(row, center, space-between);
+      .action-wrap {
+        @include flex(row, column, column);
+        button {
+          background-color: var(--first-color);
+          height: 38px;
+          padding: 0 10px;
+          color: var(--main-color);
+          margin-right: 28px;
+        }
 
         img {
-          width: 45px;
-          margin-right: 12px;
+          cursor: pointer;
         }
-
-        p {
-          font-size: var(--md-font-size);
+        .arrow-up {
+          transform: rotate(180deg);
         }
       }
     }
 
-    .action-wrap {
-      @include flex(row, column, column);
-      button {
-        background-color: var(--first-color);
-        height: 38px;
-        padding: 0px 10px;
-        color: var(--main-color);
-        margin-right: 28px;
-      }
+    .acordion {
+      width: 100%;
+      bottom: -200%;
+      background-color: var(--raiting-acordion-background-color);
 
-      img {
-        cursor: pointer;
-      }
-      .arrow-up {
-        transform: rotate(180deg);
+      .single-text {
+        @include flex(row, center, space-between);
       }
     }
-  }
 
-  .acordion {
-    width: 100%;
-    bottom: -200%;
-    background-color: var(--raiting-acordion-background-color);
-
-    .single-text {
-      @include flex(row, center, space-between);
+    .bottom-border {
+      background-color: var(--section-background-color);
+      width: 100%;
+      height: 16px;
     }
-  }
-
-  .bottom-border {
-    background-color: var(--section-background-color);
-    width: 100%;
-    height: 16px;
   }
 }

@@ -1,6 +1,6 @@
 @import '../../../styles/mixins';
 
-nav {
+nav.component-Navigation {
   height: 72px;
   @include flex(row, center, flex-start);
   background-color: var(--form-background-color);

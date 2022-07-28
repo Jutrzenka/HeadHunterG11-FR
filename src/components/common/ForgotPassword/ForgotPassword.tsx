@@ -9,8 +9,12 @@ interface Props {
 
 export const ForgotPassword = ({ title, email, url }: Props) => {
   return email ? (
-    <Link to={`${url}/:${email}`}>{title}</Link>
+    <div className={'component-ForgotPassword'}>
+      <Link to={`${url}/:${email}`}>{title}</Link>
+    </div>
   ) : (
-    <Link to={url}>{title}</Link>
+    <div className={'component-ForgotPassword'}>
+      <Link to={url}>{title}</Link>
+    </div>
   );
 };

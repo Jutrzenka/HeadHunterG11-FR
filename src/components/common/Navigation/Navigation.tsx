@@ -8,7 +8,7 @@ export const Navigation = () => {
   //  const [value, toggle] = useToggle();
 
   return (
-    <nav>
+    <nav className={'component-Navigation'}>
       <Button title={'Dostępni kursanci'} />
       <Button title={'Do rozmowy'} className={'active'} />
     </nav>

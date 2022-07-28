@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { apiUrl } from '../../../config/api';
 import { useParams } from 'react-router-dom';
+import { config } from '../../../config.env';
 
 export const StudentView = () => {
   const [form, setForm] = useState({ name: '' });
@@ -9,11 +9,11 @@ export const StudentView = () => {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(`${apiUrl}/student/${id}`, {
+      const res = await fetch(`${config.apiURL}/student/${id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': `${apiUrl}`,
+          'Access-Control-Allow-Origin': `${config.apiURL}`,
         },
         referrerPolicy: 'no-referrer',
         credentials: 'include',

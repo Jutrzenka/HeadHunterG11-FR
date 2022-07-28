@@ -1,5 +1,5 @@
 import React from 'react';
-import { AdminNav } from '../../../components/common/AdminNav/AdminNav';
+import { AdminNav } from '../../../components/admin/AdminNav/AdminNav';
 
 import './_AdminListsView.scss';
 

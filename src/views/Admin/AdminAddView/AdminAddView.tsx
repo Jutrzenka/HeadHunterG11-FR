@@ -1,6 +1,6 @@
 import React from 'react';
 import './_AdminAddView.scss';
-import { AdminNav } from '../../../components/common/AdminNav/AdminNav';
+import { AdminNav } from '../../../components/admin/AdminNav/AdminNav';
 
 export const AdminAddView = () => {
   return (

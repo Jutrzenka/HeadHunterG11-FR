@@ -22,19 +22,21 @@ export const Input = ({
 }: Props) => {
   const [inputValue, setInputValue] = useState('');
   return (
-    <label>
-      {title && <p>{title}</p>}
-      <input
-        value={inputValue}
-        type={type}
-        maxLength={maxLength ? maxLength : 524288}
-        minLength={minLength ? minLength : 0}
-        placeholder={nameValue}
-        onChange={(event) => {
-          setInputValue(event.target.value.trimStart());
-          value(event.target.value.trim());
-        }}
-      />
-    </label>
+    <div className={'component-Input'}>
+      <label>
+        {title && <p>{title}</p>}
+        <input
+          value={inputValue}
+          type={type}
+          maxLength={maxLength ? maxLength : 524288}
+          minLength={minLength ? minLength : 0}
+          placeholder={nameValue}
+          onChange={(event) => {
+            setInputValue(event.target.value.trimStart());
+            value(event.target.value.trim());
+          }}
+        />
+      </label>
+    </div>
   );
 };

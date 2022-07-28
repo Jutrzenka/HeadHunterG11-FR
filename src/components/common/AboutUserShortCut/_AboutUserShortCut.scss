@@ -1,6 +1,6 @@
 @import '../../../styles/mixins';
 
-.info-wrap {
+div.component-AboutUserShortCut {
   @include flex(column, flex-start, center);
   padding: 17px 14px;
   height: 110px;

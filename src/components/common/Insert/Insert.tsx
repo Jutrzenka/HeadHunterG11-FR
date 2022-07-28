@@ -8,7 +8,7 @@ interface Props {
 
 export const Insert = ({ title }: Props) => {
   return (
-    <div className="radios">
+    <div className="component-Insert-radios">
       <p>{title}</p>
       <div className="radio-wrap">
         <Input

@@ -1,12 +1,12 @@
 @import '../../../styles/mixins';
 
-.radios {
+div.component-Radio {
   margin-top: 15px;
 
   .radio-wrap {
     margin-top: 4px;
 
-    labels:focus-within {
+    label:focus-within {
       color: var(--first-color);
     }
 
