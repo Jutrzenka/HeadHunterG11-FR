@@ -9,7 +9,7 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<LoginViews />} />
-      <Route path="/student/:id" element={<Student />} />
+      <Route path="/students/:id" element={<Student />} />
     </Routes>
   );
 };
