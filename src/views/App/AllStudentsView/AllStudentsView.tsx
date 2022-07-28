@@ -12,6 +12,7 @@ import { Navigation } from '../../../components/common/Navigation/Navigation';
 
 import './_AllStudentsView.scss';
 import { Insert } from '../../../components/common/Insert/Insert';
+import { StudentRecord } from '../../../components/common/StudentRecord/StudentRecord';
 
 export const AllStudentsView = () => {
   const [modal, setModal] = useState(false);
@@ -24,7 +25,7 @@ export const AllStudentsView = () => {
     <>
       <Header />
       <Navigation />
-      <section className="students-list container">
+      <section className="students-filter container">
         <div className="input-icons">
           <FaSearch />
           <Input nameValue={'Szukaj'} type={'text'} value={''} />
@@ -73,6 +74,12 @@ export const AllStudentsView = () => {
           </Modal>
         )}
       </section>
+      <section className="students-list container">
+        <StudentRecord />
+        <StudentRecord />
+        <StudentRecord />
+      </section>
+
       <section>Dolna nawigacja</section>
     </>
   );
