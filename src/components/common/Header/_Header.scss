@@ -1,0 +1,55 @@
+@import '../../../styles/mixins';
+
+header {
+  background-color: var(--section-background-color);
+  height: 80px;
+
+  .wrap {
+    @include flex(row, center, space-between);
+    height: 100%;
+    img {
+      height: 55px;
+    }
+
+    .user-menu-dropdown {
+      @include flex(row, center, space-between);
+      cursor: pointer;
+
+      img {
+        width: 45px;
+        margin-right: 12px;
+      }
+
+      .dropdown {
+        @include flex(row, center, center);
+
+        svg {
+          margin-left: 12px;
+          width: 10px;
+        }
+      }
+    }
+
+    .logout {
+      position: absolute;
+      top: 70px;
+      right: 0;
+      @include flex(row-reverse, center, center);
+      background-color: var(--section-background-color);
+      height: 100px;
+      padding: 2rem;
+      z-index: 888;
+      width: 260px;
+      transition: var(--transition);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--first-color);
+      }
+
+      svg {
+        margin-left: 15px;
+      }
+    }
+  }
+}

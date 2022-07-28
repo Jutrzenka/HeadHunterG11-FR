@@ -8,6 +8,8 @@ import { Select } from '../../components/common/Select/Select';
 import { Scale } from '../../components/common/Scale/Scale';
 import { Radio } from '../../components/common/Radio/Radio';
 import { Insert } from '../../components/common/Insert/Insert';
+import { Header } from '../../components/common/Header/Header';
+import Navigation from '../../components/common/Navigation/Navigation';
 
 import './_Students.scss';
 
@@ -20,13 +22,8 @@ export const Students = () => {
 
   return (
     <>
-      <header>Nagłówek z logo i dropdown menu dla Hr/Usera</header>
-      <nav>
-        <ul>
-          <li>Dostępni kursanci</li>
-          <li>Do rozmowy</li>
-        </ul>
-      </nav>
+      <Header />
+      <Navigation />
       <section className="students-list container">
         <div className="input-icons">
           <FaSearch />
