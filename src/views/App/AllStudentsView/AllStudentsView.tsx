@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { FaSearch, FaFilter } from 'react-icons/fa';
-import { Button } from '../../components/common/Button/Button';
-import { Input } from '../../components/common/Input/Input';
-import { Modal } from '../../components/common/Modal/Modal';
-import { Rating } from '../../components/common/Rating/Rating';
-import { Select } from '../../components/common/Select/Select';
-import { Scale } from '../../components/common/Scale/Scale';
-import { Radio } from '../../components/common/Radio/Radio';
-import { Insert } from '../../components/common/Insert/Insert';
-import { Header } from '../../components/common/Header/Header';
-import Navigation from '../../components/common/Navigation/Navigation';
+import { Button } from '../../../components/common/Button/Button';
+import { Input } from '../../../components/common/Input/Input';
+import { Modal } from '../../../components/common/Modal/Modal';
+import { Rating } from '../../../components/common/Rating/Rating';
+import { Select } from '../../../components/common/Select/Select';
+import { Scale } from '../../../components/common/Scale/Scale';
+import { Radio } from '../../../components/common/Radio/Radio';
+import { Header } from '../../../components/common/Header/Header';
+import { Navigation } from '../../../components/common/Navigation/Navigation';
 
-import './_Students.scss';
+import './_AllStudentsView.scss';
+import { Insert } from '../../../components/common/Insert/Insert';
 
-export const Students = () => {
+export const AllStudentsView = () => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => {

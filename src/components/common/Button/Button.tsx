@@ -4,12 +4,15 @@ import './_Button.scss';
 interface Props {
   title: string;
   toggle?: any;
+  className?: string;
 }
 
-export const Button = ({ title, toggle }: Props) => {
+export const Button = ({ title, toggle, className }: Props) => {
   return toggle ? (
-    <button onClick={() => toggle()}>{title}</button>
+    <button className={className} onClick={() => toggle()}>
+      {title}
+    </button>
   ) : (
-    <button>{title}</button>
+    <button className={className}>{title}</button>
   );
 };
