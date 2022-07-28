@@ -9,7 +9,7 @@ import { validateEmail } from '../../../utils/validateEmail';
 import { validatePassword } from '../../../utils/validatePassword';
 import './_LoginView.scss';
 
-export const LoginViews = () => {
+export const LoginView = () => {
   // global variable redux toolkit
   const { token, type } = useSelector((state: RootState) => state.token);
   const dispatch = useDispatch();
