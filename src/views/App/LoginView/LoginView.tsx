@@ -1,19 +1,13 @@
 import React, { FormEvent, useState } from 'react';
-import { RootState } from '../../../redux/store';
 import { Button } from '../../../components/common/Button/Button';
 import { Form } from '../../../components/common/Form/Form';
 import { Input } from '../../../components/common/Input/Input';
 import { ForgotPassword } from '../../../components/common/ForgotPassword/ForgotPassword';
-import { useDispatch, useSelector } from 'react-redux';
-import { validateEmail } from '../../../utils/validateEmail';
-import { validatePassword } from '../../../utils/validatePassword';
+import { validateEmail } from '../../../utils/functions/validateEmail';
+import { validatePassword } from '../../../utils/functions/validatePassword';
 import './_LoginView.scss';
 
 export const LoginView = () => {
-  // global variable redux toolkit
-  const { token, type } = useSelector((state: RootState) => state.token);
-  const dispatch = useDispatch();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
