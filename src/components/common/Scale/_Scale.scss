@@ -1,0 +1,29 @@
+@import '../../../styles/mixins';
+
+.scale {
+  margin-top: 15px;
+
+  .scale-wrap {
+    @include flex(row, center, flex-start);
+    margin-top: 4px;
+    // width: 249px;
+
+    label {
+      @include flex(row, center, space-between);
+
+      input,
+      p {
+        font-size: var(--xs-font-size);
+      }
+
+      input {
+        width: 95px;
+        height: 28px;
+        padding: 4px 10px;
+        background-color: var(--form-background-color);
+        margin: 0 13px;
+        color: var(--main-color);
+      }
+    }
+  }
+}
