@@ -10,9 +10,10 @@ import { Radio } from '../../../components/common/Radio/Radio';
 import { Header } from '../../../components/common/Header/Header';
 import { Navigation } from '../../../components/common/Navigation/Navigation';
 
-import './_AllStudentsView.scss';
 import { Insert } from '../../../components/common/Insert/Insert';
 import { StudentRecord } from '../../../components/common/StudentRecord/StudentRecord';
+
+import './_AllStudentsView.scss';
 
 export const AllStudentsView = () => {
   const [modal, setModal] = useState(false);
@@ -75,12 +76,12 @@ export const AllStudentsView = () => {
         )}
       </section>
       <section className="students-list container">
-        <StudentRecord />
+        {/* Download list of students and map this component. Then provide data to StudentRecord */}
         <StudentRecord />
         <StudentRecord />
       </section>
 
-      <section>Dolna nawigacja</section>
+      <section className="container">Dolna nawigacja</section>
     </>
   );
 };
