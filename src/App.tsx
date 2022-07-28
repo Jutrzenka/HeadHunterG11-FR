@@ -5,19 +5,18 @@ import { AllStudentsView } from './views/App/AllStudentsView/AllStudentsView';
 import { StudentView } from './views/App/StudentView/StudentView';
 import { AdminLoginView } from './views/Admin/AdminLoginView/AdminLoginView';
 import { AdminBoardView } from './views/Admin/AdminBoardView/AdminBoardView';
-import {AdminAddView} from "./views/Admin/AdminAddView/AdminAddView";
-import {AdminListStudentsView} from "./views/Admin/AdminListStudentsView/AdminListStudentsView";
+// import {AdminAddView} from "./views/Admin/AdminAddView/AdminAddView";
+// import {AdminListStudentsView} from "./views/Admin/AdminListStudentsView/AdminListStudentsView";
 
 export const App = () => {
   switch (window.location.host.split('.')[0]) {
     case 'admin':
       return (
-          // Tutuaj dodać nawigacje do tego menu? Wtedy bym musiał zrobić jakiś wrap dla routes w adminie
         <Routes>
           <Route path="/" element={<AdminLoginView />} />
-          <Route path="/board" element={<AdminBoardView />} />
-          <Route path="/add" element={<AdminAddView />} />
-          <Route path="/list" element={<AdminListStudentsView />} />
+          <Route path="/board/*" element={<AdminBoardView />} />
+          {/*<Route path="/add" element={<AdminAddView />} />*/}
+          {/*<Route path="/list" element={<AdminListStudentsView />} />*/}
         </Routes>
       );
     default:
