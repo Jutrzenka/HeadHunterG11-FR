@@ -29,4 +29,41 @@ main.view-AdminImportView {
   .active {
     border-bottom: 1px solid var(--first-color);
   }
+
+  .form-wrap {
+    margin-top: 20px;
+
+    label {
+      z-index: -1;
+      width: 480px;
+      height: 40px;
+      margin-bottom: 15px;
+      background-color: var(--main-color);
+      padding: 6.5px 17px;
+      color: var(--input-text-color);
+      cursor: pointer;
+
+      input[type='file'] {
+        opacity: 0;
+      }
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: var(--first-color);
+      height: 38px;
+      padding: 0 10px;
+      color: var(--main-color);
+      margin-right: 28px;
+    }
+  }
+}
+
+#file-input::-webkit-file-upload-button {
+  visibility: hidden;
+  user-select: none;
+}
+#file-input {
+  display: none;
+  user-select: none;
 }

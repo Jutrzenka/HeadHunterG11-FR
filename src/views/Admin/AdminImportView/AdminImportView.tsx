@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState, FormEvent } from 'react';
 import { AiOutlineFileAdd } from 'react-icons/ai';
 
 import './_AdminImportView.scss';
 
 import { AdminLayout } from '../../../components/admin/AdminLayout/AdminLayout';
-import { useToggle } from '../../../utils/hooks/useToggle';
+
+import { Form } from '../../../components/common/Form/Form';
+import { Input } from '../../../components/common/Input/Input';
+import { Button } from '../../../components/common/Button/Button';
 
 export const AdminImportView = () => {
+  const [file, setFile] = useState('');
+
+  const sendForm = (event: FormEvent) => {
+    event.preventDefault();
+    console.log('send');
+  };
+
   return (
     <main className={'view-AdminImportView'}>
       <AdminLayout>
@@ -24,7 +34,19 @@ export const AdminImportView = () => {
             <p>PUT</p>
           </div>
         </div>
-        <div></div>
+
+        <div className="form-wrap container">
+          <Form sendForm={sendForm}>
+            <Input
+              nameValue={''}
+              type={'file'}
+              value={setFile}
+              // Należy ustawić maxLength
+              maxLength={255}
+            />
+            <Button title={'Wybierz plik i dodaj'} />
+          </Form>
+        </div>
       </AdminLayout>
     </main>
   );
