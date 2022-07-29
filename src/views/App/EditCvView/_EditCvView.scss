@@ -1,3 +1,33 @@
+@import '../../../styles/mixins';
 main.view-EditCvView {
+  .students-contact {
+    background-color: var(--form-background-color);
+    @include flex(row, center, space-between);
+    padding: 14px 20px;
+    border-bottom: 2px solid var(--underline-color);
 
+    //.input-icons {
+    //  svg {
+    //    position: absolute;
+    //    top: 50%;
+    //    transform: translateY(-50%);
+    //    margin-left: 12.4px;
+    //    width: 15px;
+    //    //color: var(--input-raiting-text-color);
+    //  }
+    //
+    //  input {
+    //    background-color: var(--section-background-color);
+    //    height: 38px;
+    //    width: 365px;
+    //    color: var(--main-color);
+    //    padding: 0 12px 0 36px;
+    //    letter-spacing: 0.7px;
+    //
+    //    &:focus {
+    //      outline: none;
+    //    }
+    //  }
+    //}
+ }
 }
