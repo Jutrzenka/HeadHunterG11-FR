@@ -1,0 +1,9 @@
+@import '../../../styles/mixins';
+
+.div.component-StudentAbout {
+  .student-about-wrap {
+    @include flex(column, center, space-between);
+    width: 100px;
+    padding: 20px;
+  }
+}
