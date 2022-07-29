@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import { FaSearch, FaFilter } from 'react-icons/fa';
-import { Button } from '../../components/common/Button/Button';
-import { Input } from '../../components/common/Input/Input';
-import { Modal } from '../../components/common/Modal/Modal';
-import { Rating } from '../../components/common/Rating/Rating';
-import { Select } from '../../components/common/Select/Select';
-import { Scale } from '../../components/common/Scale/Scale';
-import { Radio } from '../../components/common/Radio/Radio';
-import { Insert } from '../../components/common/Insert/Insert';
+import { Button } from '../../../components/common/Button/Button';
+import { Input } from '../../../components/common/Input/Input';
+import { Modal } from '../../../components/common/Modal/Modal';
+import { Rating } from '../../../components/common/Rating/Rating';
+import { Select } from '../../../components/common/Select/Select';
+import { Scale } from '../../../components/common/Scale/Scale';
+import { Radio } from '../../../components/common/Radio/Radio';
+import { Header } from '../../../components/common/Header/Header';
+import { Navigation } from '../../../components/common/Navigation/Navigation';
 
-import './_Students.scss';
+import { Insert } from '../../../components/common/Insert/Insert';
+import { StudentRecord } from '../../../components/common/StudentRecord/StudentRecord';
 
-export const Students = () => {
+import './_AllStudentsView.scss';
+
+export const AllStudentsView = () => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => {
@@ -19,15 +23,10 @@ export const Students = () => {
   };
 
   return (
-    <>
-      <header>Nagłówek z logo i dropdown menu dla Hr/Usera</header>
-      <nav>
-        <ul>
-          <li>Dostępni kursanci</li>
-          <li>Do rozmowy</li>
-        </ul>
-      </nav>
-      <section className="students-list container">
+    <main className={'view-AllStudentsView'}>
+      <Header />
+      <Navigation />
+      <section className="students-filter container">
         <div className="input-icons">
           <FaSearch />
           <Input nameValue={'Szukaj'} type={'text'} value={''} />
@@ -76,7 +75,13 @@ export const Students = () => {
           </Modal>
         )}
       </section>
-      <section>Dolna nawigacja</section>
-    </>
+      <section className="students-list container">
+        {/* Download list of students and map this component. Then provide data to StudentRecord */}
+        <StudentRecord />
+        <StudentRecord />
+      </section>
+
+      <section className="container">Dolna nawigacja</section>
+    </main>
   );
 };

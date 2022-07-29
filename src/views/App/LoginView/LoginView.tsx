@@ -1,19 +1,13 @@
 import React, { FormEvent, useState } from 'react';
-import { RootState } from '../../redux/store';
-import { Button } from '../../components/common/Button/Button';
-import { Form } from '../../components/common/Form/Form';
-import { Input } from '../../components/common/Input/Input';
-import { ForgotPassword } from '../../components/common/ForgotPassword/ForgotPassword';
-import { useDispatch, useSelector } from 'react-redux';
-import { validateEmail } from '../../utils/validateEmail';
-import { validatePassword } from '../../utils/validatePassword';
+import { Button } from '../../../components/common/Button/Button';
+import { Form } from '../../../components/common/Form/Form';
+import { Input } from '../../../components/common/Input/Input';
+import { ForgotPassword } from '../../../components/common/ForgotPassword/ForgotPassword';
+import { validateEmail } from '../../../utils/functions/validateEmail';
+import { validatePassword } from '../../../utils/functions/validatePassword';
 import './_LoginView.scss';
 
-export const LoginViews = () => {
-  // global variable redux toolkit
-  const { token, type } = useSelector((state: RootState) => state.token);
-  const dispatch = useDispatch();
-
+export const LoginView = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -27,7 +21,7 @@ export const LoginViews = () => {
   };
 
   return (
-    <div className="login-view">
+    <main className="view-LoginView">
       <img
         className={'LoginViews_img'}
         src={'/img/logo_MegaK.png'}
@@ -55,6 +49,6 @@ export const LoginViews = () => {
           <Button title={'Zaloguj się'} />
         </div>
       </Form>
-    </div>
+    </main>
   );
 };

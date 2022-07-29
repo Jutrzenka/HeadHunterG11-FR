@@ -9,7 +9,7 @@ interface Props {
 
 export const Select = ({ title, selects }: Props) => {
   return (
-    <div className="selects">
+    <div className="component-Select">
       <p>{title}</p>
       <div className="select-wrap">
         {selects.map((item, index) => (

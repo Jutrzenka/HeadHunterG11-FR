@@ -8,7 +8,7 @@ interface Props {
 
 export const Modal = ({ toggle, children }: Props) => {
   return (
-    <div className="modal">
+    <div className="component-Modal">
       <div className="overlay " onClick={() => toggle()}></div>
       <div className="modal-content">{children}</div>
     </div>

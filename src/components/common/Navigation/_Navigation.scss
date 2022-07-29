@@ -1,0 +1,23 @@
+@import '../../../styles/mixins';
+
+nav.component-Navigation {
+  height: 72px;
+  @include flex(row, center, flex-start);
+  background-color: var(--form-background-color);
+  position: relative;
+  margin: 26px auto 2px auto;
+  width: 80%;
+
+  button {
+    background-color: transparent;
+    color: var(--text-rating-color);
+    height: 100%;
+    padding: 10px 34px;
+    transition: var(--transition);
+  }
+
+  .active {
+    border-bottom: 2px solid var(--first-color);
+    color: var(--main-color);
+  }
+}
