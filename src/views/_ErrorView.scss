@@ -7,4 +7,14 @@ main.view-ErrorView {
   img {
     width: 200px;
   }
+
+  a {
+    font-size: var(--xs-font-size);
+    color: var(--input-text-color);
+    margin: 20px 0;
+
+    &:hover {
+      color: var(--first-color);
+    }
+  }
 }
