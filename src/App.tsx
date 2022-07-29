@@ -26,7 +26,6 @@ export const App = () => {
           {/* Admin: */}
           <Route path="/" element={<AdminLoginView />} />
           <Route path="/lists" element={<AdminListView />} />
-          <Route path="/imports" element={<AdminImportView />} />
         </Routes>
       );
     case 'register':
@@ -55,6 +54,8 @@ export const App = () => {
           <Route path="/students" element={<AllStudentsView />} />
           <Route path="/students/:id" element={<StudentView />} />
           <Route path="/interview" element={<InterviewView />} />
+
+          <Route path="/imports" element={<AdminImportView />} />
         </Routes>
       );
   }
