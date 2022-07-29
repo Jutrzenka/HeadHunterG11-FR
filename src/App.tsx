@@ -25,7 +25,6 @@ export const App = () => {
         <Routes>
           {/* Admin: */}
           <Route path="/" element={<AdminLoginView />} />
-          <Route path="/lists" element={<AdminListView />} />
           <Route path="/imports" element={<AdminImportView />} />
         </Routes>
       );
@@ -55,6 +54,7 @@ export const App = () => {
           <Route path="/students" element={<AllStudentsView />} />
           <Route path="/students/:id" element={<StudentView />} />
           <Route path="/interview" element={<InterviewView />} />
+          <Route path="/lists" element={<AdminListView />} />
         </Routes>
       );
   }

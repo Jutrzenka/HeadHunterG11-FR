@@ -1,3 +1,73 @@
-main.view-AdminListView {
+@import '../../../styles/mixins';
 
+main.view-AdminListView {
+  nav {
+    height: 72px;
+    @include flex(row, center, space-between);
+    background-color: var(--form-background-color);
+    position: relative;
+    margin: 26px auto 2px auto;
+    width: 80%;
+
+    .btn-wrap {
+      @include flex(row, center, space-between);
+
+      button {
+        background-color: transparent;
+        color: var(--text-rating-color);
+        height: 72px;
+        padding: 20px 34px;
+        transition: var(--transition);
+      }
+    }
+
+    .active {
+      border-bottom: 2px solid var(--first-color);
+      color: var(--main-color);
+    }
+
+    .input-icons {
+      svg {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 12.4px;
+        width: 15px;
+        color: var(--input-raiting-text-color);
+      }
+
+      input {
+        background-color: var(--section-background-color);
+        height: 38px;
+        width: 500px;
+        color: var(--main-color);
+        padding: 0 12px 0 36px;
+        letter-spacing: 0.7px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .page-number {
+      @include flex(row, center, center);
+      padding: 20px 34px;
+      svg {
+        width: 26px;
+        height: 26px;
+        color: var(--main-color);
+        transition: var(--transition);
+        cursor: pointer;
+
+        &:hover {
+          color: var(--first-color);
+        }
+      }
+
+      p {
+        margin: 0 20px;
+      }
+    }
+  }
 }
