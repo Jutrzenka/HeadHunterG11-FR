@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useToggle } from '../../../utils/hooks/useToggle';
 import { FaSearch, FaFilter } from 'react-icons/fa';
 import { Modal } from '../Modal/Modal';
@@ -11,11 +11,7 @@ import { Insert } from '../Insert/Insert';
 import { Input } from '../Input/Input';
 
 export const Filtr = () => {
-  const [modal, setModal] = useState(false);
-
-  const toggle = () => {
-    setModal(!modal);
-  };
+  const [value, toggle] = useToggle();
 
   return (
     <section className="students-filter container">
@@ -27,7 +23,7 @@ export const Filtr = () => {
         <FaFilter />
         <Button title={'Filtrowanie'} toggle={toggle} />
       </div>
-      {modal && (
+      {value && (
         <Modal toggle={toggle}>
           <div className="headline-wrap">
             <h3>Filtrowanie</h3>
