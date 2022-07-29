@@ -1,16 +1,17 @@
 import React from 'react';
-import { Button } from '../Button/Button';
-//import { useToggle } from '../../../utils/hooks/useToggle';
+import { Link } from 'react-router-dom';
+
 import './_Navigation.scss';
 
 export const Navigation = () => {
-  // @TODO Alex coś chciałaś tu zrobić z true/false
-  //  const [value, toggle] = useToggle();
-
   return (
     <nav className={'component-Navigation'}>
-      <Button title={'Dostępni kursanci'} />
-      <Button title={'Do rozmowy'} className={'active'} />
+      <Link to={'/students'} className="button-active">
+        Dostępni kursanci
+      </Link>
+      <Link to={'/interview'} className="notactive">
+        Do rozmowy
+      </Link>
     </nav>
   );
 };
