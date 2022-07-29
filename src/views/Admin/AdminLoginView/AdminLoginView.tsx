@@ -22,11 +22,7 @@ export const AdminLoginView = () => {
 
   return (
     <main className={'view-AdminLoginView'}>
-      <img
-        className={'LoginViews_img'}
-        src={'/img/logo_MegaK.png'}
-        alt={'Website logo'}
-      />
+      <img src={'/img/logo_MegaK.png'} alt={'Website logo'} />
       <Form sendForm={sendForm}>
         <Input
           nameValue={'E-mail'}
