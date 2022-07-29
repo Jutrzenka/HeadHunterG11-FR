@@ -4,6 +4,7 @@ import { Header } from '../../../components/common/Header/Header';
 import { Navigation } from '../../../components/common/Navigation/Navigation';
 import { Filtr } from '../../../components/common/filtr/Filtr';
 import { StudentRecord } from '../../../components/common/StudentRecord/StudentRecord';
+import { BottomNavigation } from '../../../components/common/BottomNavigation/BottomNavigation';
 
 import './_AllStudentsView.scss';
 
@@ -17,8 +18,7 @@ export const AllStudentsView = () => {
         {/* Download list of students and map this component. Then provide data to StudentRecord */}
         <StudentRecord />
       </section>
-
-      <section className="container">Dolna nawigacja</section>
+      <BottomNavigation />
     </main>
   );
 };
