@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { MdNavigateNext, MdNavigateBefore } from 'react-icons/md';
+import { AdminStudentRecord } from '../../../components/admin/AdminStudentRecord/AdminStudentRecord';
 import { Button } from '../../../components/common/Button/Button';
 import { Input } from '../../../components/common/Input/Input';
 
@@ -28,7 +29,11 @@ export const AdminListView = () => {
           <MdNavigateNext />
         </div>
       </nav>
-      <h1>AdminListsView</h1>;
+      <section className="students-list container">
+        <AdminStudentRecord />
+        <AdminStudentRecord />
+        <AdminStudentRecord />
+      </section>
     </main>
   );
 };

@@ -70,4 +70,9 @@ main.view-AdminListView {
       }
     }
   }
+
+  .students-list {
+    background-color: var(--form-background-color);
+    padding: 26px 20px;
+  }
 }
