@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { config } from '../../../config.env';
+import './_StudentView.scss';
 
 export const StudentView = () => {
   const [form, setForm] = useState({ name: '' });
@@ -26,10 +27,10 @@ export const StudentView = () => {
   }, []);
 
   return (
-    <>
+    <main className={'view-StudentView'}>
       <h2>Student</h2>
       <p>Dane studenta: {form.name}</p>
       <p>ID studenta: {id}</p>
-    </>
+    </main>
   );
 };

@@ -9,7 +9,7 @@ interface Props {
 export const Form = ({ sendForm, children }: Props) => {
   return (
     <div className={'component-Form'}>
-      <form onSubmit={sendForm}>{children}</form>;
+      <form onSubmit={sendForm}>{children}</form>
     </div>
   );
 };

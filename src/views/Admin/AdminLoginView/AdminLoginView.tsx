@@ -2,5 +2,9 @@ import React from 'react';
 import './_AdminLoginView.scss';
 
 export const AdminLoginView = () => {
-  return <h1>Hello AdminLoginView</h1>;
+  return (
+    <main className={'view-AdminLoginView'}>
+      <h1>AdminLoginView</h1>;
+    </main>
+  );
 };

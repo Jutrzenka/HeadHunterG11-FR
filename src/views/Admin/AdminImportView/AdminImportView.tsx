@@ -3,8 +3,8 @@ import './_AdminImportView.scss';
 
 export const AdminImportView = () => {
   return (
-    <div>
+    <main className={'view-AdminImportView'}>
       <h1>AdminImportView</h1>;
-    </div>
+    </main>
   );
 };

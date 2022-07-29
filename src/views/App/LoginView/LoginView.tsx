@@ -21,7 +21,7 @@ export const LoginView = () => {
   };
 
   return (
-    <div className="login-view">
+    <main className="view-LoginView">
       <img
         className={'LoginViews_img'}
         src={'/img/logo_MegaK.png'}
@@ -49,6 +49,6 @@ export const LoginView = () => {
           <Button title={'Zaloguj się'} />
         </div>
       </Form>
-    </div>
+    </main>
   );
 };

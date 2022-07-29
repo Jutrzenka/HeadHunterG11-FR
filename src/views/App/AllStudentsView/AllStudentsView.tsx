@@ -23,7 +23,7 @@ export const AllStudentsView = () => {
   };
 
   return (
-    <>
+    <main className={'view-AllStudentsView'}>
       <Header />
       <Navigation />
       <section className="students-filter container">
@@ -82,6 +82,6 @@ export const AllStudentsView = () => {
       </section>
 
       <section className="container">Dolna nawigacja</section>
-    </>
+    </main>
   );
 };

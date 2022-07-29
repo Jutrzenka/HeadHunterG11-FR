@@ -1,13 +1,13 @@
 import React from 'react';
 import { AdminNav } from '../../../components/admin/AdminNav/AdminNav';
 
-import './_AdminListsView.scss';
+import './_AdminListView.scss';
 
-export const AdminListsView = () => {
+export const AdminListView = () => {
   return (
-    <div>
+    <main className={'view-AdminListView'}>
       <AdminNav />
       <h1>AdminListsView</h1>;
-    </div>
+    </main>
   );
 };
