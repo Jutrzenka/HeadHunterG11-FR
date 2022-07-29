@@ -5,7 +5,9 @@ import './_ErrorView.scss';
 export const ErrorView = () => {
   return (
     <main className={'view-ErrorView'}>
-      <h1>Błąd 404 - Nie znaleziono adresu</h1>;
+      <img src="/img/logo_MegaK.png" alt="logo" />
+      <h3>Oops..!</h3>
+      <p>Przepraszamy. Strona, której szukasz nie istnieje.</p>
     </main>
   );
 };

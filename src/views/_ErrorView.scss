@@ -1,3 +1,10 @@
-main.view-ErrorView {
+@import './../styles/mixins';
 
+main.view-ErrorView {
+  @include flex(column, center, center);
+  height: 100vh;
+
+  img {
+    width: 200px;
+  }
 }
