@@ -1,11 +1,103 @@
 import React from 'react';
 
 import './_ShowCvView.scss';
+import { Header } from '../../../components/common/Header/Header';
+import { StudentAbout } from '../../../components/common/StudentAbout/StudentAbout';
+import { Expectations } from '../../../components/common/Expectations/Expectations';
+import { LinkTo } from '../../../components/common/LinkTo/LinkTo';
+import { RatingOnCv } from '../../../components/common/RatingOnCv/RatingOnCv';
 
 export const ShowCvView = () => {
   return (
     <main className={'view-ShowCvView'}>
-      <h1>ShowCvView</h1>
+      <Header />
+      <section className="students-contact container">
+        <StudentAbout />
+      </section>
+      <section>
+        <h3>Oceny</h3>
+        <RatingOnCv title={'Ocena przejścia kursu'} rating={5} />
+        <RatingOnCv
+          title={'Ocena aktywności i zaangażowanie na kursie'}
+          rating={3}
+        />
+        <RatingOnCv title={'Ocena kodu w projekcie własnym'} rating={4} />
+        <RatingOnCv title={'Ocena pracy w zespole w Scrum'} rating={5} />
+      </section>
+      <section>
+        <h3>Oczekiwania w stosunku do zatrudnienia</h3>
+        <Expectations
+          description={'Preferowane miejsce pracy'}
+          value={'Biuro'}
+        />
+        <Expectations
+          description={'Docelowe miasto, gdzie chce pracować kandydat.'}
+          value={'Warszawa'}
+        />
+        <Expectations
+          description={'Oczekiwany typ kontraktu'}
+          value={'Umowa o pracę'}
+        />
+        <Expectations
+          description={'Oczekiwane wynagrodzenie miesięczne netto'}
+          value={'8000 zł'}
+        />
+        <Expectations
+          description={'Zgoda na odbycie bezpłatnych praktyk/stażu na początek'}
+          value={'Tak'}
+        />
+        <Expectations
+          description={'Komercyjne doświadczenie w programowaniu'}
+          value={'6 miesięcy'}
+        />
+      </section>
+      <section>
+        <h3>Edukacjay</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+          beatae dignissimos dolorem dolores eaque eius, error eum ipsum labore
+          laboriosam minima nisi optio perferendis quas quasi qui sed sint,
+          temporibus.
+        </p>
+      </section>
+      <section>
+        <h3>Kursy</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+          beatae dignissimos dolorem dolores eaque eius, error eum ipsum labore
+          laboriosam minima nisi optio perferendis quas quasi qui sed sint,
+          temporibus.
+        </p>
+      </section>
+      <section>
+        <h3>Doświadczenie zawodowe</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+          beatae dignissimos dolorem dolores eaque eius, error eum ipsum labore
+          laboriosam minima nisi optio perferendis quas quasi qui sed sint,
+          temporibus.
+        </p>
+      </section>
+      <section>
+        <h3>Portfolio</h3>
+        <LinkTo link={'https://Loremipsum/dolor/sit/amet'} />
+      </section>
+      <section>
+        <h3>Projekt w zespole Scrumowym</h3>
+        <LinkTo
+          link={'https://github.com/Ami777/MegaKursTest/comits?author=Ami777'}
+        />
+        <LinkTo
+          link={
+            'https://github.com/Ami777/MegaKursTest/pulls?q=is%3Apr+reviewed-by%3AAmi777'
+          }
+        />
+      </section>
+      <section>
+        <h3>Projekt na zaliczenie</h3>
+        <LinkTo link={'https://Loremipsum/dolor/sit/amet'} />
+        <LinkTo link={'https://Loremipsum/dolor/sit/amet'} />
+      </section>
     </main>
   );
 };
