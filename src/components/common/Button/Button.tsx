@@ -9,10 +9,14 @@ interface Props {
 
 export const Button = ({ title, toggle, className }: Props) => {
   return toggle ? (
-    <button className={className} onClick={() => toggle()}>
-      {title}
-    </button>
+    <div className={'component-Button'}>
+      <button className={className} onClick={() => toggle()}>
+        {title}
+      </button>
+    </div>
   ) : (
-    <button className={className}>{title}</button>
+    <div className={'component-Button'}>
+      <button className={className}>{title}</button>
+    </div>
   );
 };

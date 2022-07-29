@@ -9,7 +9,7 @@ interface Props {
 
 export const AboutUserShortCut = ({ title, description }: Props) => {
   return (
-    <div className="info-wrap">
+    <div className="component-AboutUserShortCut">
       <h3>{title}</h3>
       {Number(description) ? (
         <p>

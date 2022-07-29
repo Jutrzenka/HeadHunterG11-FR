@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '../Button/Button';
+//import { useToggle } from '../../../utils/hooks/useToggle';
 import './_Navigation.scss';
 
 export const Navigation = () => {
-  const [toggle, setToggle] = useState(false);
-
-  const toggleBtn = () => {
-    setToggle(!toggle);
-  };
+  // @TODO Alex coś chciałaś tu zrobić z true/false
+  //  const [value, toggle] = useToggle();
 
   return (
-    <nav>
+    <nav className={'component-Navigation'}>
       <Button title={'Dostępni kursanci'} />
       <Button title={'Do rozmowy'} className={'active'} />
     </nav>

@@ -3,5 +3,9 @@ import React from 'react';
 import './_InterviewView.scss';
 
 export const InterviewView = () => {
-  return <h1>InterviewView</h1>;
+  return (
+    <main className={'view-InterviewView'}>
+      <h1>InterviewView</h1>
+    </main>
+  );
 };

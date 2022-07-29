@@ -12,7 +12,7 @@ export const Header = () => {
   };
 
   return (
-    <header>
+    <header className={'component-Header'}>
       <div className="wrap container">
         <img src="/img/logo_MegaK.png" alt="logo" />
         <div className="user-menu-dropdown">

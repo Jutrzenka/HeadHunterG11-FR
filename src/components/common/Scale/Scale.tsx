@@ -9,7 +9,7 @@ interface Props {
 
 export const Scale = ({ title }: Props) => {
   return (
-    <div className="scale">
+    <div className="component-Scale">
       <p>{title}</p>
       <div className="scale-wrap">
         <Input
