@@ -1,6 +1,6 @@
 @import '../../../styles/mixins';
 main.view-EditCvView {
-  .students-contact {
+  .title-wrap {
     background-color: var(--form-background-color);
     @include flex(row, center, space-between);
     padding: 14px 20px;
@@ -30,4 +30,11 @@ main.view-EditCvView {
     //  }
     //}
  }
+
+  //.hireExpectations{
+  //  background-color: var(--form-background-color);
+  //  @include flex(row, center, space-between);
+  //  padding: 14px 20px;
+  //  border-bottom: 2px solid var(--underline-color);
+  //}
 }
