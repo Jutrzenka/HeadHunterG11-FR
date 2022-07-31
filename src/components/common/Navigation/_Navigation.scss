@@ -8,16 +8,18 @@ nav.component-Navigation {
   margin: 26px auto 2px auto;
   width: 80%;
 
-  button {
+  a {
     background-color: transparent;
-    color: var(--text-rating-color);
     height: 100%;
     padding: 10px 34px;
-    transition: var(--transition);
+    @include flex(row, center, center);
   }
 
-  .active {
+  .button-active {
     border-bottom: 2px solid var(--first-color);
     color: var(--main-color);
+  }
+  .notactive {
+    color: var(--text-rating-color);
   }
 }

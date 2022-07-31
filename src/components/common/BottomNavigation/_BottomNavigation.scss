@@ -1,0 +1,46 @@
+@import '../../../styles/mixins';
+
+div.component-bottom-navigation {
+  @include flex(row, stretch, flex-end);
+  margin-top: 30px;
+
+  p {
+    margin-right: 11px;
+  }
+
+  select {
+    height: 24px;
+    font-size: var(--xs-font-size);
+    padding: 3px;
+    outline: none;
+    cursor: pointer;
+
+    option {
+      padding: 3px;
+    }
+  }
+
+  .page-number {
+    margin: 0 20px;
+  }
+
+  .buttons-wrap {
+    cursor: pointer;
+
+    svg {
+      width: 26px;
+      height: 26px;
+      background-color: var(--text-rating-color);
+      color: var(--background-main-color);
+      transition: var(--transition);
+
+      &:hover {
+        background-color: var(--input-raiting-text-color);
+      }
+
+      &:first-child {
+        margin-right: 8px;
+      }
+    }
+  }
+}
