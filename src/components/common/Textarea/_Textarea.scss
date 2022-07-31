@@ -1,3 +1,11 @@
 div.component-Textarea {
+    label {
 
-}
+      textarea {
+        resize: none;
+        overflow: hidden;
+        border: none;
+        background-color: red;
+      }
+    }
+  }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './_Textarea.scss';
 
 interface Props {
@@ -17,38 +17,53 @@ export const Textarea = ({
   minLength,
 }: Props) => {
   const [inputValue, setInputValue] = useState(value);
-  // const textArea = document.querySelector(`.${nameValue}`).innerHTML;
-  // const textArea = document.querySelector(`.elo`);
+  const [textAreaHeight, setTextAreaHeight] = useState({
+    height: 'auto',
+  });
+  const activeSlideRef = useRef<HTMLTextAreaElement>(null);
 
-  // useEffect(() => {
-  // setInputValue(textArea);
-  // console.log(textArea);
-  // }, [textArea]);
+  useEffect(() => {
+    if (activeSlideRef.current != null) {
+      const { scrollHeight } = activeSlideRef.current;
+
+      setTextAreaHeight({
+        height: `${scrollHeight}px`,
+      });
+    }
+  }, []);
+
   return (
     <div className={'component-Textarea'}>
       <label>
         {title && <p>{title}</p>}
-        {/*<p*/}
-        {/*className={nameValue}*/}
-        {/*className={'elo'}*/}
-        {/*role={'textbox'}*/}
-        {/*contentEditable*/}
-        {/*value={inputValue}*/}
-        {/*onChange={(e) => {*/}
-        {/* console.log(e.textContent); */}
-        {/*setInputValue(event.target.value.trimStart()); */}
-        {/*value(event.target.value.trim());*/}
-        {/*>*/}
-        {/*{inputValue}*/}
-        {/*<span ></span>*/}
-        {/*</p>*/}
         <textarea
-          // placeholder={nameValue}
+          ref={activeSlideRef}
+          style={textAreaHeight}
           value={inputValue}
           onChange={(event) => {
-            event.target.style.height = `${event.target.scrollHeight}px`;
+            // setTextAreaHeight((prev) => ({
+            //   ...prev,
+            //   height: `40px`,
+            // }));
+            // event.target.style.height = '40px';
+
+            // setTextAreaHeight(
+            //   {
+            //     height: `40px`,
+            // },
+            // () => {
+            //   setTextAreaHeight({
+            //     height: `${event.target.scrollHeight}px`,
+            //   });
+            // },
+            // );
+
+            setTextAreaHeight({
+              height: `${event.target.scrollHeight}px`,
+            });
+
             setInputValue(event.target.value.trimStart());
-            value(event.target.value.trim());
+            // value(event.target.value.trim());
           }}
         ></textarea>
       </label>
