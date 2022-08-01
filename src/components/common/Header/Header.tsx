@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AiFillCaretDown } from 'react-icons/ai';
 import { HiLogout } from 'react-icons/hi';
+import { useToggle } from '../../../utils/hooks/useToggle';
 
 import './_Header.scss';
 
 export const Header = () => {
-  const [drop, setDrop] = useState(false);
-
-  const toggle = () => {
-    setDrop(!drop);
-  };
+  const [value, toggle] = useToggle(false);
 
   return (
     <header className={'component-Header'}>
@@ -22,7 +19,7 @@ export const Header = () => {
             <AiFillCaretDown />
           </div>
         </div>
-        {drop && (
+        {value && (
           <div className="logout">
             <HiLogout />
             <p onClick={toggle}>Wyloguj</p>

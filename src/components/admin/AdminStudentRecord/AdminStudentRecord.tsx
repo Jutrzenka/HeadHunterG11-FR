@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useToggle } from '../../../utils/hooks/useToggle';
 
 import { Button } from '../../common/Button/Button';
 import './_AdminStudentRecord.scss';
 
 export const AdminStudentRecord = () => {
-  const [active, setActive] = useState(true);
+  const [value, toggle] = useToggle(true);
 
   return (
     <div className={'component-AdminStudentRecord'}>
@@ -13,7 +14,7 @@ export const AdminStudentRecord = () => {
           <p>Imię i nazwisko</p>
           <p>adres@email.com</p>
         </div>
-        {active ? (
+        {value ? (
           <div className="status-wrap">
             <div className="active-user"></div>
             <p>active</p>

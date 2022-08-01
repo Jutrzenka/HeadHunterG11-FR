@@ -1,6 +1,8 @@
-import React, { useState, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose } from 'react-icons/ai';
+import { useToggle } from '../../../utils/hooks/useToggle';
+
 import { AdminNav } from '../AdminNav/AdminNav';
 import { Header } from '../../common/Header/Header';
 
@@ -11,23 +13,19 @@ interface Props {
 }
 
 export const AdminLayout = ({ children }: Props) => {
-  const [toggle, setToggle] = useState(false);
-
-  const toggleAcordion = () => {
-    setToggle(!toggle);
-  };
+  const [value, toggle] = useToggle(true);
 
   return (
     <div className="component-admin-layout">
       <nav className="menu">
         <AdminNav />
       </nav>
-      <section className={!toggle ? 'showcase' : 'showcase active'}>
+      <section className={!value ? 'showcase' : 'showcase active'}>
         <div className="header-and-hamburger-wrap">
-          {toggle ? (
-            <AiOutlineClose onClick={toggleAcordion} />
+          {value ? (
+            <AiOutlineClose onClick={toggle} />
           ) : (
-            <GiHamburgerMenu onClick={toggleAcordion} />
+            <GiHamburgerMenu onClick={toggle} />
           )}
           <Header />
         </div>
