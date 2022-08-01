@@ -1,9 +1,82 @@
 @import '../../../styles/mixins';
 
-.div.component-StudentAbout {
+div.component-StudentAbout {
+  width: 250px;
   .student-about-wrap {
     @include flex(column, center, space-between);
-    width: 100px;
-    padding: 20px;
+    padding: 10px;
+    background: #292A2B;
+    font-family: var(--base-font-family);
+
+    .img-wrap {
+      @include flex(column, center, space-arround);
+      padding: 20px;
+
+      img {
+        height: 140px;
+      }
+
+      h3 {
+        margin-top: 12px;
+        font-size: 1.4em;
+        font-weight: normal;
+      }
+
+      .github-ico {
+        font-size: 1.4em;
+      }
+
+      .name-email{
+        @include flex(row, center, space-arround);
+        color: var(--link-color);
+        p {
+          margin-left: 8px;
+        }
+      }
+    }
+
+    .contact-wrap {
+      margin-top: 15px;
+      .contact-phone, .contact-email{
+        margin-top: 5px;
+        @include flex(row, center, space-arround);
+        .contact-ico {
+          color: var(--icon-contact-color);
+        }
+        .email {
+          font-size: 1.3em;
+        }
+
+        p {
+          color: var(--main-color);
+          margin-left: 9px;
+          font-size: 0.9em;
+        }
+      }
+    }
+
+    .about-me-wrap {
+      padding: 0 15px 0 15px;
+        .about-me-title {
+          color: var(--icon-contact-color);
+          font-weight: var(--bold-font-weight);
+        }
+    }
+
+    .action-wrap {
+      width: 100%;
+      margin-top: 30px;
+      Button {
+        padding: 10px;
+        margin-bottom: 15px;
+        font-size: var(--base-font-size);
+        width: 100%;
+        color: var(--main-color);
+        background: var(--first-color);
+      }
+      Button:active {
+        background: var(--underline-btn-active-color);
+      }
+    }
   }
 }
