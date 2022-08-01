@@ -26,8 +26,8 @@ export const App = () => {
         <Routes>
           {/* Admin: */}
           <Route path="/" element={<AdminLoginView />} />
-          <Route path="/imports" element={<AdminImportView />} />
           <Route path="/lists" element={<AdminListView />} />
+          <Route path="/imports" element={<AdminImportView />} />
         </Routes>
       );
     case 'register':

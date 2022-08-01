@@ -1,7 +1,7 @@
 @import '../../../styles/mixins';
 
 main.view-AdminListView {
-  nav {
+  .lists-navigation {
     height: 72px;
     @include flex(row, center, space-between);
     background-color: var(--form-background-color);
