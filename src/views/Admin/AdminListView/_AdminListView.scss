@@ -21,11 +21,6 @@ main.view-AdminListView {
       }
     }
 
-    .active {
-      border-bottom: 2px solid var(--first-color);
-      color: var(--main-color);
-    }
-
     .input-icons {
       svg {
         position: absolute;
