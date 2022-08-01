@@ -11,9 +11,9 @@ export const AdminNav = () => {
       </div>
 
       <nav className="nav">
-        <NavLink to="/list">Lista kursantow </NavLink>
-        <NavLink to="/add">Dodaj liste kursantow</NavLink>
-        <NavLink to="/add">Wyloguj się</NavLink>
+        <NavLink to="/lists">Lista kursantow </NavLink>
+        <NavLink to="/imports">Dodaj liste kursantow</NavLink>
+        <NavLink to="/">Wyloguj się</NavLink>
       </nav>
     </div>
   );
