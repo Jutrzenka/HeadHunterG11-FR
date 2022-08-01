@@ -2,7 +2,8 @@ import React from 'react';
 
 import { Header } from '../../../components/common/Header/Header';
 import { Navigation } from '../../../components/common/Navigation/Navigation';
-import { Filtr } from '../../../components/common/filtr/Filtr';
+import { Filtr } from '../../../components/common/Filtr/Filtr';
+
 import { StudentRecord } from '../../../components/common/StudentRecord/StudentRecord';
 import { BottomNavigation } from '../../../components/common/BottomNavigation/BottomNavigation';
 
