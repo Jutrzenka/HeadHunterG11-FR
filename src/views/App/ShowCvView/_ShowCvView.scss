@@ -1,3 +1,29 @@
-main.view-ShowCvView {
+@import '../../../styles/mixins';
 
+main.view-ShowCvView {
+    .view-ShowCvView-wrap {
+        margin: 25px 0 0 140px;
+        @include flex(row, start, space-arround);
+        h3 {
+            padding: 15px 25px;
+            background: var(--form-background-color);
+        }
+
+        .student-rating-wrap {
+            margin-left: 3px;
+            .student-rating {
+                .ratings {
+                    @include flex(row, center, space-between);
+                    padding: 25px;
+                }
+            }
+        }
+
+        .student-expectations-wrap {
+            .expectations {
+                @include flex(row, center, space-between);
+                padding: 25px;
+            }
+        }
+    }
 }
