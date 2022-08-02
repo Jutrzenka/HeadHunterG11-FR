@@ -15,10 +15,21 @@ export const HrRegisterView = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('')
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [company, setCompany] = useState('');
   const [maxReservedStudents,setMaxReservedStudents] = useState(10);
+
+  const clearInputs = () => {
+    setEmail('');
+    setPassword('');
+    setRepeatPassword('');
+    setFirstName('');
+    setLastName('');
+    setCompany('');
+    setMaxReservedStudents(10);
+  }
 
   const sendForm = (event: FormEvent) => {
     event.preventDefault();
@@ -26,7 +37,7 @@ export const HrRegisterView = () => {
     if (validateEmail(email) && validatePassword(password)) {
       // Wysyłanie zapytania na backend
     }
-    console.log(firstName,lastName,company,maxReservedStudents,email,password)
+    console.log(firstName,lastName,company,maxReservedStudents,email,password,repeatPassword)
     // Zwrot komunikatu z informacją o błędnej waldiacji
   };
 
@@ -74,6 +85,12 @@ export const HrRegisterView = () => {
                 value={setPassword}
                 maxLength={60}
             />
+          <Input
+              nameValue={'Powtórz hasło'}
+              type={'password'}
+              value={setRepeatPassword}
+              maxLength={60}
+          />
           <div className={'validation-buttons'}>
             <Button title={'Zarejstruj się'} />
           </div>
