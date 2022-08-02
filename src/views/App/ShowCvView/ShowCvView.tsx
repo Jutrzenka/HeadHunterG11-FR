@@ -63,8 +63,8 @@ export const ShowCvView = () => {
               />
             </div>
           </section>
-          <section>
-            <h3>Edukacjay</h3>
+          <section className="student-education-wrap">
+            <h3>Edukacja</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Accusantium beatae dignissimos dolorem dolores eaque eius, error
@@ -72,7 +72,7 @@ export const ShowCvView = () => {
               quasi qui sed sint, temporibus.
             </p>
           </section>
-          <section>
+          <section className="student-courses-wrap">
             <h3>Kursy</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -81,7 +81,7 @@ export const ShowCvView = () => {
               quasi qui sed sint, temporibus.
             </p>
           </section>
-          <section>
+          <section className="student-experience-wrap">
             <h3>Doświadczenie zawodowe</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -90,27 +90,33 @@ export const ShowCvView = () => {
               quasi qui sed sint, temporibus.
             </p>
           </section>
-          <section>
+          <section className="student-portfolio-wrap">
             <h3>Portfolio</h3>
-            <LinkTo link={'https://Loremipsum/dolor/sit/amet'} />
+            <div className="student-portfolio-wrap--link">
+              <LinkTo link={'https://Loremipsum/dolor/sit/amet'} />
+            </div>
           </section>
-          <section>
+          <section className="student-portfolio-wrap">
             <h3>Projekt w zespole Scrumowym</h3>
-            <LinkTo
-              link={
-                'https://github.com/Ami777/MegaKursTest/comits?author=Ami777'
-              }
-            />
-            <LinkTo
-              link={
-                'https://github.com/Ami777/MegaKursTest/pulls?q=is%3Apr+reviewed-by%3AAmi777'
-              }
-            />
+            <div className="student-portfolio-wrap--link">
+              <LinkTo
+                link={
+                  'https://github.com/Ami777/MegaKursTest/comits?author=Ami777'
+                }
+              />
+              <LinkTo
+                link={
+                  'https://github.com/Ami777/MegaKursTest/pulls?q=is%3Apr+reviewed-by%3AAmi777'
+                }
+              />
+            </div>
           </section>
-          <section>
+          <section className="student-portfolio-wrap">
             <h3>Projekt na zaliczenie</h3>
-            <LinkTo link={'https://Loremipsum/dolor/sit/amet'} />
-            <LinkTo link={'https://Loremipsum/dolor/sit/amet'} />
+            <div className="student-portfolio-wrap--link">
+              <LinkTo link={'https://Loremipsum/dolor/sit/amet'} />
+              <LinkTo link={'https://Loremipsum/dolor/sit/amet'} />
+            </div>
           </section>
         </section>
       </div>
