@@ -1,0 +1,16 @@
+@import '../../../styles/mixins';
+
+div.component-Expectations {
+  width: 15%;
+  .expectations-wrap {
+    .description {
+        font-size: var(--s-font-size);
+        color: var(--rate-text-color);
+        margin-bottom: 15px;
+    }
+
+    .value {
+
+    }
+  }
+}
