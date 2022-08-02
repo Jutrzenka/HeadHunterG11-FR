@@ -1,0 +1,14 @@
+@import '../../../styles/mixins';
+
+div.component-LinkTo {
+  margin: 5px;
+  color: var(--link-color);
+  .ico {
+      font-size: var(--xxl-font-size);
+      font-weight: var(--bold-font-weight);
+  }
+
+  a {
+    color: var(--link-color);
+  }
+}
