@@ -13,7 +13,10 @@ export const RatingOnCv = ({ title, rating }: Props) => {
     <div className="component-RatingOnCv">
       <p>{title}</p>
       <div className="rating-and-stars">
-        <p>{rating} / 5</p>
+        <p>
+          <span className="rating">{rating}</span>
+          <span className="slash"> /</span> 5
+        </p>
         <div className="stars-wrap">
           {[1, 2, 3, 4, 5].map((item, index) => (
             <div className="stars" key={index}>
