@@ -1,12 +1,28 @@
 @import '../../../styles/mixins';
 
 div.component-RatingOnCv {
+  @include flex(column, start, space-around);
+  width: 15%;
+    p {
+      font-size: var(--s-font-size);
+      color: var(--rate-text-color);
+      span.rating {
+        color: var(--main-color);
+        font-size: var(--md-font-size);
+        font-weight: var(--bold-font-weight);
+      }
+      span.slash{
+        font-size: var(--md-font-size);
+      }
+    }
+
+
   .rating-and-stars {
-    @include flex(row, start, space-arround);
+    @include flex(row, center, space-around);
     padding-top: 20px;
 
     .stars-wrap {
-      @include flex(row, start, space-arround);
+      @include flex(row, start, space-around);
       vertical-align: middle;
       margin-left: 10px;
       font-size: 1.3em;
@@ -25,4 +41,8 @@ div.component-RatingOnCv {
       }
     }
   }
+}
+
+div.component-RatingOnCv:last-child {
+  margin-right: 15%;
 }
