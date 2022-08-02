@@ -2,7 +2,7 @@
 
 main.view-ShowCvView {
     .view-ShowCvView-wrap {
-        margin: 25px 0 0 140px;
+        margin: 25px 10% 0 8%;
         @include flex(row, start, space-arround);
         h3 {
             padding: 15px 25px;
@@ -14,16 +14,37 @@ main.view-ShowCvView {
             .student-rating {
                 .ratings {
                     @include flex(row, center, space-between);
-                    padding: 25px;
+                    padding: 10px 25px;
                 }
             }
         }
 
         .student-expectations-wrap {
+            background: var(--raiting-acordion-background-color);
             .expectations {
                 @include flex(row, center, space-between);
                 padding: 25px;
             }
         }
+
+        .student-education-wrap,
+        .student-courses-wrap,
+        .student-experience-wrap {
+            background: var(--raiting-acordion-background-color);
+            p {
+                padding: 25px;
+            }
+        }
+
+        .student-portfolio-wrap {
+            background: var(--raiting-acordion-background-color);
+            .student-portfolio-wrap--link {
+                margin: 20px
+            }
+        }
+        .student-portfolio-wrap:last-child {
+            margin-bottom: 70px;
+        }
+
     }
 }
