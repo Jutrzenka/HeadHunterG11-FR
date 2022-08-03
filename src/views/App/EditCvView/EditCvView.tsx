@@ -1,69 +1,77 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './_EditCvView.scss';
 import { Header } from '../../../components/common/Header/Header';
 import { FaGithub, FaPhone, MdEmail } from 'react-icons/all';
+import { Input } from '../../../components/common/InputV2/Input';
+import { Button } from '../../../components/common/Button/Button';
+import { Textarea } from '../../../components/common/Textarea/Textarea';
+import { Select } from '../../../components/common/Select/Select';
+import { Radio } from '../../../components/common/Radio/Radio';
 
 export const EditCvView = () => {
+  const [userData, setUserDAta] = useState({
+    about: {
+      email: 'marcelurban2@tlen.pl',
+      tel: '123123123',
+      firstName: 'Jan',
+      lastName: 'Kowalski',
+      githubUsername: 'Janek',
+      bio: 'Siemano \ndddd\nfd\nd\n\ndddd',
+    },
+    hireExpectations: {
+      expectedTypeWork: '',
+      targetWorkCity: '',
+      expectedContractType: '',
+      expectedSalary: '',
+      canTakeApprenticeship: '',
+      monthsOfCommercialExp: '',
+    },
+    education: '',
+    courses: '',
+    workExperience: '',
+    portfolioUrls: '',
+    projectUrls: '',
+  });
+
   return (
     <main className={'view-EditCvView'}>
       <Header />
       <h1>EditCvView</h1>
-      {/*<section className="student-contact container">*/}
-      {/*  <div className="img-wrap">*/}
-      {/*    <img src="/img/icons/avatar.svg" alt="avatar" />*/}
-      {/*    <h3>Jan Kowalski</h3>*/}
-      {/*    <div>*/}
-      {/*      <FaGithub />*/}
-      {/*      <p>jankowalski</p>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*  <div className="contact-wrap">*/}
-      {/*    <div>*/}
-      {/*      <FaPhone />*/}
-      {/*      <p>+48 566 072 227</p>*/}
-      {/*    </div>*/}
-
-      {/*    <div>*/}
-      {/*      <MdEmail />*/}
-      {/*      <p>jankowalski@gmail.com</p>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</section>*/}
-
+      {/*##FORMULARZ */}
       <section className="student-about container">
         <div className="title-wrap">
           <h3>Ogólne</h3>
+          <Button title={'Edytuj'} />
         </div>
+
         <div className="content-wrap">
-          <div className="settingsList">
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel">Adres e-mail</h3>
-              <span className="settingsListItemContent">
-                marcelurban2@tlen.pl
-              </span>
-            </div>
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel">Numer tel.</h3>
-              <span className="settingsListItemContent"></span>
-            </div>
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel">Imię</h3>
-              <span className="settingsListItemContent"></span>
-            </div>
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel">Nazwisko</h3>
-              <span className="settingsListItemContent"></span>
-            </div>
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel">Login GitHuba</h3>
-              <span className="settingsListItemContent"></span>
-            </div>
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel">Krótkie bio</h3>
-              <span className="settingsListItemContent"></span>
-            </div>
-          </div>
+          <Input
+            title={'Adres e-mail'}
+            value={userData.about.email}
+            type={'text'}
+          />
+          <Input title={'Nr tel.'} value={userData.about.tel} type={'text'} />
+          <Input
+            title={'Imię'}
+            value={userData.about.firstName}
+            type={'text'}
+          />
+          <Input
+            title={'Nazwisko'}
+            value={userData.about.lastName}
+            type={'text'}
+          />
+          <Input
+            title={'Login GitHuba'}
+            value={userData.about.githubUsername}
+            type={'text'}
+          />
+          <Textarea
+            nameValue={'bio'}
+            title={'Krótkie bio'}
+            value={userData.about.bio}
+          />
         </div>
       </section>
 
@@ -71,45 +79,51 @@ export const EditCvView = () => {
         <div className="title-wrap">
           <h3>Oczekiwania w stosunku do zatrudnienia</h3>
         </div>
+
         <div className="content-wrap">
-          <div className="settingsList">
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel">
-                Preferowane miejsce pracy
-              </h3>
-              <span className="settingsListItemContent"></span>
-            </div>
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel">
-                Docelowe miasto, gdzie chce pracować kandydat
-              </h3>
-              <span className="settingsListItemContent"></span>
-            </div>
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel">
-                Oczekiwany typ kontraktu
-              </h3>
-              <span className="settingsListItemContent"></span>
-            </div>
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel">
-                Oczekiwane wynagrodzenie miesięczne netto
-              </h3>
-              <span className="settingsListItemContent"></span>
-            </div>
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel">
-                Zgoda na odbycie bezpłatnych praktyk/stażu na początek
-              </h3>
-              <span className="settingsListItemContent"></span>
-            </div>
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel">
-                Komercyjne doświadczenie w programowaniu
-              </h3>
-              <span className="settingsListItemContent"></span>
-            </div>
-          </div>
+          <Select
+            title={'Preferowane miejsce pracy'}
+            selects={[
+              'Na miejscu',
+              'Gotowość od przeprowadzki',
+              'Wyłącznie zdalnie',
+              'Hybrydowo',
+              'Bez znaczenia',
+            ]}
+          />
+
+          <Input
+            title={'Docelowe miasto, gdzie chce pracować kandydat'}
+            value={userData.about.email}
+            type={'text'}
+          />
+
+          <Select
+            title={'Oczekiwany typ kontraktu'}
+            selects={[
+              'Tylko UoP',
+              'Możliwe B2B',
+              'Możliwe UZ/UoD',
+              'Brak preferencji',
+            ]}
+          />
+
+          <Input
+            title={'Oczekiwane wynagrodzenie miesięczne netto'}
+            value={userData.hireExpectations.expectedSalary}
+            type={'number'}
+          />
+
+          <Select
+            title={'Zgoda na odbycie bezpłatnych praktyk/stażu na początek'}
+            selects={['TAK', 'NIE']}
+          />
+
+          <Input
+            title={'Komercyjne doświadczenie w programowaniu'}
+            value={userData.hireExpectations.monthsOfCommercialExp}
+            type={'number'}
+          />
         </div>
       </section>
 
@@ -118,16 +132,7 @@ export const EditCvView = () => {
           <h3>Edukacja</h3>
         </div>
         <div className="content-wrap">
-          <div className="settingsList">
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel"></h3>
-              <span className="settingsListItemContent">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aperiam at, est expedita inventore quidem recusandae tenetur
-                voluptate. Iure quibusdam, voluptas!
-              </span>
-            </div>
-          </div>
+          <Textarea value={userData.education} />
         </div>
       </section>
 
@@ -136,16 +141,7 @@ export const EditCvView = () => {
           <h3>Kursy</h3>
         </div>
         <div className="content-wrap">
-          <div className="settingsList">
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel"></h3>
-              <span className="settingsListItemContent">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aperiam at, est expedita inventore quidem recusandae tenetur
-                voluptate. Iure quibusdam, voluptas!
-              </span>
-            </div>
-          </div>
+          <Textarea value={userData.courses} />
         </div>
       </section>
 
@@ -154,52 +150,25 @@ export const EditCvView = () => {
           <h3>Doświadczenie zawodowe</h3>
         </div>
         <div className="content-wrap">
-          <div className="settingsList">
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel"></h3>
-              <span className="settingsListItemContent">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aperiam at, est expedita inventore quidem recusandae tenetur
-                voluptate. Iure quibusdam, voluptas!
-              </span>
-            </div>
-          </div>
+          <Textarea value={userData.workExperience} />
         </div>
       </section>
 
-      <section className="student-portfolio container">
+      <section className="student-work_experience container">
         <div className="title-wrap">
           <h3>Portfolio</h3>
         </div>
         <div className="content-wrap">
-          <div className="settingsList">
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel"></h3>
-              <span className="settingsListItemContent">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aperiam at, est expedita inventore quidem recusandae tenetur
-                voluptate. Iure quibusdam, voluptas!
-              </span>
-            </div>
-          </div>
+          <Textarea value={userData.portfolioUrls} />
         </div>
       </section>
 
-      <section className="student-project container">
+      <section className="student-work_experience container">
         <div className="title-wrap">
           <h3>Projekt na zaliczenie</h3>
         </div>
         <div className="content-wrap">
-          <div className="settingsList">
-            <div className="settingsListItem">
-              <h3 className="settingsListItemLabel"></h3>
-              <span className="settingsListItemContent">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aperiam at, est expedita inventore quidem recusandae tenetur
-                voluptate. Iure quibusdam, voluptas!
-              </span>
-            </div>
-          </div>
+          <Textarea value={userData.projectUrls} />
         </div>
       </section>
     </main>

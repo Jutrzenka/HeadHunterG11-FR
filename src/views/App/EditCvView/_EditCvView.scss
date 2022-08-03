@@ -1,35 +1,177 @@
 @import '../../../styles/mixins';
 main.view-EditCvView {
-  .title-wrap {
-    background-color: var(--form-background-color);
-    @include flex(row, center, space-between);
-    padding: 14px 20px;
-    border-bottom: 2px solid var(--underline-color);
+  section{
+    .title-wrap {
+      background-color: var(--form-background-color);
+      @include flex(row, center, space-between);
+      padding: 14px 20px;
+      border-bottom: 2px solid var(--underline-color);
 
-    //.input-icons {
-    //  svg {
-    //    position: absolute;
-    //    top: 50%;
-    //    transform: translateY(-50%);
-    //    margin-left: 12.4px;
-    //    width: 15px;
-    //    //color: var(--input-raiting-text-color);
-    //  }
-    //
-    //  input {
-    //    background-color: var(--section-background-color);
-    //    height: 38px;
-    //    width: 365px;
-    //    color: var(--main-color);
-    //    padding: 0 12px 0 36px;
-    //    letter-spacing: 0.7px;
-    //
-    //    &:focus {
-    //      outline: none;
-    //    }
-    //  }
-    //}
- }
+      //.input-icons {
+      //  svg {
+      //    position: absolute;
+      //    top: 50%;
+      //    transform: translateY(-50%);
+      //    margin-left: 12.4px;
+      //    width: 15px;
+      //    //color: var(--input-raiting-text-color);
+      //  }
+    }
+
+    .content-wrap{
+
+      .component-Input {
+        border-bottom: 1px solid var(--form-background-color);
+
+        label {
+          display: flex;
+          margin: 5px 0;
+          //justify-content: space-between;
+          align-items: flex-start;
+
+          p {
+            flex-basis: 40%;
+            //height: 38px;
+            //width: 365px;
+            //color: var(--main-color);
+            padding: 0 12px 0 36px;
+            letter-spacing: 0.7px;
+            line-height: 38px;
+          }
+
+          input {
+            flex-grow: 1;
+            //flex-basis: 70%;
+            background-color: var(--section-background-color);
+            height: 38px;
+            //width: 365px;
+            color: var(--main-color);
+            padding: 0 12px 0 36px;
+            letter-spacing: 0.7px;
+
+            //&:focus {
+            //  outline: none;
+            //}
+          }
+        }
+      }
+
+      .component-Textarea{
+        border-bottom: 1px solid var(--form-background-color);
+
+        label {
+          display: flex;
+          margin: 5px 0;
+          //justify-items: flex-end;
+          //justify-content: space-between;
+
+          p {
+            flex-basis: 40%;
+            //height: 38px;
+            //width: 365px;
+            //color: var(--main-color);
+            padding: 0 12px 0 36px;
+            letter-spacing: 0.7px;
+            line-height: 38px;
+          }
+
+          textarea {
+            flex-grow: 1;
+            //flex-basis: 70%;
+            background-color: var(--section-background-color);
+
+            line-height: 38px;
+
+            //height: 38px;
+            //width: 365px;
+            color: var(--main-color);
+            padding: 0 12px 0 36px;
+            letter-spacing: 0.7px;
+
+            //&:focus {
+            //  outline: none;
+            //}
+          }
+        }
+      }
+
+      .component-Select{
+        display: flex;
+        margin: 0;
+        border-bottom: 1px solid var(--form-background-color);
+
+        p{
+          flex-basis: 40%;
+          padding: 0 12px 0 36px;
+          letter-spacing: 0.7px;
+          line-height: 38px;
+        }
+        .select-wrap{
+          flex-basis: 60%;
+          flex-wrap: wrap;
+          align-items: flex-start;
+          //align-items: stretch;
+          .select{
+            margin: 0 8px 8px 0;
+            .component-Button{
+              button{}
+            }
+          }
+        }
+      }
+
+      .component-Radio{
+        display: flex;
+        border-bottom: 1px solid var(--form-background-color);
+        p{
+          flex-basis: 70%;
+          padding: 0 12px 0 36px;
+          letter-spacing: 0.7px;
+          line-height: 38px;
+        }
+        .radio-wrap{
+          display: flex;
+          div{
+            .component-Input {
+              label {
+                display: flex;
+                margin: 5px 0;
+                //justify-content: space-between;
+
+                p {
+                  flex-basis: 30%;
+                  //height: 38px;
+                  //width: 365px;
+                  //color: var(--main-color);
+                  padding: 0 12px 0 36px;
+                  letter-spacing: 0.7px;
+                  line-height: 38px;
+                }
+
+                input {
+                  flex-grow: 1;
+                  //flex-basis: 70%;
+                  background-color: var(--section-background-color);
+                  //height: 38px;
+                  //width: 365px;
+                  color: var(--main-color);
+                  padding: 0 12px 0 36px;
+                  letter-spacing: 0.7px;
+
+                  //&:focus {
+                  //  outline: none;
+                  //}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
 
   //.hireExpectations{
   //  background-color: var(--form-background-color);
@@ -37,4 +179,3 @@ main.view-EditCvView {
   //  padding: 14px 20px;
   //  border-bottom: 2px solid var(--underline-color);
   //}
-}
