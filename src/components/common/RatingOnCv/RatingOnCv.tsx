@@ -11,7 +11,10 @@ interface Props {
 export const RatingOnCv = ({ title, rating }: Props) => {
   return (
     <div className="component-RatingOnCv">
-      <p>{title}</p>
+      <div className="rating-title">
+        <p>{title}</p>
+      </div>
+
       <div className="rating-and-stars">
         <p>
           <span className="rating">{rating}</span>

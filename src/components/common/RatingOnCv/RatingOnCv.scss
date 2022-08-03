@@ -1,25 +1,38 @@
 @import '../../../styles/mixins';
 
 div.component-RatingOnCv {
-  @include flex(column, start, space-around);
+  @include flex(column, start, space-between);
   width: 15%;
+
+  .rating-title {
+    @include flex(row, center, space-around);
+    height: 50px;
+    flex-grow: 1;
+    align-items: flex-end;
     p {
+      font-size: var(--xs-font-size);
+      color: var(--rate-text-color);
+    }
+  }
+
+  .rating-and-stars {
+    @include flex(row, center, space-around);
+    padding: 20px 0 15px 0;
+    p {
+      flex-shrink: 0;
       font-size: var(--s-font-size);
       color: var(--rate-text-color);
+
       span.rating {
         color: var(--main-color);
         font-size: var(--md-font-size);
         font-weight: var(--bold-font-weight);
       }
-      span.slash{
+
+      span.slash {
         font-size: var(--md-font-size);
       }
     }
-
-
-  .rating-and-stars {
-    @include flex(row, center, space-around);
-    padding-top: 20px;
 
     .stars-wrap {
       @include flex(row, start, space-around);
@@ -27,7 +40,7 @@ div.component-RatingOnCv {
       margin-left: 10px;
       font-size: 1.3em;
 
-      .stars{
+      .stars {
         vertical-align: middle;
         margin-right: 5px;
         color: var(--first-color);
@@ -35,6 +48,7 @@ div.component-RatingOnCv {
         .star-red {
           color: var(--first-color);
         }
+
         .star-gray {
           color: var(--icon-raiting-color);
         }
@@ -45,4 +59,40 @@ div.component-RatingOnCv {
 
 div.component-RatingOnCv:last-child {
   margin-right: 15%;
+}
+
+
+div.component-RatingOnCv {
+  @media only screen and (min-width: 1200px) and (max-width: 1610px){
+    width: 20%;
+    .rating-title {
+      p {
+        font-size: var(--xs-font-size);
+      }
+    }
+
+    .rating-and-stars {
+      p {
+        font-size: var(--s-font-size);
+
+        span.rating {
+          font-size: var(--s-font-size);
+        }
+
+        span.slash {
+          font-size: var(--s-font-size);
+        }
+      }
+
+      .stars {
+        font-size: var(--s-font-size);
+      }
+    }
+  }
+}
+
+div.component-RatingOnCv:last-child {
+  @media only screen and (min-width: 1200px) and (max-width: 1610px){
+    margin-right: 8%;
+  }
 }
