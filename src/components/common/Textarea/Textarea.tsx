@@ -16,12 +16,12 @@ export const Textarea = ({
   value,
   title,
   maxLength = 1000,
-  maxHeight = 70,
+  maxHeight = 500,
 }: Props) => {
   const [inputValue, setInputValue] = useState(value);
   const activeSlideRef = useRef<HTMLTextAreaElement>(null);
   const styleCss = {
-    maxHeight: `${maxHeight}vh`,
+    maxHeight: `${maxHeight}px`,
   };
 
   useEffect(() => {
