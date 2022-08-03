@@ -3,12 +3,28 @@
 div.component-LinkTo {
   margin: 5px;
   color: var(--link-color);
+  height: 30px;
   .ico {
+      vertical-align: middle;
       font-size: var(--xxl-font-size);
       font-weight: var(--bold-font-weight);
   }
 
   a {
+    vertical-align: middle;
+    margin-left: 5px;
     color: var(--link-color);
+  }
+}
+
+div.component-LinkTo {
+  @media only screen and (min-width: 1200px) and (max-width: 1610px){
+    .ico {
+      font-size: var(--xl-font-size);
+    }
+
+    a {
+      font-size: var(--s-font-size);
+    }
   }
 }

@@ -69,7 +69,7 @@ div.component-StudentAbout {
       Button {
         padding: 10px;
         margin-bottom: 15px;
-        font-size: var(--base-font-size);
+        font-size: var(--xs-font-size);
         width: 100%;
         color: var(--main-color);
         background: var(--first-color);
@@ -77,6 +77,56 @@ div.component-StudentAbout {
       Button:active {
         background: var(--underline-btn-active-color);
       }
+    }
+  }
+}
+
+div.component-StudentAbout{
+  @media only screen and (min-width: 1200px) and (max-width: 1610px){
+    width: 220px;
+    .student-about-wrap {
+      @include flex(column, center, space-between);
+
+      .img-wrap {
+        @include flex(column, center, space-arround);
+        padding: 15px;
+
+        img {
+          height: 120px;
+        }
+
+        h3 {
+          margin-top: 10px;
+          font-size: 1.2em;
+        }
+
+        .github-ico {
+          font-size: 1.3em;
+        }
+      }
+
+      .contact-wrap {
+        .contact-phone, .contact-email{
+          margin-top: 5px;
+          .email {
+            font-size: 1.1em;
+          }
+
+          p {
+            font-size: 0.8em;
+          }
+        }
+      }
+
+      .about-me-wrap {
+        .about-me-title {
+          font-size: 0.9em;
+        }
+        p {
+          font-size: 0.9em;
+        }
+      }
+
     }
   }
 }
