@@ -14,12 +14,4 @@ nav.component-Navigation {
     padding: 10px 34px;
     @include flex(row, center, center);
   }
-
-  .button-active {
-    border-bottom: 2px solid var(--first-color);
-    color: var(--main-color);
-  }
-  .notactive {
-    color: var(--text-rating-color);
-  }
 }

@@ -1,3 +1,19 @@
-main.view-InterviewView {
+@import '../../../styles/mixins';
 
+main.view-InterviewView {
+  .component-Navigation {
+    height: 72px;
+    @include flex(row, center, flex-start);
+    background-color: var(--form-background-color);
+    position: relative;
+    margin: 26px auto 2px auto;
+    width: 80%;
+
+    a {
+      background-color: transparent;
+      height: 100%;
+      padding: 10px 34px;
+      @include flex(row, center, center);
+    }
+  }
 }

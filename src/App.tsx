@@ -11,6 +11,7 @@ import { EditCvView } from './views/App/EditCvView/EditCvView';
 import { StudentRegisterView } from './views/Register/StudentRegisterView/StudentRegisterView';
 import { InterviewView } from './views/App/InterviewView/InterviewView';
 import { HrRegisterView } from './views/Register/HrRegisterView/HrRegisterView';
+import { ErrorView } from './views/ErrorView';
 //import { useDispatch, useSelector } from 'react-redux';
 //import { RootState } from './redux/store';
 

@@ -10,11 +10,13 @@ import { Button } from '../Button/Button';
 import { Insert } from '../Insert/Insert';
 import { Input } from '../Input/Input';
 
+import './_Filtr.scss';
+
 export const Filtr = () => {
   const [value, toggle] = useToggle();
 
   return (
-    <section className="students-filter container">
+    <section className="students-filter-component container">
       <div className="input-icons">
         <FaSearch />
         <Input nameValue={'Szukaj'} type={'text'} value={''} />

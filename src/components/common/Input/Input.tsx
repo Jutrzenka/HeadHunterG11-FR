@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './_Input.scss';
 
-type Type = 'text' | 'number' | 'password' | 'radio';
+type Type = 'text' | 'number' | 'password' | 'radio' | 'submit' | 'file';
 
 interface Props {
   nameValue?: string;
