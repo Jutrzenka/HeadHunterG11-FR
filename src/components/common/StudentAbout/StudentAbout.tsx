@@ -12,14 +12,14 @@ export const StudentAbout = () => {
         <div className="img-wrap">
           <img src="/img/icons/avatar.svg" alt="avatar" />
           <h3>Jan Kowalski</h3>
-          <div className="name-email">
+          <div className="name-github">
             <FaGithub className="github-ico" />
             <p>jankowalski</p>
           </div>
 
           <div className="contact-wrap">
             <div className="contact-phone">
-              <FaPhoneAlt className="contact-ico" />
+              <FaPhoneAlt className="contact-ico phone" />
               <p>+48 566 072 227</p>
             </div>
             <div className="contact-email">

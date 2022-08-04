@@ -5,11 +5,11 @@ div.component-StudentAbout {
   .student-about-wrap {
     @include flex(column, center, space-between);
     padding: 10px;
-    background: #292A2B;
+    background: var(--form-background-color);
     font-family: var(--base-font-family);
 
     .img-wrap {
-      @include flex(column, center, space-arround);
+      @include flex(column, center, space-around);
       padding: 20px;
 
       img {
@@ -18,16 +18,17 @@ div.component-StudentAbout {
 
       h3 {
         margin-top: 12px;
-        font-size: 1.4em;
+        padding-bottom: 0;
+        font-size: var(--l-font-size);
         font-weight: normal;
       }
 
       .github-ico {
-        font-size: 1.4em;
+        font-size: var(--l-font-size);
       }
 
-      .name-email{
-        @include flex(row, center, space-arround);
+      .name-github{
+        @include flex(row, center, space-around);
         color: var(--link-color);
         p {
           margin-left: 8px;
@@ -39,12 +40,12 @@ div.component-StudentAbout {
       margin-top: 15px;
       .contact-phone, .contact-email{
         margin-top: 5px;
-        @include flex(row, center, space-arround);
+        @include flex(row, center, none);
         .contact-ico {
           color: var(--icon-contact-color);
         }
         .email {
-          font-size: 1.3em;
+          font-size: var(--l-font-size);
         }
 
         p {
@@ -88,7 +89,7 @@ div.component-StudentAbout{
       @include flex(column, center, space-between);
 
       .img-wrap {
-        @include flex(column, center, space-arround);
+        @include flex(column, center, space-around);
         padding: 15px;
 
         img {
@@ -97,11 +98,11 @@ div.component-StudentAbout{
 
         h3 {
           margin-top: 10px;
-          font-size: 1.2em;
+          font-size: var(--md-font-size);
         }
 
         .github-ico {
-          font-size: 1.3em;
+          font-size: var(--md-font-size);
         }
       }
 
@@ -109,11 +110,11 @@ div.component-StudentAbout{
         .contact-phone, .contact-email{
           margin-top: 5px;
           .email {
-            font-size: 1.1em;
+            font-size: var(--md-font-size);
           }
 
           p {
-            font-size: 0.8em;
+            font-size: var(--s-font-size);
           }
         }
       }
@@ -123,7 +124,7 @@ div.component-StudentAbout{
           font-size: 0.9em;
         }
         p {
-          font-size: 0.9em;
+          font-size: var(--s-font-size);
         }
       }
 
