@@ -23,11 +23,12 @@ export const HrRegisterView = () => {
   const [maxReservedStudents,setMaxReservedStudents] = useState<number>(10);
   const [sent, setSent] = useState<boolean>(false);
 
-  // const {login, registerCode} = useParams();
 
+  const {login, registerCode} = useParams();
+  // const [data,status,fetchData] = useFetch()
+  // będzie można od komentować jak bedzie merg na deva
 
-
-  const clearInputs = () => {
+  const clear = () => {
     setEmail('');
     setPassword('');
     setRepeatPassword('');
@@ -49,11 +50,15 @@ export const HrRegisterView = () => {
     // Wstępna walidacja na frontendzie
     if (validateEmail(email) && validatePassword(password) && password === repeatPassword) {
       // Wysyłanie zapytania na backend
+      // fetchData(``,{method: HttpMethod.POST, headers: {'content-type': 'application/json;charset=UTF-8'},body: {form}}
+      setSent(true);
+      clear();
+      return
     }
-    console.log('form', form);
-    clearInputs();
-    setSent(true);
-    console.log(password)
+    console.log(form)
+    console.log(validateEmail(email),'email',email)
+    console.log(validatePassword(password),'haslo',password)
+    console.log(password === repeatPassword, 'czy haslo to haslo',password,repeatPassword)
     // Zwrot komunikatu z informacją o błędnej waldiacji
   };
 if(!sent) {
@@ -123,7 +128,7 @@ if(!sent) {
             alt={'Website logo'}
         />
         <h2 className="done-title">Udało się zarejsetrować!</h2>
-        <NavLink className="done-link" to="/">Zaloguj się!</NavLink>
+        <NavLink className="done-link" to="/" onClick={()=> setSent(false)}>Zaloguj się!</NavLink>
         </div>
       </div>
   )
