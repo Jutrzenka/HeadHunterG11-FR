@@ -35,4 +35,22 @@
       }
     }
   }
+.hrRegister-done{
+    width:50vw;
+    height: 50vh;
+    padding: 40px;
+    background-color: var(--form-background-color);
+   @include flex(column, center, space-between,);
+  .done-title{
+    text-transform: uppercase;
+  }
+  .done-link{
+    background-color: var(--first-color);
+    padding: 6px 10px;
+    color: var(--main-color);
+    text-align: center;
+    width: 150px;
+    height: 39px;
+  }
+  }
 }

@@ -7,19 +7,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { validateEmail } from '../../../utils/validateEmail';
 import { validatePassword } from '../../../utils/validatePassword';
 import './_HrRegisterView.scss';
+import { NavLink, useParams } from "react-router-dom";
 
 export const HrRegisterView = () => {
   // global variable redux toolkit
   const { token, type } = useSelector((state: RootState) => state.token);
   const dispatch = useDispatch();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [repeatPassword, setRepeatPassword] = useState('')
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [company, setCompany] = useState('');
-  const [maxReservedStudents,setMaxReservedStudents] = useState(10);
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [repeatPassword, setRepeatPassword] = useState<string>('')
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
+  const [company, setCompany] = useState<string>('');
+  const [maxReservedStudents,setMaxReservedStudents] = useState<number>(10);
+  const [sent, setSent] = useState<boolean>(false);
+
+  // const {login, registerCode} = useParams();
+
+
 
   const clearInputs = () => {
     setEmail('');
@@ -33,14 +39,24 @@ export const HrRegisterView = () => {
 
   const sendForm = (event: FormEvent) => {
     event.preventDefault();
+    const form = {
+      firstName,
+      lastName,
+      company,
+      password,
+      maxReservedStudents,
+    }
     // Wstępna walidacja na frontendzie
-    if (validateEmail(email) && validatePassword(password)) {
+    if (validateEmail(email) && validatePassword(password) && password === repeatPassword) {
       // Wysyłanie zapytania na backend
     }
-    console.log(firstName,lastName,company,maxReservedStudents,email,password,repeatPassword)
+    console.log('form', form);
+    clearInputs();
+    setSent(true);
+    console.log(password)
     // Zwrot komunikatu z informacją o błędnej waldiacji
   };
-
+if(!sent) {
   return (
       <div className="hrRegister-view">
         <img
@@ -61,30 +77,30 @@ export const HrRegisterView = () => {
               value={setFirstName}
               maxLength={60}
           />
-            <Input
-                nameValue={'Nazwisko'}
-                type={'text'}
-                value={setLastName}
-                maxLength={60}
-            />
-            <Input
-                nameValue={'Nazwa firmy'}
-                type={'text'}
-                value={setCompany}
-                maxLength={60}
-            />
-            <Input
-                nameValue={'Liczba osób do rozmowy'}
-                type={'number'}
-                value={setMaxReservedStudents}
-                maxLength={3}
-            />
-            <Input
-                nameValue={'Hasło'}
-                type={'password'}
-                value={setPassword}
-                maxLength={60}
-            />
+          <Input
+              nameValue={'Nazwisko'}
+              type={'text'}
+              value={setLastName}
+              maxLength={60}
+          />
+          <Input
+              nameValue={'Nazwa firmy'}
+              type={'text'}
+              value={setCompany}
+              maxLength={60}
+          />
+          <Input
+              nameValue={'Liczba osób do rozmowy'}
+              type={'number'}
+              value={setMaxReservedStudents}
+              maxLength={3}
+          />
+          <Input
+              nameValue={'Hasło'}
+              type={'password'}
+              value={setPassword}
+              maxLength={60}
+          />
           <Input
               nameValue={'Powtórz hasło'}
               type={'password'}
@@ -92,9 +108,24 @@ export const HrRegisterView = () => {
               maxLength={60}
           />
           <div className={'validation-buttons'}>
-            <Button title={'Zarejstruj się'} />
+            <Button title={'Zarejstruj się'}/>
           </div>
         </Form>
       </div>
   );
+} else {
+  return (
+      <div className="hrRegister-view">
+        <div className="hrRegister-done">
+        <img
+            className={'LoginViews_img'}
+            src={'/img/logo_MegaK.png'}
+            alt={'Website logo'}
+        />
+        <h2 className="done-title">Udało się zarejsetrować!</h2>
+        <NavLink className="done-link" to="/">Zaloguj się!</NavLink>
+        </div>
+      </div>
+  )
+}
 };
