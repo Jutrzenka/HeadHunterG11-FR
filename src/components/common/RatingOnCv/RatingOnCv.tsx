@@ -11,14 +11,24 @@ interface Props {
 export const RatingOnCv = ({ title, rating }: Props) => {
   return (
     <div className="component-RatingOnCv">
-      <p>{title}</p>
-      <p>{rating} / 5</p>
-      <div className="stars-wrap">
-        {[1, 2, 3, 4, 5].map((item, index) => (
-          <div className="stars" key={index}>
-            <BsFillStarFill />
-          </div>
-        ))}
+      <div className="rating-title">
+        <p>{title}</p>
+      </div>
+
+      <div className="rating-and-stars">
+        <p>
+          <span className="rating">{rating}</span>
+          <span className="slash"> /</span> 5
+        </p>
+        <div className="stars-wrap">
+          {[1, 2, 3, 4, 5].map((item, index) => (
+            <div className="stars" key={index}>
+              <BsFillStarFill
+                className={index < rating ? 'star-red' : 'star-gray'}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -10,7 +10,10 @@ interface Props {
 export const LinkTo = ({ link }: Props) => {
   return (
     <div className={'component-LinkTo'}>
-      <BsPaperclip /> {link}
+      <BsPaperclip className="ico" />
+      <a href={link} target="_blank">
+        {link}
+      </a>
     </div>
   );
 };
