@@ -114,7 +114,7 @@ export const EditCvView = () => {
             type={'number'}
           />
 
-          <Select
+          <Radio
             title={'Zgoda na odbycie bezpłatnych praktyk/stażu na początek'}
             selects={['TAK', 'NIE']}
           />
@@ -132,7 +132,7 @@ export const EditCvView = () => {
           <h3>Edukacja</h3>
         </div>
         <div className="content-wrap">
-          <Textarea value={userData.education} />
+          <Textarea value={userData.education} nameValue={'one-column'} />
         </div>
       </section>
 
@@ -141,7 +141,7 @@ export const EditCvView = () => {
           <h3>Kursy</h3>
         </div>
         <div className="content-wrap">
-          <Textarea value={userData.courses} />
+          <Textarea value={userData.courses} nameValue={'one-column'} />
         </div>
       </section>
 
@@ -150,7 +150,7 @@ export const EditCvView = () => {
           <h3>Doświadczenie zawodowe</h3>
         </div>
         <div className="content-wrap">
-          <Textarea value={userData.workExperience} />
+          <Textarea value={userData.workExperience} nameValue={'one-column'} />
         </div>
       </section>
 
@@ -159,7 +159,7 @@ export const EditCvView = () => {
           <h3>Portfolio</h3>
         </div>
         <div className="content-wrap">
-          <Textarea value={userData.portfolioUrls} />
+          <Textarea value={userData.portfolioUrls} nameValue={'one-column'} />
         </div>
       </section>
 
@@ -168,7 +168,7 @@ export const EditCvView = () => {
           <h3>Projekt na zaliczenie</h3>
         </div>
         <div className="content-wrap">
-          <Textarea value={userData.projectUrls} />
+          <Textarea value={userData.projectUrls} nameValue={'one-column'} />
         </div>
       </section>
     </main>

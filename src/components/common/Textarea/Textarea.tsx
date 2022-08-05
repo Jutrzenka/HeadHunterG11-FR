@@ -39,7 +39,7 @@ export const Textarea = ({
   }, [inputValue]);
 
   return (
-    <div className={'component-Textarea'}>
+    <div className={`component-Textarea ${nameValue}`}>
       <label>
         {title && <p>{title}</p>}
         <textarea

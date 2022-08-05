@@ -5,7 +5,7 @@ main.view-EditCvView {
       background-color: var(--form-background-color);
       @include flex(row, center, space-between);
       padding: 14px 20px;
-      border-bottom: 2px solid var(--underline-color);
+      //border-bottom: 2px solid var(--underline-color);
 
       //.input-icons {
       //  svg {
@@ -19,13 +19,18 @@ main.view-EditCvView {
     }
 
     .content-wrap{
+      padding: 0 0 15px;
+
+      div:nth-last-child(1){
+        border-bottom: none;
+      }
 
       .component-Input {
+        padding: 5px 0;
         border-bottom: 1px solid var(--form-background-color);
 
         label {
           display: flex;
-          margin: 5px 0;
           //justify-content: space-between;
           align-items: flex-start;
 
@@ -57,11 +62,12 @@ main.view-EditCvView {
       }
 
       .component-Textarea{
+        padding: 5px 0;
         border-bottom: 1px solid var(--form-background-color);
 
         label {
           display: flex;
-          margin: 5px 0;
+          margin: 0;
           //justify-items: flex-end;
           //justify-content: space-between;
 
@@ -95,9 +101,14 @@ main.view-EditCvView {
         }
       }
 
+      .component-Textarea.one-column{
+        padding: unset;
+      }
+
       .component-Select{
         display: flex;
         margin: 0;
+        padding: 5px 0;
         border-bottom: 1px solid var(--form-background-color);
 
         p{
@@ -110,9 +121,10 @@ main.view-EditCvView {
           flex-basis: 60%;
           flex-wrap: wrap;
           align-items: flex-start;
-          //align-items: stretch;
+          gap: 4px;
+          margin: 0;
           .select{
-            margin: 0 8px 8px 0;
+            margin: 0;
             .component-Button{
               button{}
             }
@@ -123,44 +135,34 @@ main.view-EditCvView {
       .component-Radio{
         display: flex;
         border-bottom: 1px solid var(--form-background-color);
+        margin: 0;
+        padding: 5px 0;
         p{
-          flex-basis: 70%;
+          flex-basis: 40%;
           padding: 0 12px 0 36px;
           letter-spacing: 0.7px;
           line-height: 38px;
         }
         .radio-wrap{
           display: flex;
+          flex-direction: column;
+          margin: 0;
           div{
+
             .component-Input {
               label {
-                display: flex;
-                margin: 5px 0;
-                //justify-content: space-between;
-
+                align-items: center;
+                height: 38px;
                 p {
-                  flex-basis: 30%;
-                  //height: 38px;
-                  //width: 365px;
-                  //color: var(--main-color);
-                  padding: 0 12px 0 36px;
-                  letter-spacing: 0.7px;
-                  line-height: 38px;
+                  font-size: var(--xs-font-size);
+                  padding: 0;
+                  line-height: normal;
                 }
-
                 input {
-                  flex-grow: 1;
-                  //flex-basis: 70%;
-                  background-color: var(--section-background-color);
-                  //height: 38px;
-                  //width: 365px;
-                  color: var(--main-color);
-                  padding: 0 12px 0 36px;
-                  letter-spacing: 0.7px;
-
-                  //&:focus {
-                  //  outline: none;
-                  //}
+                  flex-grow: 0;
+                  height: 25px;
+                  width: 25px;
+                  padding: 0;
                 }
               }
             }
@@ -168,6 +170,8 @@ main.view-EditCvView {
         }
       }
     }
+
+
   }
 }
 
