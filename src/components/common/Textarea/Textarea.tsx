@@ -48,7 +48,7 @@ export const Textarea = ({
           ref={activeSlideRef}
           value={inputValue}
           onChange={(event) => {
-            // event.target.style.height = '76px';
+            event.target.style.height = '76px';
             setInputValue(event.target.value);
           }}
           onBlur={(event) => {
