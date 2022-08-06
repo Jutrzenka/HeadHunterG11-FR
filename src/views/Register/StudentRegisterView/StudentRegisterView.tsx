@@ -2,11 +2,8 @@ import React, { FormEvent, useState } from 'react';
 import { Button } from '../../../components/common/Button/Button';
 import { Form } from '../../../components/common/Form/Form';
 import { Input } from '../../../components/common/Input/Input';
-import { ForgotPassword } from '../../../components/common/ForgotPassword/ForgotPassword';
-import { validateEmail } from '../../../utils/functions/validateEmail';
 import { validatePassword } from '../../../utils/functions/validatePassword';
 import './_StudentRegisterView.scss';
-import { NavLink } from "react-router-dom";
 import { HttpMethod, useFetch } from "../../../utils/useFetch";
 
 export const StudentRegisterView = () => {
