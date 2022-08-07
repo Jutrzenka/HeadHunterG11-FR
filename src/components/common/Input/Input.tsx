@@ -20,7 +20,7 @@ export const Input = ({
   maxLength,
   minLength,
 }: Props) => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState(value);
   return (
     <div className={'component-Input'}>
       <label>

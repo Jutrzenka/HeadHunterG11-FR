@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-
-import './_EditCvView.scss';
 import { Header } from '../../../components/common/Header/Header';
-import { FaGithub, FaPhone, MdEmail } from 'react-icons/all';
-import { Input } from '../../../components/common/InputV2/Input';
+import { Input } from '../../../components/common/Input/Input';
 import { Button } from '../../../components/common/Button/Button';
 import { Textarea } from '../../../components/common/Textarea/Textarea';
 import { Select } from '../../../components/common/Select/Select';
 import { Radio } from '../../../components/common/Radio/Radio';
-import { useToggle } from '../../../utils/hooks/useToggle';
+import './_EditCvView.scss';
 
 export const EditCvView = () => {
   const [userData, setUserDAta] = useState({
@@ -66,7 +63,6 @@ export const EditCvView = () => {
   return (
     <main className={'view-EditCvView'}>
       <Header />
-      <h1>EditCvView</h1>
       {/*##FORMULARZ */}
       <section className="about container">
         <div className="title-wrap">
