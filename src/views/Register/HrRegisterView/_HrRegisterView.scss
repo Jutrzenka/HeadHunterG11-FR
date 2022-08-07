@@ -1,3 +1,56 @@
-main.view-HrRegisterView {
+@import '../../../styles/mixins';
 
+.hrRegister-view {
+  height: 100vh;
+  @include flex(column, center, center);
+
+  img {
+    width: 124px;
+    margin-bottom: 30px;
+  }
+
+  form {
+    @include flex(column, flex-start, space-between);
+
+    input {
+      width: 350px;
+      height: 40px;
+      margin-bottom: 15px;
+      background-color: var(--form-background-color);
+      padding: 6.5px 17px;
+      color: var(--input-text-color);
+    }
+    .validation-buttons {
+      width: 100%;
+      @include flex(row, center, space-between);
+      a {
+        font-size: var(--s-font-size);
+      }
+      button {
+        background-color: var(--first-color);
+        padding: 6px 10px;
+        color: var(--main-color);
+        width: 91px;
+        height: 39px;
+      }
+    }
+  }
+.hrRegister-done{
+    width:50vw;
+    height: 50vh;
+    padding: 40px;
+    background-color: var(--form-background-color);
+   @include flex(column, center, space-between,);
+  .done-title{
+    text-transform: uppercase;
+  }
+  .done-link{
+    background-color: var(--first-color);
+    padding: 6px 10px;
+    color: var(--main-color);
+    text-align: center;
+    width: 150px;
+    height: 39px;
+  }
+  }
 }
