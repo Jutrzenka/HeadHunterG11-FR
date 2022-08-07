@@ -1,6 +1,6 @@
 import React from 'react';
-import './_ButtonBack.scss';
 import { FaChevronLeft } from 'react-icons/fa';
+import './_ButtonBack.scss';
 
 interface Props {
   title: string;

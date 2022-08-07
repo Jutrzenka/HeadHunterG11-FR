@@ -1,7 +1,7 @@
 @import '../../../styles/mixins';
 
 div.component-ButtonBack {
-  @include flex(row, start, space-around);
+  @include flex('row', 'start', 'space-around');
   margin: 10px 25px 0 10px;
   .button-back-ico {
     vertical-align: middle;
