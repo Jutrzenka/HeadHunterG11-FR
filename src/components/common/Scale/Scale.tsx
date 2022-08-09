@@ -13,15 +13,15 @@ export const Scale = ({ title }: Props) => {
       <p>{title}</p>
       <div className="scale-wrap">
         <Input
-          nameValue={'np. 1000 zł '}
+          placeholder={'np. 1000 zł '}
           type={'text'}
-          value={''}
+          name={''}
           title={'Od'}
         />
         <Input
-          nameValue={'np. 10000 zł '}
+          placeholder={'np. 10000 zł '}
           type={'text'}
-          value={''}
+          name={''}
           title={'Do'}
         />
       </div>

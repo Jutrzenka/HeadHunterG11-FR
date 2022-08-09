@@ -14,7 +14,7 @@ export const Radio = ({ title, selects }: Props) => {
       <div className="radio-wrap">
         {selects.map((item, index) => (
           <div key={index}>
-            <Input title={item} value={''} type={'radio'} />
+            <Input title={item} name={''} type={'radio'} />
           </div>
         ))}
       </div>
