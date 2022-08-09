@@ -1,45 +1,41 @@
 import React, { FormEvent, useState } from 'react';
 import { Button } from '../../../components/common/Button/Button';
-import { Form } from '../../../components/common/Form/Form';
-import { Input } from '../../../components/common/Input/Input';
 import { ForgotPassword } from '../../../components/common/ForgotPassword/ForgotPassword';
-import { validateEmail } from '../../../utils/functions/validateEmail';
-import { validatePassword } from '../../../utils/functions/validatePassword';
+import { Form } from "../../../components/common/Form/Form";
+import { Input } from "../../../components/common/Input/Input";
 import './_LoginView.scss';
 
 export const LoginView = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const initForm = {
+    email:'',
+    password:'',
+  }
 
-  const sendForm = (event: FormEvent) => {
-    event.preventDefault();
-    // Wstępna walidacja na frontendzie
-    if (validateEmail(email) && validatePassword(password)) {
-      // Wysyłanie zapytania na backend
-    }
-    // Zwrot komunikatu z informacją o błędnej waldiacji
-  };
+  const sendForm = (value:any) => {
+    // value to wartość przesyłana z formularza
+    console.log(value)
+  }
 
   return (
     <main className="view-LoginView">
       <img src={'/img/logo_MegaK.png'} alt={'Website logo'} />
-      <Form sendForm={sendForm}>
+      <Form formInitialValues={initForm} functionToForm={sendForm}>
         <Input
-          nameValue={'E-mail'}
+          name={'email'}
           type={'text'}
-          value={setEmail}
+          placeholder={'E-mail'}
           maxLength={255}
         />
         <Input
-          nameValue={'Hasło'}
+          name={'password'}
           type={'password'}
-          value={setPassword}
+          placeholder={'Hasło'}
           maxLength={60}
         />
         <div className={'validation-buttons'}>
           <ForgotPassword
             title={'Zapomniałeś hasła?'}
-            email={email}
+            email={''}
             url={'./recover'}
           />
           <Button title={'Zaloguj się'} />

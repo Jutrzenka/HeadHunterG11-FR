@@ -1,86 +1,69 @@
 import React, { FormEvent, useState } from 'react';
 import { Button } from '../../../components/common/Button/Button';
-import { Form } from '../../../components/common/Form/Form';
-import { Input } from '../../../components/common/Input/Input';
-import { validatePassword } from '../../../utils/functions/validatePassword';
 import './_StudentRegisterView.scss';
 import { HttpMethod, useFetch } from '../../../utils/hooks/useFetch';
+import { Form } from "../../../components/common/Form/Form";
+import { Input } from "../../../components/common/Input/Input";
+
 
 export const StudentRegisterView = () => {
-  const [password, setPassword] = useState<string>('');
-  const [repeatPassword, setRepeatPassword] = useState<string>('');
-  const [firstName, setFirstName] = useState<string>('');
-  const [lastName, setLastName] = useState<string>('');
-  const [login, setLogin] = useState<string>('');
-  const [sent, setSent] = useState<boolean>(false);
-
+  const [send, setSend] = useState<boolean>(false);
   const [data, status, fetchData] = useFetch();
 
-  const clear = () => {
-    setPassword('');
-    setRepeatPassword('');
-    setFirstName('');
-    setLastName('');
-    setLogin('');
-  };
+  const initForm ={
+    password:'',
+    confirmPassword:'',
+    firstName:'',
+    lastName:'',
+    login:'',
+  }
 
-  const sendForm = (event: FormEvent) => {
-    event.preventDefault();
-    const form = {
-      firstName,
-      lastName,
-      login,
-      password,
-    };
-    // Wstępna walidacja na frontendzie
-    if (validatePassword(password) && password === repeatPassword) {
-      console.log(form);
+
+  const sendForm = (value:any) => {
+    console.log(value)
       fetchData(``, {
         method: HttpMethod.POST,
         headers: { 'content-type': 'application/json;charset=UTF-8' },
-        body: { form },
+        body: { value },
       });
-      setSent(true);
-      clear();
-      // Wysyłanie zapytania na backend
+      setSend(true);
     }
-    // Zwrot komunikatu z informacją o błędnej waldiacji
-    console.log(form);
-  };
 
-  if (!sent) {
+
+
+  if (!send) {
     return (
       <main className="view-LoginView">
         <img src={'/img/logo_MegaK.png'} alt={'Website logo'} />
-        <Form sendForm={sendForm}>
+        <Form formInitialValues={initForm} functionToForm={sendForm}>
           <Input
-            nameValue={'Login'}
+            placeholder={'Login'}
+            name={'login'}
             type={'text'}
-            value={setLogin}
             maxLength={255}
           />
           <Input
-            nameValue={'Imię'}
+            placeholder={'Imię'}
+            name={'firstName'}
             type={'text'}
-            value={setFirstName}
             maxLength={60}
           />
           <Input
-            nameValue={'Nazwisko'}
+            placeholder={'Nazwisko'}
+            name={'lastName'}
             type={'text'}
-            value={setLastName}
             maxLength={60}
           />
           <Input
-            nameValue={'Hasło'}
+            placeholder={'Hasło'}
+            name={'password'}
             type={'password'}
-            value={setPassword}
             maxLength={60}
           />
           <Input
-            nameValue={'Powtórz hasło'}
+            placeholder={'Powtórz hasło'}
+            name={'confirmPassword'}
             type={'password'}
-            value={setRepeatPassword}
             maxLength={60}
           />
           <div className={'validation-buttons'}>
@@ -100,9 +83,9 @@ export const StudentRegisterView = () => {
           />
           <h2 className="done-title">Udało się zarejsetrować!</h2>
           <a
-            className="done-link"
-            href="http://localhost:3000"
-            onClick={() => setSent(false)}
+              className="done-link"
+              href="http://localhost:3000"
+              onClick={() => setSend(false)}
           >
             Zaloguj się!
           </a>

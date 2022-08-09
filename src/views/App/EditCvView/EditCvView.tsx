@@ -6,9 +6,10 @@ import { Textarea } from '../../../components/common/Textarea/Textarea';
 import { Select } from '../../../components/common/Select/Select';
 import { Radio } from '../../../components/common/Radio/Radio';
 import './_EditCvView.scss';
+import { Form } from "../../../components/common/Form/Form";
 
 export const EditCvView = () => {
-  const [userData, setUserDAta] = useState({
+  const initForm = {
     about: {
       email: 'test@tlen.pl',
       tel: '123123123',
@@ -30,7 +31,30 @@ export const EditCvView = () => {
     workExperience: '',
     portfolioUrls: '',
     projectUrls: '',
-  });
+  }
+  // const [userData, setUserDAta] = useState({
+  //   about: {
+  //     email: 'test@tlen.pl',
+  //     tel: '123123123',
+  //     firstName: 'Jan',
+  //     lastName: 'Kowalski',
+  //     githubUsername: 'Janek',
+  //     bio: 'Test \ndddd\nfd\nd\n\ndddd',
+  //   },
+  //   hireExpectations: {
+  //     expectedTypeWork: '',
+  //     targetWorkCity: '',
+  //     expectedContractType: '',
+  //     expectedSalary: '',
+  //     canTakeApprenticeship: '',
+  //     monthsOfCommercialExp: '',
+  //   },
+  //   education: '',
+  //   courses: '',
+  //   workExperience: '',
+  //   portfolioUrls: '',
+  //   projectUrls: '',
+  // });
 
   const [activeSections, setActiveSections] = useState({
     about: false,
