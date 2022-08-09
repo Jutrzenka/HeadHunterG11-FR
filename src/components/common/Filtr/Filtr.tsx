@@ -19,7 +19,7 @@ export const Filtr = () => {
     <section className="students-filter-component container">
       <div className="input-icons">
         <FaSearch />
-        <Input nameValue={'Szukaj'} type={'text'} value={''} />
+        <Input placeholder={'Szukaj'} type={'text'} name={''} />
       </div>
       <div className="filtr-wrap">
         <FaFilter />

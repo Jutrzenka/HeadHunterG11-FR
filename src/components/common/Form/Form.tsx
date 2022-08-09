@@ -40,7 +40,7 @@ export function Form({ children,formInitialValues, functionToForm }:Props) {
       <FormContext.Provider value={{
         form,
         handleFormChange
-      }}><div>
+      }}><div className={'component-Form'}>
         <form onSubmit={handleSubmit}>
           {children}
         </form>

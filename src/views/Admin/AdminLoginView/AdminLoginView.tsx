@@ -8,38 +8,37 @@ import { Input } from '../../../components/common/Input/Input';
 import './_AdminLoginView.scss';
 
 export const AdminLoginView = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
+  const initForm = {
+    email:'',
+    password:'',
+  }
   const sendForm = (event: FormEvent) => {
-    event.preventDefault();
+    console.log('wysylam admin login view')
     // Wstępna walidacja na frontendzie
-    if (validateEmail(email) && validatePassword(password)) {
-      // Wysyłanie zapytania na backend
-    }
     // Zwrot komunikatu z informacją o błędnej waldiacji
   };
 
   return (
     <main className={'view-AdminLoginView'}>
       <img src={'/img/logo_MegaK.png'} alt={'Website logo'} />
-      <Form sendForm={sendForm}>
+      <Form formInitialValues={initForm} functionToForm={sendForm}>
         <Input
-          nameValue={'E-mail'}
+          placeholder={'E-mail'}
+          name={'email'}
           type={'text'}
-          value={setEmail}
           maxLength={255}
         />
         <Input
-          nameValue={'Hasło'}
+          placeholder={'Hasło'}
+          name={'password'}
           type={'password'}
-          value={setPassword}
           maxLength={60}
         />
         <div className={'validation-buttons'}>
           <ForgotPassword
             title={'Zapomniałeś hasła?'}
-            email={email}
+            email={''}
             url={'./recover'}
           />
           <Button title={'Zaloguj się'} />
