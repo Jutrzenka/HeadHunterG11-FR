@@ -4,68 +4,42 @@ import { Button } from '../../../components/common/Button/Button';
 import { Form } from '../../../components/common/Form/Form';
 import { Input } from '../../../components/common/Input/Input';
 import { useDispatch, useSelector } from 'react-redux';
-import { validateEmail } from '../../../utils/functions/validateEmail';
-import { validatePassword } from '../../../utils/functions/validatePassword';
 import { NavLink, useParams } from 'react-router-dom';
 import './_HrRegisterView.scss';
+import { useFetch } from "../../../utils/hooks/useFetch";
 
 export const HrRegisterView = () => {
   // global variable redux toolkit
   const { token, type } = useSelector((state: RootState) => state.token);
   const dispatch = useDispatch();
 
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [repeatPassword, setRepeatPassword] = useState<string>('');
-  const [firstName, setFirstName] = useState<string>('');
-  const [lastName, setLastName] = useState<string>('');
-  const [company, setCompany] = useState<string>('');
   const [sent, setSent] = useState<boolean>(false);
 
   const { login, registerCode } = useParams();
-  // const [data,status,fetchData] = useFetch()
-  // będzie można od komentować jak bedzie merg na deva
+  const [data,status,fetchData] = useFetch();
 
-  const clear = () => {
-    setEmail('');
-    setPassword('');
-    setRepeatPassword('');
-    setFirstName('');
-    setLastName('');
-    setCompany('');
-  };
+  const initForm = {
+    email:'',
+    password:'',
+    confirmPassword:'',
+    firstName:'',
+    lastName:'',
+    company:'',
+  }
+
+
+
 
   const sendForm = (event: FormEvent) => {
-    event.preventDefault();
-    const form = {
-      firstName,
-      lastName,
-      company,
-      password,
-    };
     // Wstępna walidacja na frontendzie
-    if (
-      validateEmail(email) &&
-      validatePassword(password) &&
-      password === repeatPassword
-    ) {
       // Wysyłanie zapytania na backend
       // fetchData(``,{method: HttpMethod.POST, headers: {'content-type': 'application/json;charset=UTF-8'},body: {form}}
       setSent(true);
-      clear();
       return;
     }
-    console.log(form);
-    console.log(validateEmail(email), 'email', email);
-    console.log(validatePassword(password), 'haslo', password);
-    console.log(
-      password === repeatPassword,
-      'czy haslo to haslo',
-      password,
-      repeatPassword,
-    );
-    // Zwrot komunikatu z informacją o błędnej waldiacji
-  };
+
+
+
   if (!sent) {
     return (
       <div className="hrRegister-view">
@@ -74,41 +48,41 @@ export const HrRegisterView = () => {
           src={'/img/logo_MegaK.png'}
           alt={'Website logo'}
         />
-        <Form sendForm={sendForm}>
+        <Form formInitialValues={initForm} functionToForm={sendForm}>
           <Input
-            nameValue={'E-mail'}
+            placeholder={'E-mail'}
+            name={'email'}
             type={'text'}
-            value={setEmail}
             maxLength={255}
           />
           <Input
-            nameValue={'Imię'}
+            placeholder={'Imię'}
+            name={'firstName'}
             type={'text'}
-            value={setFirstName}
             maxLength={60}
           />
           <Input
-            nameValue={'Nazwisko'}
+            placeholder={'Nazwisko'}
+            name={'lastName'}
             type={'text'}
-            value={setLastName}
             maxLength={60}
           />
           <Input
-            nameValue={'Nazwa firmy'}
+            placeholder={'Nazwa firmy'}
+            name={'company'}
             type={'text'}
-            value={setCompany}
             maxLength={60}
           />
           <Input
-            nameValue={'Hasło'}
+            placeholder={'Hasło'}
+            name={'password'}
             type={'password'}
-            value={setPassword}
             maxLength={60}
           />
           <Input
-            nameValue={'Powtórz hasło'}
+            placeholder={'Powtórz hasło'}
+            name={'confirmPassword'}
             type={'password'}
-            value={setRepeatPassword}
             maxLength={60}
           />
           <div className={'validation-buttons'}>
@@ -127,9 +101,13 @@ export const HrRegisterView = () => {
             alt={'Website logo'}
           />
           <h2 className="done-title">Udało się zarejsetrować!</h2>
-          <NavLink className="done-link" to="/" onClick={() => setSent(false)}>
+          <a
+              className="done-link"
+              href="http://localhost:3000"
+              onClick={() => setSent(false)}
+          >
             Zaloguj się!
-          </NavLink>
+          </a>
         </div>
       </div>
     );
