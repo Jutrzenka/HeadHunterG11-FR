@@ -59,6 +59,8 @@ export const EditCvView = () => {
     console.log('Fetch- wysłanie nowych danych na backend');
   };
 
+  //TODO: "canTakeApprenticeship, expectedContractType, expectedTypeWork nie działają w formularzu"
+
   return (
     <main className={'view-EditCvView'}>
       <Header />
@@ -68,7 +70,7 @@ export const EditCvView = () => {
           <div className="title-wrap">
             <h3>Ogólne</h3>
             <Button
-              type={'submit'}
+              // type={'submit'}
               title={activeSections.about ? 'Zapisz' : 'Edytuj'}
               toggle={() => toggle('about')}
             />
