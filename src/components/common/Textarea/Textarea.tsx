@@ -1,24 +1,28 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import './_Textarea.scss';
+import { FormContext } from '../Form/Form';
 
 interface Props {
-  value: any;
+  name: string;
+  value?: any;
   nameValue?: string;
   title?: string;
   minLength?: number;
   maxLength?: number;
   maxHeight?: number;
-  // lineHeightPX?: number;
 }
 
 export const Textarea = ({
+  name,
   nameValue,
   value,
   title,
   maxLength = 1000,
   maxHeight = 500,
 }: Props) => {
-  const [inputValue, setInputValue] = useState(value);
+  const formContext = useContext<any>(FormContext);
+  const { form, handleFormChange } = formContext;
+  const [inputValue, setInputValue] = useState(form[name]);
   const activeSlideRef = useRef<HTMLTextAreaElement>(null);
   const styleCss = {
     maxHeight: `${maxHeight}px`,
@@ -36,6 +40,7 @@ export const Textarea = ({
       const { scrollHeight, style } = activeSlideRef.current;
       style.height = `${scrollHeight}px`;
     }
+    // handleFormChange;
   }, [inputValue]);
 
   return (
@@ -43,18 +48,21 @@ export const Textarea = ({
       <label>
         {title && <p>{title}</p>}
         <textarea
+          name={name}
           style={styleCss}
           maxLength={maxLength}
           ref={activeSlideRef}
           value={inputValue}
           onChange={(event) => {
             event.target.style.height = '76px';
+            handleFormChange(event);
             setInputValue(event.target.value);
           }}
           onBlur={(event) => {
             if (event.target.value.trim() !== inputValue) {
               event.target.style.height = '76px';
             }
+            handleFormChange(event);
             setInputValue(event.target.value.trim());
           }}
         ></textarea>
