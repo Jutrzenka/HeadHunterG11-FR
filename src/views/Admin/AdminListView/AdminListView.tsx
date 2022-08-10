@@ -25,8 +25,8 @@ export const AdminListView = () => {
 
           <div className="page-number">
             <MdNavigateBefore />
-            <p>
-              <span>10</span> z <span>11</span>
+            <p className="number-wrap">
+              <span>10</span> / <span>11</span>
             </p>
             <MdNavigateNext />
           </div>

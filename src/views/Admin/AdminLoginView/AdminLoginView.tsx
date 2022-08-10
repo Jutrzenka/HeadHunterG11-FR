@@ -13,8 +13,8 @@ export const AdminLoginView = () => {
     email:'',
     password:'',
   }
-  const sendForm = (event: FormEvent) => {
-    console.log('wysylam admin login view')
+  const sendForm = (value:any) => {
+    console.log(value,'wysylam admin login view')
     // Wstępna walidacja na frontendzie
     // Zwrot komunikatu z informacją o błędnej waldiacji
   };
