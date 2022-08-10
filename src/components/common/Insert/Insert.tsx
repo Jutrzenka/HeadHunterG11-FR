@@ -12,9 +12,9 @@ export const Insert = ({ title }: Props) => {
       <p>{title}</p>
       <div className="radio-wrap">
         <Input
-          value={''}
+          name={''}
           type={'number'}
-          nameValue={'0 miesięcy'}
+          placeholder={'0 miesięcy'}
           minLength={0}
         />
       </div>

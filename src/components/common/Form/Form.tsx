@@ -43,6 +43,11 @@ export function Form({ children, formInitialValues, functionToForm }: Props) {
     >
       <div>
         <form onSubmit={handleSubmit}>{children}</form>
+        handleFormChange
+      }}><div className={'component-Form'}>
+        <form onSubmit={handleSubmit}>
+          {children}
+        </form>
       </div>
     </FormContext.Provider>
   );

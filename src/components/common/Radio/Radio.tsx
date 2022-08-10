@@ -16,6 +16,7 @@ export const Radio = ({ title, selects, name }: Props) => {
         {selects.map((item, index) => (
           <div key={index}>
             <Input name={name} title={item} value={''} type={'radio'} />
+            <Input title={item} name={''} type={'radio'} />
           </div>
         ))}
       </div>

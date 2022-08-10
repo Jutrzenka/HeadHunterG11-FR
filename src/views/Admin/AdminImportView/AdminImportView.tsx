@@ -13,7 +13,6 @@ export const AdminImportView = () => {
   const [file, setFile] = useState('');
 
   const sendForm = (event: FormEvent) => {
-    event.preventDefault();
     console.log('send');
   };
 
@@ -36,9 +35,10 @@ export const AdminImportView = () => {
         </div>
 
         <div className="form-wrap container">
-          <Form sendForm={sendForm}>
+          <Form formInitialValues={file} functionToForm={sendForm}>
             <Input
-              nameValue={''}
+              placeholder={''}
+              name={''}
               type={'file'}
               value={setFile}
               // Należy ustawić maxLength

@@ -20,7 +20,7 @@ export const AdminListView = () => {
 
           <div className="input-icons">
             <FaSearch />
-            <Input nameValue={'Szukaj'} type={'text'} value={''} />
+            <Input placeholder={'Szukaj'} type={'text'} name={''} />
           </div>
 
           <div className="page-number">
