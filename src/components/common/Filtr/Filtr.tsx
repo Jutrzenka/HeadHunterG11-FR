@@ -51,6 +51,7 @@ export const Filtr = () => {
           <Scale title={'Oczekiwane wynagrodzenie miesięczne netto'} />
           <Radio
             title={'Zgoda na odbycie bezpłatnych praktyk/stażu na początek'}
+            name={''}
             selects={['Tak', 'Nie']}
           />
           <Insert
