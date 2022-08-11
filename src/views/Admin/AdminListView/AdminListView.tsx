@@ -7,8 +7,12 @@ import { Button } from '../../../components/common/Button/Button';
 import { Input } from '../../../components/common/Input/Input';
 
 import './_AdminListView.scss';
+import { useFetch } from "../../../utils/hooks/useFetch";
 
 export const AdminListView = () => {
+  const [data,status] = useFetch(`localhost:3000/api/admin/students`);
+  console.log(data,'data' )
+  console.log('status',status)
   return (
     <main className={'view-AdminListView'}>
       <AdminLayout>
