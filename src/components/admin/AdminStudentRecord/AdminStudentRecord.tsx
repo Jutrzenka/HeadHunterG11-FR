@@ -4,17 +4,26 @@ import { useToggle } from '../../../utils/hooks/useToggle';
 import { Button } from '../../common/Button/Button';
 import './_AdminStudentRecord.scss';
 
-export const AdminStudentRecord = () => {
+interface Props {
+  activeAccount: boolean;
+  email: string;
+  idUser: string;
+  login: string;
+  role: string
+}
+
+export const AdminStudentRecord = ({activeAccount,email,idUser,login,role}:Props) => {
   const [value, toggle] = useToggle(true);
+  const dataFromProps = {idUser,role}
 
   return (
     <div className={'component-AdminStudentRecord'}>
       <div className="top-wrap">
         <div className="user-name-wrap">
-          <p>Imię i nazwisko</p>
-          <p>adres@email.com</p>
+          <p>{login}</p>
+          <p>{email}</p>
         </div>
-        {value ? (
+        {activeAccount ? (
           <div className="status-wrap">
             <div className="active-user"></div>
             <p>active</p>
