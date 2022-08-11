@@ -19,6 +19,9 @@ main.view-AdminListView {
         padding: 20px 34px;
         transition: var(--transition);
       }
+      .active {
+        border-bottom: red solid 2px;
+      }
     }
 
     .input-icons {
