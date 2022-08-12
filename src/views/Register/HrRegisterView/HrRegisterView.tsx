@@ -95,7 +95,7 @@ export const HrRegisterView = () => {
     };
      alert(`
       Błąd!!!
-      Formularz musi:
+      Formularz:
       ${!errorsEdit.email ? 'Email musi zawierać @ i być dłuższy niż 5 znaków' : ''}
       ${!errorsEdit.password   ?  'Hasło musi być dłuższye niż 5 znaków' : ''}
       ${!errorsEdit.confirmPassword ? 'Pole hasło i powtórz hasło muszą być takie same' : ''}
