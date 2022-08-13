@@ -1,9 +1,9 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { Header } from '../../../components/common/Header/Header';
 import { Input } from '../../../components/common/Input/Input';
-import { Button } from '../../../components/common/Button/Button';
+import { Button } from '../../../components/common/Button_v2/Button';
 import { Textarea } from '../../../components/common/Textarea/Textarea';
-import { Select } from '../../../components/common/Select/Select';
+import { Select } from '../../../components/common/Select_v2/Select';
 import { Radio } from '../../../components/common/Radio/Radio';
 import './_EditCvView.scss';
 import { Form } from '../../../components/common/Form/Form';
@@ -17,9 +17,9 @@ export const EditCvView = () => {
     githubUsername: 'Janek',
     bio: 'Test \ndddd\nfd\nd\n\ndddd',
 
-    expectedTypeWork: '',
+    expectedTypeWork: 'Bez znaczenia',
     targetWorkCity: '',
-    expectedContractType: '',
+    expectedContractType: 'Brak preferencji',
     expectedSalary: '',
     canTakeApprenticeship: '',
     monthsOfCommercialExp: '',
@@ -71,6 +71,7 @@ export const EditCvView = () => {
             <h3>Ogólne</h3>
             <Button
               // type={'submit'}
+              className={activeSections.about ? 'save-button' : 'edit-button'}
               title={activeSections.about ? 'Zapisz' : 'Edytuj'}
               toggle={() => toggle('about')}
             />
@@ -109,14 +110,14 @@ export const EditCvView = () => {
             />
             <Input
               name={'githubUsername'}
-              title={'Login GitHuba'}
+              title={'Login GitHub'}
               // value={userData.githubUsername}
               type={'text'}
             />
             <Textarea
               name={'bio'}
               nameValue={'bio'}
-              title={'Krótkie bio'}
+              title={'O mnie'}
               // value={userData.bio}
             />
           </div>
@@ -126,6 +127,9 @@ export const EditCvView = () => {
           <div className="title-wrap">
             <h3>Oczekiwania w stosunku do zatrudnienia</h3>
             <Button
+              className={
+                activeSections.hireExpectations ? 'save-button' : 'edit-button'
+              }
               title={activeSections.hireExpectations ? 'Zapisz' : 'Edytuj'}
               toggle={() => toggle('hireExpectations')}
             />
@@ -133,7 +137,7 @@ export const EditCvView = () => {
 
           <div className="content-wrap">
             <Select
-              // name={'expectedTypeWork'}
+              name={'expectedTypeWork'}
               title={'Preferowane miejsce pracy'}
               selects={[
                 'Na miejscu',
@@ -152,7 +156,7 @@ export const EditCvView = () => {
             />
 
             <Select
-              // name={'expectedContractType'}
+              name={'expectedContractType'}
               title={'Oczekiwany typ kontraktu'}
               selects={[
                 'Tylko UoP',
@@ -188,6 +192,9 @@ export const EditCvView = () => {
           <div className="title-wrap">
             <h3>Edukacja</h3>
             <Button
+              className={
+                activeSections.education ? 'save-button' : 'edit-button'
+              }
               title={activeSections.education ? 'Zapisz' : 'Edytuj'}
               toggle={() => toggle('education')}
             />
@@ -205,6 +212,7 @@ export const EditCvView = () => {
           <div className="title-wrap">
             <h3>Kursy</h3>
             <Button
+              className={activeSections.courses ? 'save-button' : 'edit-button'}
               title={activeSections.courses ? 'Zapisz' : 'Edytuj'}
               toggle={() => toggle('courses')}
             />
@@ -222,6 +230,9 @@ export const EditCvView = () => {
           <div className="title-wrap">
             <h3>Doświadczenie zawodowe</h3>
             <Button
+              className={
+                activeSections.workExperience ? 'save-button' : 'edit-button'
+              }
               title={activeSections.workExperience ? 'Zapisz' : 'Edytuj'}
               toggle={() => toggle('workExperience')}
             />
@@ -239,6 +250,9 @@ export const EditCvView = () => {
           <div className="title-wrap">
             <h3>Portfolio</h3>
             <Button
+              className={
+                activeSections.portfolio ? 'save-button' : 'edit-button'
+              }
               title={activeSections.portfolio ? 'Zapisz' : 'Edytuj'}
               toggle={() => toggle('portfolio')}
             />
@@ -256,6 +270,7 @@ export const EditCvView = () => {
           <div className="title-wrap">
             <h3>Projekt na zaliczenie</h3>
             <Button
+              className={activeSections.project ? 'save-button' : 'edit-button'}
               title={activeSections.project ? 'Zapisz' : 'Edytuj'}
               toggle={() => toggle('project')}
             />

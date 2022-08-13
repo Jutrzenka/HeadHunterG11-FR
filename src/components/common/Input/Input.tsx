@@ -36,6 +36,7 @@ export function Input({
           onChange={handleFormChange}
           maxLength={maxLength}
           minLength={minLength}
+          disabled={false}
         />
       </label>
     </div>
