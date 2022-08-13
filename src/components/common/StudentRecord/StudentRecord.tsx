@@ -4,6 +4,7 @@ import { AboutUserShortCut } from '../AboutUserShortCut/AboutUserShortCut';
 import { Button } from '../Button/Button';
 
 import './_StudentRecord.scss';
+import { ShowCvBtn } from "../ShowCvBtn/ShowCvBtn";
 
 export const StudentRecord = () => {
   const [value, toggle] = useToggle(false);
@@ -23,7 +24,7 @@ export const StudentRecord = () => {
             </div>
           </div>
           <div className="action-wrap">
-            <Button title={'Pokaż Cv'} />
+            <ShowCvBtn url={`../students/id`}/>
             <Button title={'Brak zainteresowania'} />
             <Button title={'Zatrudniony'} />
             <img
