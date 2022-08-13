@@ -1,22 +1,42 @@
-import React, { FormEvent, useState } from 'react';
-import { validateEmail } from '../../../utils/functions/validateEmail';
-import { validatePassword } from '../../../utils/functions/validatePassword';
+import React from 'react';
 import { Button } from '../../../components/common/Button/Button';
 import { ForgotPassword } from '../../../components/common/ForgotPassword/ForgotPassword';
 import { Form } from '../../../components/common/Form/Form';
 import { Input } from '../../../components/common/Input/Input';
 import './_AdminLoginView.scss';
+import { HttpMethod, useFetch } from "../../../utils/hooks/useFetch";
+
+interface AdminLoginForm{
+  email:string;
+  password:string;
+}
 
 export const AdminLoginView = () => {
+
+  const [data,status,fetchData] = useFetch();
+  console.log(data,status)
+  if(status === 'fetched'){
+    // tylko gdy skonczyło sie pobierać
+    // tutaj data ma juz wartosc zwroconych danych
+    console.log('ustawiam token')
+  }
 
   const initForm = {
     email:'',
     password:'',
   }
-  const sendForm = (value:any) => {
-    console.log(value,'wysylam admin login view')
-    // Wstępna walidacja na frontendzie
-    // Zwrot komunikatu z informacją o błędnej waldiacji
+  const sendForm = (data:AdminLoginForm) => {
+    console.log(data,'wysylam admin login view')
+    if(data.email !== '' && data.password !== ''){
+      fetchData(`http://localhost:3001/api/admin/auth/login`,{
+        method: HttpMethod.POST,
+        headers: {'content-type': 'application/json;charset=UTF-8'},
+        body: {data}
+      })
+      return;
+    };
+    return alert('Nie możesz zostawić mustego pola')
+
   };
 
   return (

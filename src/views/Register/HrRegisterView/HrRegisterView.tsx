@@ -92,7 +92,10 @@ export const HrRegisterView = () => {
       // @ts-ignore
       delete data.confirmPassword
       console.log(data, 'po delete')
-      fetchData(`http://localhost:3001/api/auth/register/${login}/${registerCode}`,{method: HttpMethod.PATCH, headers: {'content-type': 'application/json;charset=UTF-8'},body: {data}});
+      fetchData(`http://localhost:3001/api/auth/register/${login}/${registerCode}`,{
+          method: HttpMethod.PATCH,
+          headers: {'content-type': 'application/json;charset=UTF-8'},
+          body: {data}});
       return;
     };
      alert(`
