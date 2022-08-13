@@ -40,8 +40,6 @@ export const HrRegisterView = () => {
 
   const fetched = status === 'fetched'
 
-  const fetched = status === 'fetched' ? true : false;
-
   // @ts-ignore
     const successRegister = fetched && data.success;
 
@@ -61,31 +59,32 @@ export const HrRegisterView = () => {
   }
 
  const validateForm = (data: HRRegisterForm) => {
-        if(data.email.length > 5 && data.email.includes('@')){
-            errorsEdit.email = true;
-        }
-        if(data.password === data.confirmPassword && data.confirmPassword.length > 1){
-            errorsEdit.confirmPassword = true;
-        }
-        if(data.password.length > 5){
-            errorsEdit.password = true;
-        }
-        if(data.firstName.length > 2){
-            errorsEdit.firstName = true;
-        }
-        if(data.lastName.length > 2){
+     if (data.email.length > 5 && data.email.includes('@')) {
+         errorsEdit.email = true;
+     }
+     if (data.password === data.confirmPassword && data.confirmPassword.length > 1) {
+         errorsEdit.confirmPassword = true;
+     }
+     if (data.password.length > 5) {
+         errorsEdit.password = true;
+     }
+     if (data.firstName.length > 2) {
+         errorsEdit.firstName = true;
+     }
+     if (data.lastName.length > 2) {
          errorsEdit.lastName = true;
-       }
-        if(data.company.length > 2){
+     }
+     if (data.company.length > 2) {
          errorsEdit.company = true;
-      }
-        if(errorsEdit.company && errorsEdit.lastName && errorsEdit.password && errorsEdit.confirmPassword && errorsEdit.email && errorsEdit.firstName){
-            errorsEdit.confirm = true;
-        }
-      if (errorsEdit.confirm){
-      if (data.email.length > 5 && data.password === data.confirmPassword && data.firstName.length > 1 && data.lastName.length > 2 && data.company.length > 2 ){
-        return true
-      } else return false
+     }
+     if (errorsEdit.company && errorsEdit.lastName && errorsEdit.password && errorsEdit.confirmPassword && errorsEdit.email && errorsEdit.firstName) {
+         errorsEdit.confirm = true;
+     }
+     if (errorsEdit.confirm) {
+         if (data.email.length > 5 && data.password === data.confirmPassword && data.firstName.length > 1 && data.lastName.length > 2 && data.company.length > 2) {
+             return true
+         } else return false
+     }
  }
  const sendForm = (data: HRRegisterForm) => {
     // Wstępna walidacja na frontendzie
