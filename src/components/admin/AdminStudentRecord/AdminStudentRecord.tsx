@@ -42,6 +42,15 @@ export const AdminStudentRecord = ({activeAccount,email,idUser,login,role}:Props
     return;
   }
 
+  const resetRecord = () => {
+    fetchData(`http://localhost:3001/api/admin/user/${idUser}`,
+        {method: HttpMethod.POST,
+          headers: {'content-type': 'application/json;charset=UTF-8'},
+          body: {}});
+    console.log('Resetowanie', idUser);
+    return;
+  }
+
   const edit = <Form formInitialValues={{email:email}} functionToForm={sendUpdate}>
     <Input
         name={'email'}
@@ -75,7 +84,9 @@ export const AdminStudentRecord = ({activeAccount,email,idUser,login,role}:Props
             deleteRecord();
             window.location.reload();
           }} />
-          <Button title={'Resetuj'} />
+          <Button title={'Resetuj'} toggle={() => {
+            resetRecord();
+          }} />
         </div>
       </div>
 
