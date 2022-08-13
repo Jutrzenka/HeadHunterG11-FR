@@ -9,6 +9,7 @@ import './_HrRegisterView.scss';
 import { HttpMethod, useFetch } from "../../../utils/hooks/useFetch";
 import { ErrorView } from "../../ErrorView";
 
+
 interface HRRegisterForm{
   email:string;
   password: string;
@@ -26,7 +27,6 @@ const initErrors = {
     company:false,
     confirm:false,
 }
-
 export const HrRegisterView = () => {
   // global variable redux toolkit
   const { token, type } = useSelector((state: RootState) => state.token);
@@ -39,6 +39,8 @@ export const HrRegisterView = () => {
    let errorsEdit = initErrors
 
   const fetched = status === 'fetched'
+
+  const fetched = status === 'fetched' ? true : false;
 
   // @ts-ignore
     const successRegister = fetched && data.success;
@@ -81,6 +83,7 @@ export const HrRegisterView = () => {
             errorsEdit.confirm = true;
         }
       if (errorsEdit.confirm){
+      if (data.email.length > 5 && data.password === data.confirmPassword && data.firstName.length > 1 && data.lastName.length > 2 && data.company.length > 2 ){
         return true
       } else return false
  }
@@ -103,6 +106,7 @@ export const HrRegisterView = () => {
       `)
      errorsEdit = initErrors
      return
+
     }
 
 
