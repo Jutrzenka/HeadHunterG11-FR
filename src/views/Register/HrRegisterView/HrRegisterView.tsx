@@ -34,7 +34,7 @@ export const HrRegisterView = () => {
 
   const { login, registerCode } = useParams();
   const [data,status,fetchData] = useFetch();
-  console.log(data,status);
+
 
    let errorsEdit = initErrors
 

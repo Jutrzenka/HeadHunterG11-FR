@@ -19,7 +19,7 @@ interface StudentRecord {
 
 export const AdminListView = () => {
   const [activeRole, setActiveRole] = useState('students');
-  const [filterRole, setFilterRole] = useState('S')
+  const [filterRole, setFilterRole] = useState('S');
   const [data,status] = useFetch(`http://localhost:3001/api/admin/${activeRole}`);
   console.log(data)
 
