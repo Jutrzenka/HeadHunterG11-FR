@@ -1,28 +1,32 @@
 import React, { FormEvent, useState } from "react";
-import './_AdminImportCsv.scss';
-import { Input } from "../../common/Input/Input";
 import { Button } from "../../common/Button/Button";
-import { Form } from "../../common/Form/Form";
+import './_AdminImportCsv.scss';
+
 
 export const AdminImportCsv = () => {
-    const [file, setFile] = useState('');
 
-    const sendForm = (event: FormEvent) => {
-        console.log('send');
+    const handleSubmit = (e: FormEvent) => {
+        e.preventDefault();
+        // @ts-ignore
+        const formData = new FormData(e.target);
+        fetch(`http://localhost:3001/api/admin/create/csv`,{
+            method:"PUT",
+            body:formData,
+        })
+            .then((respone) => {
+                respone.text()
+                    .then((text) => console.log(text));
+            })
+            .catch((error) => {
+                console.error('File upload error!');
+            });
     };
     return(
         <div>
-            <Form formInitialValues={file} functionToForm={sendForm}>
-                <Input
-                    placeholder={''}
-                    name={''}
-                    type={'file'}
-                    value={setFile}
-                    // Należy ustawić maxLength
-                    maxLength={255}
-                />
+            <form onSubmit={handleSubmit}>
+                <input type="file" name="my-file"/>
                 <Button title={'Wybierz plik i dodaj'} />
-            </Form>
+            </form>
         </div>
     )
 }
