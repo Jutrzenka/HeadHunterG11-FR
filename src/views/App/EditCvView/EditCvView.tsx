@@ -63,12 +63,8 @@ export const EditCvView = () => {
   return (
     <main className={'view-EditCvView'}>
       <Header />
-      {/*##FORMULARZ */}
       <Form formInitialValues={userData} functionToForm={onSubmit}>
         <section className={`about container`}>
-          {/*<section*/}
-          {/*  className={`about container ${isActive(activeSections.about)}`}*/}
-          {/*>*/}
           <div className="title-wrap">
             <h3>Ogólne</h3>
             <Button
@@ -83,35 +79,30 @@ export const EditCvView = () => {
             <Input
               name={'email'}
               title={'Adres e-mail'}
-              // value={userData.email}
               type={'text'}
               disabled={!activeSections.about}
             />
             <Input
               name={'tel'}
               title={'Nr tel.'}
-              // value={userData.tel}
               type={'text'}
               disabled={!activeSections.about}
             />
             <Input
               name={'firstName'}
               title={'Imię'}
-              // value={userData.firstName}
               type={'text'}
               disabled={!activeSections.about}
             />
             <Input
               name={'lastName'}
               title={'Nazwisko'}
-              // value={userData.lastName}
               type={'text'}
               disabled={!activeSections.about}
             />
             <Input
               name={'githubUsername'}
               title={'Login GitHub'}
-              // value={userData.githubUsername}
               type={'text'}
               disabled={!activeSections.about}
             />
@@ -119,7 +110,6 @@ export const EditCvView = () => {
               name={'bio'}
               nameValue={'bio'}
               title={'O mnie'}
-              // value={userData.bio}
               disabled={!activeSections.about}
             />
           </div>
@@ -155,7 +145,6 @@ export const EditCvView = () => {
             <Input
               name={'targetWorkCity'}
               title={'Docelowe miasto, gdzie chce pracować kandydat'}
-              // value={userData.email}
               type={'text'}
               disabled={!activeSections.hireExpectations}
             />
@@ -175,7 +164,6 @@ export const EditCvView = () => {
             <Input
               name={'expectedSalary'}
               title={'Oczekiwane wynagrodzenie miesięczne netto'}
-              // value={userData.expectedSalary}
               type={'number'}
               disabled={!activeSections.hireExpectations}
             />
@@ -190,7 +178,6 @@ export const EditCvView = () => {
             <Input
               name={'monthsOfCommercialExp'}
               title={'Komercyjne doświadczenie w programowaniu'}
-              // value={userData.monthsOfCommercialExp}
               type={'number'}
               disabled={!activeSections.hireExpectations}
             />
@@ -212,7 +199,6 @@ export const EditCvView = () => {
           <div className="content-wrap">
             <Textarea
               name={'education'}
-              // value={userData.education}
               nameValue={'one-column'}
               disabled={!activeSections.education}
             />
@@ -232,7 +218,6 @@ export const EditCvView = () => {
           <div className="content-wrap">
             <Textarea
               name={'courses'}
-              // value={userData.courses}
               nameValue={'one-column'}
               disabled={!activeSections.courses}
             />
@@ -254,7 +239,6 @@ export const EditCvView = () => {
           <div className="content-wrap">
             <Textarea
               name={'workExperience'}
-              // value={activeSections.workExperience}
               nameValue={'one-column'}
               disabled={!activeSections.workExperience}
             />
@@ -276,7 +260,6 @@ export const EditCvView = () => {
           <div className="content-wrap">
             <Textarea
               name={'portfolioUrls'}
-              // value={userData.portfolioUrls}
               nameValue={'one-column'}
               disabled={!activeSections.portfolio}
             />
@@ -296,7 +279,6 @@ export const EditCvView = () => {
           <div className="content-wrap">
             <Textarea
               name={'projectUrls'}
-              // value={userData.projectUrls}
               nameValue={'one-column'}
               disabled={!activeSections.project}
             />
