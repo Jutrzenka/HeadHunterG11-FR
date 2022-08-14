@@ -10,6 +10,7 @@ interface Props {
   minLength?: number;
   maxLength?: number;
   maxHeight?: number;
+  disabled?: boolean;
 }
 
 export const Textarea = ({
@@ -19,6 +20,7 @@ export const Textarea = ({
   title,
   maxLength = 1000,
   maxHeight = 500,
+  disabled,
 }: Props) => {
   const formContext = useContext<any>(FormContext);
   const { form, handleFormChange } = formContext;
@@ -53,6 +55,7 @@ export const Textarea = ({
           maxLength={maxLength}
           ref={activeSlideRef}
           value={inputValue}
+          disabled={disabled ? disabled : false}
           onChange={(event) => {
             event.target.style.height = '76px';
             handleFormChange(event);

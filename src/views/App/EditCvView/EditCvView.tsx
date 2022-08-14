@@ -21,7 +21,7 @@ export const EditCvView = () => {
     targetWorkCity: '',
     expectedContractType: 'Brak preferencji',
     expectedSalary: '',
-    canTakeApprenticeship: '',
+    canTakeApprenticeship: 'TAK',
     monthsOfCommercialExp: '',
 
     education: '',
@@ -55,33 +55,29 @@ export const EditCvView = () => {
 
   const onSubmit = (e: any) => {
     // e.preventDefault();
-    console.log(e);
+    // console.log(e);
+    // setUserDAta(e);
     console.log('Fetch- wysłanie nowych danych na backend');
   };
-
-  //TODO: "canTakeApprenticeship, expectedContractType, expectedTypeWork nie działają w formularzu"
 
   return (
     <main className={'view-EditCvView'}>
       <Header />
       {/*##FORMULARZ */}
       <Form formInitialValues={userData} functionToForm={onSubmit}>
-        <section className="about container">
+        <section className={`about container`}>
+          {/*<section*/}
+          {/*  className={`about container ${isActive(activeSections.about)}`}*/}
+          {/*>*/}
           <div className="title-wrap">
             <h3>Ogólne</h3>
             <Button
-              // type={'submit'}
+              type={!activeSections.about ? 'submit' : 'button'}
               className={activeSections.about ? 'save-button' : 'edit-button'}
               title={activeSections.about ? 'Zapisz' : 'Edytuj'}
               toggle={() => toggle('about')}
             />
           </div>
-
-          {/*<Input*/}
-          {/*  name={'submito'}*/}
-          {/*  value={userData.about.email}*/}
-          {/*  type={'submit'}*/}
-          {/*/>*/}
 
           <div className="content-wrap">
             <Input
@@ -89,36 +85,42 @@ export const EditCvView = () => {
               title={'Adres e-mail'}
               // value={userData.email}
               type={'text'}
+              disabled={!activeSections.about}
             />
             <Input
               name={'tel'}
               title={'Nr tel.'}
               // value={userData.tel}
               type={'text'}
+              disabled={!activeSections.about}
             />
             <Input
               name={'firstName'}
               title={'Imię'}
               // value={userData.firstName}
               type={'text'}
+              disabled={!activeSections.about}
             />
             <Input
               name={'lastName'}
               title={'Nazwisko'}
               // value={userData.lastName}
               type={'text'}
+              disabled={!activeSections.about}
             />
             <Input
               name={'githubUsername'}
               title={'Login GitHub'}
               // value={userData.githubUsername}
               type={'text'}
+              disabled={!activeSections.about}
             />
             <Textarea
               name={'bio'}
               nameValue={'bio'}
               title={'O mnie'}
               // value={userData.bio}
+              disabled={!activeSections.about}
             />
           </div>
         </section>
@@ -127,6 +129,7 @@ export const EditCvView = () => {
           <div className="title-wrap">
             <h3>Oczekiwania w stosunku do zatrudnienia</h3>
             <Button
+              type={!activeSections.hireExpectations ? 'submit' : 'button'}
               className={
                 activeSections.hireExpectations ? 'save-button' : 'edit-button'
               }
@@ -146,6 +149,7 @@ export const EditCvView = () => {
                 'Hybrydowo',
                 'Bez znaczenia',
               ]}
+              disabled={!activeSections.hireExpectations}
             />
 
             <Input
@@ -153,6 +157,7 @@ export const EditCvView = () => {
               title={'Docelowe miasto, gdzie chce pracować kandydat'}
               // value={userData.email}
               type={'text'}
+              disabled={!activeSections.hireExpectations}
             />
 
             <Select
@@ -164,6 +169,7 @@ export const EditCvView = () => {
                 'Możliwe UZ/UoD',
                 'Brak preferencji',
               ]}
+              disabled={!activeSections.hireExpectations}
             />
 
             <Input
@@ -171,12 +177,14 @@ export const EditCvView = () => {
               title={'Oczekiwane wynagrodzenie miesięczne netto'}
               // value={userData.expectedSalary}
               type={'number'}
+              disabled={!activeSections.hireExpectations}
             />
 
             <Radio
               name={'canTakeApprenticeship'}
               title={'Zgoda na odbycie bezpłatnych praktyk/stażu na początek'}
               selects={['TAK', 'NIE']}
+              disabled={!activeSections.hireExpectations}
             />
 
             <Input
@@ -184,6 +192,7 @@ export const EditCvView = () => {
               title={'Komercyjne doświadczenie w programowaniu'}
               // value={userData.monthsOfCommercialExp}
               type={'number'}
+              disabled={!activeSections.hireExpectations}
             />
           </div>
         </section>
@@ -192,6 +201,7 @@ export const EditCvView = () => {
           <div className="title-wrap">
             <h3>Edukacja</h3>
             <Button
+              type={!activeSections.education ? 'submit' : 'button'}
               className={
                 activeSections.education ? 'save-button' : 'edit-button'
               }
@@ -204,6 +214,7 @@ export const EditCvView = () => {
               name={'education'}
               // value={userData.education}
               nameValue={'one-column'}
+              disabled={!activeSections.education}
             />
           </div>
         </section>
@@ -212,6 +223,7 @@ export const EditCvView = () => {
           <div className="title-wrap">
             <h3>Kursy</h3>
             <Button
+              type={!activeSections.courses ? 'submit' : 'button'}
               className={activeSections.courses ? 'save-button' : 'edit-button'}
               title={activeSections.courses ? 'Zapisz' : 'Edytuj'}
               toggle={() => toggle('courses')}
@@ -222,6 +234,7 @@ export const EditCvView = () => {
               name={'courses'}
               // value={userData.courses}
               nameValue={'one-column'}
+              disabled={!activeSections.courses}
             />
           </div>
         </section>
@@ -230,6 +243,7 @@ export const EditCvView = () => {
           <div className="title-wrap">
             <h3>Doświadczenie zawodowe</h3>
             <Button
+              type={!activeSections.workExperience ? 'submit' : 'button'}
               className={
                 activeSections.workExperience ? 'save-button' : 'edit-button'
               }
@@ -242,6 +256,7 @@ export const EditCvView = () => {
               name={'workExperience'}
               // value={activeSections.workExperience}
               nameValue={'one-column'}
+              disabled={!activeSections.workExperience}
             />
           </div>
         </section>
@@ -250,6 +265,7 @@ export const EditCvView = () => {
           <div className="title-wrap">
             <h3>Portfolio</h3>
             <Button
+              type={!activeSections.portfolio ? 'submit' : 'button'}
               className={
                 activeSections.portfolio ? 'save-button' : 'edit-button'
               }
@@ -262,6 +278,7 @@ export const EditCvView = () => {
               name={'portfolioUrls'}
               // value={userData.portfolioUrls}
               nameValue={'one-column'}
+              disabled={!activeSections.portfolio}
             />
           </div>
         </section>
@@ -270,6 +287,7 @@ export const EditCvView = () => {
           <div className="title-wrap">
             <h3>Projekt na zaliczenie</h3>
             <Button
+              type={!activeSections.project ? 'submit' : 'button'}
               className={activeSections.project ? 'save-button' : 'edit-button'}
               title={activeSections.project ? 'Zapisz' : 'Edytuj'}
               toggle={() => toggle('project')}
@@ -280,6 +298,7 @@ export const EditCvView = () => {
               name={'projectUrls'}
               // value={userData.projectUrls}
               nameValue={'one-column'}
+              disabled={!activeSections.project}
             />
           </div>
         </section>

@@ -7,9 +7,10 @@ interface Props {
   title: string;
   selects: string[];
   name: string;
+  disabled?: boolean;
 }
 
-export const Select = ({ title, selects, name }: Props) => {
+export const Select = ({ title, selects, name, disabled }: Props) => {
   const formContext = useContext<any>(FormContext);
   const { form, handleFormChange } = formContext;
 
@@ -28,6 +29,7 @@ export const Select = ({ title, selects, name }: Props) => {
               toggle={handleFormChange}
               value={item}
               name={name}
+              disabled={disabled}
             />
           </div>
         ))}

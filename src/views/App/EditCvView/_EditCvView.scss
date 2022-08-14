@@ -89,6 +89,10 @@ main.view-EditCvView {
             //&:focus {
             //  outline: none;
             //}
+
+            &:disabled{
+              color: var(--input-text-color);
+            }
           }
         }
       }
@@ -130,6 +134,10 @@ main.view-EditCvView {
             //&:focus {
             //  outline: none;
             //}
+
+            &:disabled{
+              color: var(--input-text-color);
+            }
           }
         }
       }
@@ -153,7 +161,8 @@ main.view-EditCvView {
         .select-wrap{
           flex-basis: 60%;
           flex-wrap: wrap;
-          align-items: flex-start;
+          //align-items: flex-start;
+          align-items: center;
           gap: 4px;
           margin: 0;
           .select{
@@ -165,10 +174,14 @@ main.view-EditCvView {
                 padding: 9px 10px;
                 //color: var(--input-text-color);
                 //line-height: 38px;
+
+                &:disabled{
+                  color: var(--input-text-color);
+                }
               }
             }
           }
-          .active{
+          .select.active{
             .component-Button{
               button{
                 color: var(--first-color);
@@ -199,28 +212,54 @@ main.view-EditCvView {
               label {
                 align-items: center;
                 height: 38px;
+
+
+                //color: var(--input-text-color);
+                //&:disabled{
+                //  color: var(--input-text-color);
+                //}
                 p {
                   font-size: var(--xs-font-size);
                   padding: 0;
                   line-height: normal;
                   //color: var(--input-text-color);
+
+                  //&:disabled{
+                  //  color: var(--input-text-color);
+                  //}
                 }
                 input {
                   flex-grow: 0;
                   height: 25px;
                   width: 25px;
                   padding: 0;
+
+                  &:disabled {
+                    color: var(--input-text-color);
+                  }
                 }
+              }
+            }
+            .component-Input.disabled{
+              label{
+                p{
+                  color: var(--input-text-color);}
+                input{}
               }
             }
           }
         }
       }
+      //Radio[disabled=true]{
+      //  background-color: red;
+      //}
     }
+
 
 
   }
 }
+
 
 
 
