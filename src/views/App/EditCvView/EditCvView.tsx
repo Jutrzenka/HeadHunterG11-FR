@@ -1,9 +1,9 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useEffect, useState } from 'react';
 import { Header } from '../../../components/common/Header/Header';
 import { Input } from '../../../components/common/Input/Input';
-import { Button } from '../../../components/common/Button_v2/Button';
+import { Button } from '../../../components/common/Button/Button';
 import { Textarea } from '../../../components/common/Textarea/Textarea';
-import { Select } from '../../../components/common/Select_v2/Select';
+import { Select } from '../../../components/common/Select/Select';
 import { Radio } from '../../../components/common/Radio/Radio';
 import './_EditCvView.scss';
 import { Form } from '../../../components/common/Form/Form';
@@ -41,6 +41,12 @@ export const EditCvView = () => {
     project: false,
   });
 
+  useEffect(() => {
+    console.log(
+      'Pobieranie z BE aktualnych danych (data) i ustawienie ich- setUserData(data)',
+    );
+  }, []);
+
   const toggle = (key: string) => {
     const index = Object.keys(activeSections).indexOf(key);
     const value = Object.values(activeSections)[index];
@@ -53,11 +59,13 @@ export const EditCvView = () => {
     });
   };
 
-  const onSubmit = (e: any) => {
-    // e.preventDefault();
-    // console.log(e);
-    // setUserDAta(e);
-    console.log('Fetch- wysłanie nowych danych na backend');
+  const onSubmit = (formData: any) => {
+    const dataFromBE = () => {
+      console.log('Fetch- wysłanie nowych danych na backend');
+      console.log(
+        'Z BE dostajemy aktualne dane (data) i ustawiamy setUserData(data)',
+      );
+    };
   };
 
   return (
