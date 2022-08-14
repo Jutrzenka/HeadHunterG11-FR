@@ -25,14 +25,12 @@ export function Form({ children, formInitialValues, functionToForm }: Props) {
   };
 
   const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    if (form !== formInitialValues) {
-      console.log('Przeszło walidacje pora na wysłanie danych do backendu');
+      e.preventDefault();
+      console.log(form,'form w FORM');
       functionToForm(form);
       setForm(formInitialValues);
       return;
-    }
-    console.log('nie udało sie wysłać danych');
+
   };
   return (
     <FormContext.Provider
@@ -41,8 +39,11 @@ export function Form({ children, formInitialValues, functionToForm }: Props) {
         handleFormChange,
       }}
     >
-      <div>
-        <form onSubmit={handleSubmit}>{children}</form>
+
+      <div className={'component-Form'}>
+        <form onSubmit={handleSubmit}>
+          {children}
+        </form>
       </div>
     </FormContext.Provider>
   );

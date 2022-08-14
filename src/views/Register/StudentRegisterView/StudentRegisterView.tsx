@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react';
+import React, { useState } from 'react';
 import { Button } from '../../../components/common/Button/Button';
 import './_StudentRegisterView.scss';
 import { HttpMethod, useFetch } from '../../../utils/hooks/useFetch';

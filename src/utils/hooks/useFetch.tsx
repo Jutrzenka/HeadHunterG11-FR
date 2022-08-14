@@ -5,6 +5,7 @@ export enum HttpMethod {
   POST = 'POST',
   DELETE = 'DELETE',
   PUT = 'PUT',
+  PATCH = 'PATCH',
 }
 
 const initOptions = {
@@ -22,7 +23,6 @@ export const useFetch = (url = '', value = initOptions) => {
   const [status, setStatus] = useState('idle'); // status określa co się dzieje czy dane sa pobierane/pobrane
   const [form, setForm] = useState(value); // formularz  z metodan nagłowkami i danymi do wysłania na backend
   const [data, setData] = useState([]); // dane które otrzymujemy
-
   const fetchData = (url: string, value = initOptions) => {
     setAddress(url);
     setForm(value);
