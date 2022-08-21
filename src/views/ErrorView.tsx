@@ -2,13 +2,17 @@ import React from 'react';
 
 import './_ErrorView.scss';
 
-export const ErrorView = () => {
+interface Props{
+    message:string;
+}
+
+export const ErrorView = ({message}:Props) => {
   return (
     <main className={'view-ErrorView'}>
       <img src="/img/logo_MegaK.png" alt="logo" />
       <h3>Oops..!</h3>
-      <p>Przepraszamy. Strona, której szukasz nie istnieje.</p>
-      <a href="/">Wróć do strony logowania</a>
+      <p>{message}</p>
+      <a href="http://localhost:3000">Wróć do strony logowania</a>
     </main>
   );
 };

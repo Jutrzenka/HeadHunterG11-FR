@@ -9,6 +9,7 @@ import { Input } from '../../../components/common/Input/Input';
 import './_AdminListView.scss';
 import { useFetch } from "../../../utils/hooks/useFetch";
 
+
 interface StudentRecord {
   activeAccount: boolean;
   email: string;
@@ -19,13 +20,11 @@ interface StudentRecord {
 
 export const AdminListView = () => {
   const [activeRole, setActiveRole] = useState('students');
-  const [filterRole, setFilterRole] = useState('S')
+  const [filterRole, setFilterRole] = useState('S');
   const [data,status] = useFetch(`http://localhost:3001/api/admin/${activeRole}`);
-  console.log(data)
 
   // @ts-ignore
   const dataToMap: StudentRecord[] = status === 'fetched' ?[...data.data.value] : null
-  console.log(dataToMap)
 
   const handleRole = (role:string) => {
       setActiveRole(role);

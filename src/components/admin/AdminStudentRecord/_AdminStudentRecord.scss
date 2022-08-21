@@ -10,14 +10,20 @@ div.component-AdminStudentRecord {
     width: 100%;
 
     .user-name-wrap {
+      width: 50%;
       @include flex(row, center, space-between);
       padding: 0 24px;
       min-height: 70px;
+      .component-Form{
+        form{
+          display: flex;
+
+        }
+      }
 
       p {
         font-size: var(--s-font-size);
         color: var(--text-rating-color);
-        margin-right: 63px;
       }
     }
 

@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import './_HrRegisterView.scss';
 import { HttpMethod, useFetch } from "../../../utils/hooks/useFetch";
+import { ErrorView } from "../../ErrorView";
+
 
 interface HRRegisterForm{
   email:string;
@@ -16,7 +18,15 @@ interface HRRegisterForm{
   lastName: string,
   company: string,
 }
-
+const initErrors = {
+    email:false,
+    password:false,
+    confirmPassword:false,
+    firstName:false,
+    lastName:false,
+    company:false,
+    confirm:false,
+}
 export const HrRegisterView = () => {
   // global variable redux toolkit
   const { token, type } = useSelector((state: RootState) => state.token);
@@ -24,9 +34,11 @@ export const HrRegisterView = () => {
 
   const { login, registerCode } = useParams();
   const [data,status,fetchData] = useFetch();
-  console.log(data,status);
 
-  const fetched = status === 'fetched' ? true : false;
+
+   let errorsEdit = initErrors
+
+  const fetched = status === 'fetched'
 
   // @ts-ignore
     const successRegister = fetched && data.success;
@@ -47,9 +59,32 @@ export const HrRegisterView = () => {
   }
 
  const validateForm = (data: HRRegisterForm) => {
-      if (data.email.length > 5 && data.password === data.confirmPassword && data.firstName.length > 1 && data.lastName.length > 2 && data.company.length > 2 ){
-        return true
-      } else return false
+     if (data.email.length > 5 && data.email.includes('@')) {
+         errorsEdit.email = true;
+     }
+     if (data.password === data.confirmPassword && data.confirmPassword.length > 1) {
+         errorsEdit.confirmPassword = true;
+     }
+     if (data.password.length > 5) {
+         errorsEdit.password = true;
+     }
+     if (data.firstName.length > 2) {
+         errorsEdit.firstName = true;
+     }
+     if (data.lastName.length > 2) {
+         errorsEdit.lastName = true;
+     }
+     if (data.company.length > 2) {
+         errorsEdit.company = true;
+     }
+     if (errorsEdit.company && errorsEdit.lastName && errorsEdit.password && errorsEdit.confirmPassword && errorsEdit.email && errorsEdit.firstName) {
+         errorsEdit.confirm = true;
+     }
+     if (errorsEdit.confirm) {
+         if (data.email.length > 5 && data.password === data.confirmPassword && data.firstName.length > 1 && data.lastName.length > 2 && data.company.length > 2) {
+             return true
+         } else return false
+     }
  }
  const sendForm = (data: HRRegisterForm) => {
     // Wstępna walidacja na frontendzie
@@ -57,10 +92,23 @@ export const HrRegisterView = () => {
       // @ts-ignore
       delete data.confirmPassword
       console.log(data, 'po delete')
-      fetchData(`http://localhost:3001/api/auth/register/${login}/${registerCode}`,{method: HttpMethod.PATCH, headers: {'content-type': 'application/json;charset=UTF-8'},body: {data}});
+      fetchData(`http://localhost:3001/api/auth/register/${login}/${registerCode}`,{
+          method: HttpMethod.PATCH,
+          headers: {'content-type': 'application/json;charset=UTF-8'},
+          body: {data}});
       return;
     };
-      return console.log('zrobiłeś literówkę')
+     alert(`
+      Błąd!!!
+      Formularz:
+      ${!errorsEdit.email ? 'Email musi zawierać @ i być dłuższy niż 5 znaków' : ''}
+      ${!errorsEdit.password   ?  'Hasło musi być dłuższye niż 5 znaków' : ''}
+      ${!errorsEdit.confirmPassword ? 'Pole hasło i powtórz hasło muszą być takie same' : ''}
+      Wszystkie pola muszą być wypełnione
+      `)
+     errorsEdit = initErrors
+     return
+
     }
 
 
@@ -137,6 +185,8 @@ export const HrRegisterView = () => {
       );
   } else {
       return(
-            <div> error {errorMessage}</div>
+            <div>
+                <ErrorView message={errorMessage}/>
+            </div>
       )}
 };

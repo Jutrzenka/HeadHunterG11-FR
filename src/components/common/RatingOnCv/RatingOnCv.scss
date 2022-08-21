@@ -1,11 +1,11 @@
 @import '../../../styles/mixins';
 
 div.component-RatingOnCv {
-  @include flex('column', 'start', 'space-between');
+  @include flex(column, flex-start, space-between);
   width: 15%;
 
   .rating-title {
-    @include flex('row', 'center', 'space-around');
+    @include flex(row, center, space-around);
     height: 50px;
     flex-grow: 1;
     align-items: flex-end;

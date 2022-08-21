@@ -4,11 +4,43 @@ import './_StudentRegisterView.scss';
 import { HttpMethod, useFetch } from '../../../utils/hooks/useFetch';
 import { Form } from "../../../components/common/Form/Form";
 import { Input } from "../../../components/common/Input/Input";
+import { useParams } from "react-router-dom";
+import { ErrorView } from "../../ErrorView";
 
+
+interface StudentRegisterForm{
+  login:string;
+  password: string;
+  confirmPassword: string,
+  firstName: string,
+  lastName: string
+}
+const initErrors = {
+  login:false,
+  password:false,
+  confirmPassword:false,
+  firstName:false,
+  lastName:false,
+  confirm:false,
+}
 
 export const StudentRegisterView = () => {
-  const [send, setSend] = useState<boolean>(false);
+  const { login, registerCode } = useParams();
   const [data, status, fetchData] = useFetch();
+  console.log(data,status);
+
+  let errorsEdit = initErrors;
+
+  const fetched = status === 'fetched';
+
+  // @ts-ignore
+  const successRegister = fetched && data.success;
+
+
+  // @ts-ignore
+  const errorMessage = fetched && data.data.message;
+
+  console.log(successRegister, errorMessage, 'po fetched test msg')
 
   const initForm ={
     password:'',
@@ -18,20 +50,59 @@ export const StudentRegisterView = () => {
     login:'',
   }
 
+  const validateForm = (data: StudentRegisterForm) => {
+    if(data.login.length > 5 ){
+      errorsEdit.login = true;
+    }
+    if(data.confirmPassword === data.password && data.confirmPassword.length > 2){
+      errorsEdit.confirmPassword = true;
+    }
+    if(data.password.length > 5){
+      errorsEdit.password = true;
+    }
+    if(data.firstName.length > 2){
+      errorsEdit.firstName = true;
+    }
+    if(data.lastName.length > 2){
+      errorsEdit.lastName = true;
+    }
+    if(errorsEdit.lastName && errorsEdit.password && errorsEdit.confirmPassword && errorsEdit.login && errorsEdit.firstName){
+      errorsEdit.confirm = true;
+    }
+    if (errorsEdit.confirm){
+      return true
+    } else return false
+  }
 
-  const sendForm = (value:any) => {
-    console.log(value)
-      fetchData(``, {
-        method: HttpMethod.POST,
+
+  const sendForm = (data: StudentRegisterForm) => {
+    if(validateForm(data)){
+      // @ts-ignore
+      delete data.confirmPassword
+      console.log(data, 'po delete')
+      fetchData(`http://localhost:3001/api/auth/register/${login}/${registerCode}`, {
+        method: HttpMethod.PATCH,
         headers: { 'content-type': 'application/json;charset=UTF-8' },
-        body: { value },
+        body: { data },
       });
-      setSend(true);
+      return
+    };
+    alert(`
+      Błąd!!!
+      Formularz:
+      ${!errorsEdit.login ? 'Login musi być dłuższy niż 5 znaków' : ''}
+      ${!errorsEdit.password   ?  'Hasło musi być dłuższye niż 5 znaków' : ''}
+      ${!errorsEdit.confirmPassword ? 'Pole hasło i powtórz hasło muszą być takie same' : ''}
+      Wszystkie pola muszą być wypełnione
+      `)
+    errorsEdit = initErrors
+    return
+
     }
 
 
 
-  if (!send) {
+  if (status === 'idle') {
     return (
       <main className="view-LoginView">
         <img src={'/img/logo_MegaK.png'} alt={'Website logo'} />
@@ -72,7 +143,7 @@ export const StudentRegisterView = () => {
         </Form>
       </main>
     );
-  } else {
+  } else if (successRegister) {
     return (
       <div className="hrRegister-view">
         <div className="hrRegister-done">
@@ -85,12 +156,16 @@ export const StudentRegisterView = () => {
           <a
               className="done-link"
               href="http://localhost:3000"
-              onClick={() => setSend(false)}
           >
             Zaloguj się!
           </a>
         </div>
       </div>
     );
-  }
+  } else {
+    return(
+        <div>
+          <ErrorView message={errorMessage}/>
+        </div>
+    )}
 };
