@@ -38,6 +38,7 @@ export const Filtr = () => {
           <Select
             title={'Preferowane miejsce pracy'}
             selects={['Praca zdalna', 'Praca w biurze']}
+            name={'expectedTypeWork'}
           />
           <Select
             title={'Oczekiwany typ kontaktu'}
@@ -47,6 +48,7 @@ export const Filtr = () => {
               'Umowa zlecenie',
               'Umowa o dzieło',
             ]}
+            name={'expectedContractType'}
           />
           <Scale title={'Oczekiwane wynagrodzenie miesięczne netto'} />
           <Radio

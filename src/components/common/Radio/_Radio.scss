@@ -34,10 +34,11 @@ div.component-Radio {
         border-radius: 50%;
       }
 
-      input[type='radio']:focus {
+      input[type='radio']:focus, input[type='radio']:checked {
         outline: max(2px, 2px) solid var(--first-color);
         outline-offset: max(-1px, -1px);
       }
+
     }
   }
 }
