@@ -8,6 +8,7 @@ import { ButtonBack } from '../../../components/common/ButtonBack/ButtonBack';
 import { useFetch } from "../../../utils/hooks/useFetch";
 import { useParams } from "react-router-dom";
 import './_StudentView.scss';
+import { LoadingSpinner } from "../../../components/common/LoadingSpiner/LoadingSpiner";
 
 export const StudentView = () => {
   const {id} = useParams()
@@ -127,7 +128,7 @@ export const StudentView = () => {
   );
 } else {
     return (
-        <div>POBIERAM DANE</div>
+        <LoadingSpinner/>
     )
   }
 };

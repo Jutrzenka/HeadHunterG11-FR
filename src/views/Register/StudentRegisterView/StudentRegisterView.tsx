@@ -105,7 +105,7 @@ export const StudentRegisterView = () => {
   if (status === 'idle') {
     return (
       <main className="view-LoginView">
-        <img src={'/img/logo_MegaK.png'} alt={'Website logo'} />
+        <img src={'/img/logo_MegaK.png'} alt={'MegaK logo'} />
         <Form formInitialValues={initForm} functionToForm={sendForm}>
           <Input
             placeholder={'Login'}

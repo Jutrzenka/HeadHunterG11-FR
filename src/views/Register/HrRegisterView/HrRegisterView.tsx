@@ -119,7 +119,7 @@ export const HrRegisterView = () => {
         <img
           className={'LoginViews_img'}
           src={'/img/logo_MegaK.png'}
-          alt={'Website logo'}
+          alt={'MegaK logo'}
         />
         <Form formInitialValues={initForm} functionToForm={sendForm}>
           <Input
