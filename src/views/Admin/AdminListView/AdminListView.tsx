@@ -8,6 +8,7 @@ import { Input } from '../../../components/common/Input/Input';
 
 import './_AdminListView.scss';
 import { useFetch } from "../../../utils/hooks/useFetch";
+import { LoadingSpinner } from "../../../components/common/LoadingSpiner/LoadingSpiner";
 
 
 interface StudentRecord {
@@ -21,11 +22,12 @@ interface StudentRecord {
 export const AdminListView = () => {
   const [activeRole, setActiveRole] = useState('students');
   const [filterRole, setFilterRole] = useState('S');
+  const [search, setSearch] = useState('');
   const [data,status] = useFetch(`http://localhost:3001/api/admin/${activeRole}`);
 
   // @ts-ignore
   const dataToMap: StudentRecord[] = status === 'fetched' ?[...data.data.value] : null
-
+  console.log(search);
   const handleRole = (role:string) => {
       setActiveRole(role);
     if(role === 'students'){
@@ -46,7 +48,7 @@ export const AdminListView = () => {
 
           <div className="input-icons">
             <FaSearch />
-            <Input placeholder={'Szukaj'} type={'text'} name={''} />
+            <input placeholder='Szukaj' value={search} type='text' name='' onChange={(e) =>setSearch(e.target.value)} />
           </div>
 
           <div className="page-number">
@@ -61,6 +63,9 @@ export const AdminListView = () => {
           {status === 'fetched' ? dataToMap.filter((item)=>(
               item.role === filterRole
           ))
+              .filter((item)=>(
+              item.email.includes(search)
+          ))
               .map((item:StudentRecord) =>
             <AdminStudentRecord
                 key={item.idUser}
@@ -70,7 +75,7 @@ export const AdminListView = () => {
                 login={ item.login }
                 role={ item.role }
             />
-          ) : 'pobieram dane'}
+          ) : <LoadingSpinner/>}
         </section>
       </AdminLayout>
     </main>

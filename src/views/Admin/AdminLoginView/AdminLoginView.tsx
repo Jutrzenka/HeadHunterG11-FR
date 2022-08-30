@@ -5,6 +5,7 @@ import { Form } from '../../../components/common/Form/Form';
 import { Input } from '../../../components/common/Input/Input';
 import './_AdminLoginView.scss';
 import { HttpMethod, useFetch } from "../../../utils/hooks/useFetch";
+import { useNavigate } from "react-router-dom";
 
 interface AdminLoginForm{
   email:string;
@@ -15,9 +16,11 @@ export const AdminLoginView = () => {
 
   const [data,status,fetchData] = useFetch();
   console.log(data,status)
+  let navigate = useNavigate();
   if(status === 'fetched'){
     // tylko gdy skonczyło sie pobierać
     // tutaj data ma juz wartosc zwroconych danych
+    navigate("../lists", {replace: true})
     console.log('ustawiam token')
   }
 
