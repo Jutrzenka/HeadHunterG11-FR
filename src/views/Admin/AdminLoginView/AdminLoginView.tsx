@@ -6,6 +6,9 @@ import { Input } from '../../../components/common/Input/Input';
 import './_AdminLoginView.scss';
 import { HttpMethod, useFetch } from "../../../utils/hooks/useFetch";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store';
+import { setUser } from '../../../redux/slice/user';
 
 interface AdminLoginForm{
   email:string;
@@ -13,6 +16,8 @@ interface AdminLoginForm{
 }
 
 export const AdminLoginView = () => {
+  const { id, login, role } = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch();
 
   const [data,status,fetchData] = useFetch();
   console.log(data,status)
@@ -44,6 +49,8 @@ export const AdminLoginView = () => {
 
   return (
     <main className={'view-AdminLoginView'}>
+      <h1>{id}, {login}, {role}</h1>
+      <button onClick={() => dispatch(setUser({id: "TEST", login: "TEST", role: "TEST"}))}>Zmiana</button>
       <img src={'/img/logo_MegaK.png'} alt={'Website logo'} />
       <Form formInitialValues={initForm} functionToForm={sendForm}>
         <Input

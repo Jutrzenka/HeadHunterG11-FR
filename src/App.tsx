@@ -11,15 +11,8 @@ import { EditCvView } from './views/App/EditCvView/EditCvView';
 import { StudentRegisterView } from './views/Register/StudentRegisterView/StudentRegisterView';
 import { InterviewView } from './views/App/InterviewView/InterviewView';
 import { HrRegisterView } from './views/Register/HrRegisterView/HrRegisterView';
-//import { ErrorView } from './views/ErrorView';
-//import { useDispatch, useSelector } from 'react-redux';
-//import { RootState } from './redux/store';
 
 export const App = () => {
-  // global variable redux toolkit
-  //const { token, type } = useSelector((state: RootState) => state.token);
-  //const dispatch = useDispatch();
-
   switch (window.location.host.split('.')[0]) {
     case 'admin':
       return (
