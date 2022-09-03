@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '../../../components/common/Button/Button';
 import { ForgotPassword } from '../../../components/common/ForgotPassword/ForgotPassword';
 import { Form } from '../../../components/common/Form/Form';
@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
 import { setUser } from '../../../redux/slice/user';
+import { ElementData } from "../../../utils/types/JsonCommunicationType";
 
 interface AdminLoginForm{
   email:string;
@@ -20,26 +21,37 @@ export const AdminLoginView = () => {
   const dispatch = useDispatch();
 
   const [data,status,fetchData] = useFetch();
-  console.log(data,status)
   let navigate = useNavigate();
-  if(status === 'fetched'){
-    // tylko gdy skonczyło sie pobierać
-    // tutaj data ma juz wartosc zwroconych danych
-    navigate("../lists", {replace: true})
-    console.log('ustawiam token')
-  }
+
 
   const initForm = {
     email:'',
     password:'',
   }
-  const sendForm = (data:AdminLoginForm) => {
-    console.log(data,'wysylam admin login view')
-    if(data.email !== '' && data.password !== ''){
+
+  useEffect(()=>{
+    if(data !== undefined && data.success){
+    const {id,role,login} = (data.data as ElementData).value
+    dispatch(setUser({
+      id,
+      login,
+      role,
+    }))
+    navigate("../lists", {replace: true})
+    console.log('ustawiam token')
+    }
+  },[data])
+  const sendForm = (form:AdminLoginForm) => {
+    console.log(form,'wysylam admin login view')
+    if(form.email !== '' && form.password !== ''){
       fetchData(`http://localhost:3001/api/admin/auth/login`,{
         method: HttpMethod.POST,
-        headers: {'content-type': 'application/json;charset=UTF-8'},
-        body: {data}
+        headers: {
+          'content-type': 'application/json;charset=UTF-8'},
+        body: {
+          login: form.email,
+          pwd: form.password,
+        }
       })
       return;
     };

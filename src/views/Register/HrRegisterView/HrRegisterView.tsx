@@ -32,7 +32,7 @@ export const HrRegisterView = () => {
   const [data,status,fetchData] = useFetch();
 
 
-   let errorsEdit = initErrors
+  let errorsEdit = initErrors
 
   const fetched = status === 'fetched'
 

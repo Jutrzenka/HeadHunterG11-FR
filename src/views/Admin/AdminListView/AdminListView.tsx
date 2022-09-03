@@ -9,6 +9,8 @@ import { Input } from '../../../components/common/Input/Input';
 import './_AdminListView.scss';
 import { useFetch } from "../../../utils/hooks/useFetch";
 import { LoadingSpinner } from "../../../components/common/LoadingSpiner/LoadingSpiner";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 
 
 interface StudentRecord {
@@ -20,6 +22,9 @@ interface StudentRecord {
 }
 
 export const AdminListView = () => {
+  const { id, login, role } = useSelector((state: RootState) => state.user);
+  console.log(id,login,role);
+
   const [activeRole, setActiveRole] = useState('students');
   const [filterRole, setFilterRole] = useState('S');
   const [search, setSearch] = useState('');

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { JsonCommunicationType } from "../types/JsonCommunicationType";
 
 export enum HttpMethod {
   GET = 'GET',
@@ -17,12 +18,13 @@ const initOptions = {
 };
 // useFetch
 
+
 export const useFetch = (url = '', value = initOptions) => {
   const cache = useRef<any>({}); // pamieć podręczna żeby nie pobierać dwa razy tego samego
   const [address, setAddress] = useState<string>(url); // adress https
-  const [status, setStatus] = useState('idle'); // status określa co się dzieje czy dane sa pobierane/pobrane
+  const [status, setStatus] = useState<string>('idle'); // status określa co się dzieje czy dane sa pobierane/pobrane
   const [form, setForm] = useState(value); // formularz  z metodan nagłowkami i danymi do wysłania na backend
-  const [data, setData] = useState([]); // dane które otrzymujemy
+  const [data, setData] = useState <JsonCommunicationType>();
   const fetchData = (url: string, value = initOptions) => {
     setAddress(url);
     setForm(value);
@@ -40,6 +42,7 @@ export const useFetch = (url = '', value = initOptions) => {
       } else {
         const response = await fetch(address, {
           method: form.method,
+          credentials: 'include',
           headers: form.headers,
           body:
             form.method === HttpMethod.GET ? null : JSON.stringify(form.body),
