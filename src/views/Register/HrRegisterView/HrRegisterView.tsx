@@ -28,15 +28,11 @@ const initErrors = {
     confirm:false,
 }
 export const HrRegisterView = () => {
-  // global variable redux toolkit
-  const { token, type } = useSelector((state: RootState) => state.token);
-  const dispatch = useDispatch();
-
   const { login, registerCode } = useParams();
   const [data,status,fetchData] = useFetch();
 
 
-   let errorsEdit = initErrors
+  let errorsEdit = initErrors
 
   const fetched = status === 'fetched'
 

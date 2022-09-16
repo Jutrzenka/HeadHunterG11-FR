@@ -9,6 +9,8 @@ import { Input } from '../../../components/common/Input/Input';
 import './_AdminListView.scss';
 import { useFetch } from "../../../utils/hooks/useFetch";
 import { LoadingSpinner } from "../../../components/common/LoadingSpiner/LoadingSpiner";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 
 
 interface StudentRecord {
@@ -20,14 +22,16 @@ interface StudentRecord {
 }
 
 export const AdminListView = () => {
+  const { id, login, role } = useSelector((state: RootState) => state.user);
+  console.log(id,login,role);
+
   const [activeRole, setActiveRole] = useState('students');
   const [filterRole, setFilterRole] = useState('S');
   const [search, setSearch] = useState('');
   const [data,status] = useFetch(`http://localhost:3001/api/admin/${activeRole}`);
 
   // @ts-ignore
-  const dataToMap: StudentRecord[] = status === 'fetched' ?[...data.data.value] : null
-  console.log(search);
+  const dataToMap: StudentRecord[] = status === 'fetched' ?[...data.data.value] : null;
   const handleRole = (role:string) => {
       setActiveRole(role);
     if(role === 'students'){

@@ -5,7 +5,7 @@ type InfoArrayData = {
   pages: number; // Ilość stron
 };
 
-interface ElementData {
+export interface ElementData {
   type: 'string' | 'number' | 'boolean' | 'object'; // Typ zwróconego elementu
   value: any; // Element
 }
