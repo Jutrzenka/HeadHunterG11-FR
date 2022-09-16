@@ -38,7 +38,6 @@ export const AdminStudentRecord = ({activeAccount,email,idUser,login,role}:Props
         {method: HttpMethod.DELETE,
           headers: {'content-type': 'application/json;charset=UTF-8'},
           body: {}});
-    console.log('usówam', idUser);
     return;
   }
 

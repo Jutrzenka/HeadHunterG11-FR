@@ -31,8 +31,7 @@ export const AdminListView = () => {
   const [data,status] = useFetch(`http://localhost:3001/api/admin/${activeRole}`);
 
   // @ts-ignore
-  const dataToMap: StudentRecord[] = status === 'fetched' ?[...data.data.value] : null
-  console.log(search);
+  const dataToMap: StudentRecord[] = status === 'fetched' ?[...data.data.value] : null;
   const handleRole = (role:string) => {
       setActiveRole(role);
     if(role === 'students'){
