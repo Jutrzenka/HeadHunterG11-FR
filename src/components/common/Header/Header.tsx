@@ -2,10 +2,12 @@ import React from 'react';
 import { AiFillCaretDown } from 'react-icons/ai';
 import { HiLogout } from 'react-icons/hi';
 import { useToggle } from '../../../utils/hooks/useToggle';
-import { useSelector } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { RootState } from '../../../redux/store';
 
+
 import './_Header.scss';
+
 
 export const Header = () => {
   const { login } = useSelector((state: RootState) => state.user);

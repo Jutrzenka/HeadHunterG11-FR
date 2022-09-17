@@ -27,7 +27,6 @@ const initErrors = {
 export const StudentRegisterView = () => {
   const { login, registerCode } = useParams();
   const [data, status, fetchData] = useFetch();
-  console.log(data,status);
 
   let errorsEdit = initErrors;
 
@@ -36,11 +35,8 @@ export const StudentRegisterView = () => {
   // @ts-ignore
   const successRegister = fetched && data.success;
 
-
   // @ts-ignore
   const errorMessage = fetched && data.data.message;
-
-  console.log(successRegister, errorMessage, 'po fetched test msg')
 
   const initForm ={
     password:'',
@@ -74,12 +70,10 @@ export const StudentRegisterView = () => {
     } else return false
   }
 
-
   const sendForm = (data: StudentRegisterForm) => {
     if(validateForm(data)){
       // @ts-ignore
       delete data.confirmPassword
-      console.log(data, 'po delete')
       fetchData(`http://localhost:3001/api/auth/register/${login}/${registerCode}`, {
         method: HttpMethod.PATCH,
         headers: { 'content-type': 'application/json;charset=UTF-8' },
@@ -99,8 +93,6 @@ export const StudentRegisterView = () => {
     return
 
     }
-
-
 
   if (status === 'idle') {
     return (

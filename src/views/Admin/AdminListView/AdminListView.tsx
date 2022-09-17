@@ -22,9 +22,6 @@ interface StudentRecord {
 }
 
 export const AdminListView = () => {
-  const { id, login, role } = useSelector((state: RootState) => state.user);
-  console.log(id,login,role);
-
   const [activeRole, setActiveRole] = useState('students');
   const [filterRole, setFilterRole] = useState('S');
   const [search, setSearch] = useState('');
