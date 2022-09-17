@@ -38,11 +38,9 @@ export const AdminLoginView = () => {
       role,
     }))
     navigate("../lists", {replace: true})
-    console.log('ustawiam token')
     }
   },[data])
   const sendForm = (form:AdminLoginForm) => {
-    console.log(form,'wysylam admin login view')
     if(form.email !== '' && form.password !== ''){
       fetchData(`http://localhost:3001/api/admin/auth/login`,{
         method: HttpMethod.POST,

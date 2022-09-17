@@ -1,10 +1,8 @@
 import React, { FormEvent, useState } from 'react';
-import { RootState } from '../../../redux/store';
 import { Button } from '../../../components/common/Button/Button';
 import { Form } from '../../../components/common/Form/Form';
 import { Input } from '../../../components/common/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import './_HrRegisterView.scss';
 import { HttpMethod, useFetch } from "../../../utils/hooks/useFetch";
 import { ErrorView } from "../../ErrorView";
@@ -31,7 +29,6 @@ export const HrRegisterView = () => {
   const { login, registerCode } = useParams();
   const [data,status,fetchData] = useFetch();
 
-
   let errorsEdit = initErrors
 
   const fetched = status === 'fetched'
@@ -39,11 +36,8 @@ export const HrRegisterView = () => {
   // @ts-ignore
     const successRegister = fetched && data.success;
 
-
     // @ts-ignore
     const errorMessage = fetched && data.data.message;
-
-    console.log(successRegister, errorMessage, 'po fetched test msg')
 
   const initForm = {
     email:'',
@@ -83,7 +77,6 @@ export const HrRegisterView = () => {
      }
  }
  const sendForm = (data: HRRegisterForm) => {
-    // Wstępna walidacja na frontendzie
     if(validateForm(data)){
       // @ts-ignore
       delete data.confirmPassword
@@ -104,10 +97,7 @@ export const HrRegisterView = () => {
       `)
      errorsEdit = initErrors
      return
-
     }
-
-
 
   if (status === 'idle') {
     return (
