@@ -32,7 +32,8 @@ export const LoginView = () => {
         login,
         role,
       }))
-      navigate(`${role === 'students' ? '../cv' : '../students'}`, {replace: true})
+      console.log(role)
+      navigate(`${role === 'S' ? '../cv' : '../students'}`, {replace: true})
       console.log('ustawiam token')
     }
   },[data])
@@ -45,13 +46,14 @@ export const LoginView = () => {
         headers: {
           'content-type': 'application/json;charset=UTF-8'},
         body: {
-          login: form.email,
+          email: form.email,
           pwd: form.password,
         }
       })
+      console.log(data)
       return;
     };
-    return alert('Nie możesz zostawić mustego pola')
+    return alert('Nie możesz zostawić pustego pola')
   }
 
   return (
