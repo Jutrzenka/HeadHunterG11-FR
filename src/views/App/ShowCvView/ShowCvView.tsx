@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import './_ShowCvView.scss';
 import { Header } from '../../../components/common/Header/Header';
@@ -11,6 +11,7 @@ import './_ShowCvView.scss';
 import { ButtonBack } from '../../../components/common/ButtonBack/ButtonBack';
 import {useFetch} from "../../../utils/hooks/useFetch";
 import {ElementData} from "../../../utils/types/JsonCommunicationType";
+import {setUser} from "../../../redux/slice/user";
 
 
 const initStudent = {
@@ -18,38 +19,40 @@ const initStudent = {
   firstName:'Test',
   lastName:'Tester',
   active:true,
-  infoStudent:{
-    id:'2121dsa',
-    status:'student',
-    courseCompletion:3,
-    courseEngagement:4,
-    projectDegree:5,
-    teamProjectDegree:0,
-    bonusProjectUrIs:'',
-    tel:666333222,
-    email:'test@wp.pl',
-    githubUsername:'testGit',
-    portfolioUrIs:'',
-    bio:'jestem tester',
-    expectedTypeWork:'None',
-    targetWorkCity:'Poznan',
-    expectedContractType:'None',
-    expectedSalary:'6000',
-    canTakeApprenticeship:false,
-    monthsOfCommercialExp:2,
-    education:'',
-    workExperience:null,
-    courses:null,
-  }
+  id:'2121dsa',
+  status:'student',
+  courseCompletion:3,
+  courseEngagement:4,
+  projectDegree:5,
+  teamProjectDegree:0,
+  bonusProjectUrIs:'',
+  tel:666333222,
+  email:'test@wp.pl',
+  githubUsername:'testGit',
+  portfolioUrIs:'',
+  bio:'jestem tester',
+  expectedTypeWork:'None',
+  targetWorkCity:'Poznan',
+  expectedContractType:'None',
+  expectedSalary:'6000',
+  canTakeApprenticeship:false,
+  monthsOfCommercialExp:2,
+  education:'',
+  workExperience:null,
+  courses:null,
 }
 
 export const ShowCvView = () => {
   const [data,status] = useFetch(`http://localhost:3001/api/user/student`);
   const [student,setStudent] = useState(initStudent)
+  console.log(data)
 
-  if(data !== undefined && data.success){
-    setStudent((data.data as ElementData).value)
-  }
+  useEffect(()=>{
+    if(data !== undefined && data.success){
+      setStudent((data.data as ElementData).value)
+    }
+
+  },[data]);
 
   return (
     <main className={'view-ShowCvView'}>
@@ -58,25 +61,25 @@ export const ShowCvView = () => {
         <ButtonBack title="Wróć" className="button-back" />
         <section className="student-contact">
           <StudentAbout
-              githubUsername={student.infoStudent.githubUsername}
+              githubUsername={student.githubUsername}
               firstName={student.firstName}
               lastName={student.lastName}
-              tel={student.infoStudent.tel}
-              bio={student.infoStudent.bio}
-              email={student.infoStudent.email}
+              tel={student.tel}
+              bio={student.bio}
+              email={student.email}
           />
         </section>
         <section className="student-rating-wrap">
           <section className="student-rating">
             <h3>Oceny</h3>
             <div className="ratings">
-              <RatingOnCv title={'Ocena przejścia kursu'} rating={student.infoStudent.courseCompletion} />
+              <RatingOnCv title={'Ocena przejścia kursu'} rating={student.courseCompletion} />
               <RatingOnCv
                 title={'Ocena aktywności i zaangażowanie na kursie'}
-                rating={student.infoStudent.courseEngagement}
+                rating={student.courseEngagement}
               />
-              <RatingOnCv title={'Ocena kodu w projekcie własnym'} rating={student.infoStudent.projectDegree} />
-              <RatingOnCv title={'Ocena pracy w zespole w Scrum'} rating={student.infoStudent.teamProjectDegree} />
+              <RatingOnCv title={'Ocena kodu w projekcie własnym'} rating={student.projectDegree} />
+              <RatingOnCv title={'Ocena pracy w zespole w Scrum'} rating={student.teamProjectDegree} />
             </div>
           </section>
           <section className="student-expectations-wrap">
@@ -84,54 +87,54 @@ export const ShowCvView = () => {
             <div className="expectations">
               <Expectations
                 description={'Preferowane miejsce pracy'}
-                value={student.infoStudent.expectedTypeWork}
+                value={student.expectedTypeWork}
               />
               <Expectations
                 description={'Docelowe miasto, gdzie chce pracować kandydat.'}
-                value={student.infoStudent.targetWorkCity}
+                value={student.targetWorkCity}
               />
               <Expectations
                 description={'Oczekiwany typ kontraktu'}
-                value={student.infoStudent.expectedContractType}
+                value={student.expectedContractType}
               />
               <Expectations
                 description={'Oczekiwane wynagrodzenie miesięczne netto'}
-                value={student.infoStudent.expectedSalary}
+                value={student.expectedSalary}
               />
               <Expectations
                 description={
                   'Zgoda na odbycie bezpłatnych praktyk/stażu na początek'
                 }
-                value={`${student.infoStudent.canTakeApprenticeship ? 'Tak' : 'Nie' }`}
+                value={`${student.canTakeApprenticeship ? 'Tak' : 'Nie' }`}
               />
               <Expectations
                 description={'Komercyjne doświadczenie w programowaniu'}
-                value={`${student.infoStudent.monthsOfCommercialExp} miesięcy`}
+                value={`${student.monthsOfCommercialExp} miesięcy`}
               />
             </div>
           </section>
           <section className="student-education-wrap">
             <h3>Edukacja</h3>
             <p>
-              {student.infoStudent.education}
+              {student.education}
             </p>
           </section>
           <section className="student-courses-wrap">
             <h3>Kursy</h3>
             <p>
-              {student.infoStudent.courses}
+              {student.courses}
             </p>
           </section>
           <section className="student-experience-wrap">
             <h3>Doświadczenie zawodowe</h3>
             <p>
-              {student.infoStudent.workExperience}
+              {student.workExperience}
             </p>
           </section>
           <section className="student-portfolio-wrap">
             <h3>Portfolio</h3>
             <div className="student-portfolio-wrap--link">
-              <LinkTo link={student.infoStudent.portfolioUrIs} />
+              <LinkTo link={student.portfolioUrIs} />
             </div>
           </section>
           <section className="student-portfolio-wrap">

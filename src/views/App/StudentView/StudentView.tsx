@@ -21,7 +21,7 @@ export const StudentView = () => {
         <div className="view-StudentView-wrap">
           <ButtonBack title="Wróć" className="button-back"/>
           <section className="student-contact">
-            <StudentAbout/>
+            {/*<StudentAbout/>*/}
           </section>
           <section className="student-rating-wrap">
             <section className="student-rating">
