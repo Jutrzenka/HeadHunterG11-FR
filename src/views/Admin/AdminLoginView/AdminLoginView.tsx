@@ -23,7 +23,7 @@ export const AdminLoginView = () => {
   const [data,status,fetchData] = useFetch();
   let navigate = useNavigate();
 
-
+  console.log(data,'dodatkowy consol')
   const initForm = {
     email:'',
     password:'',
