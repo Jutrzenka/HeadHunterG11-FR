@@ -5,7 +5,11 @@ Application as a recruitment platform. It connects the participants of the MegaK
 **Github frontend:** https://github.com/Jutrzenka/HeadHunterG11-FR \
 **Github backend:** https://github.com/Jutrzenka/HeadHunterG11-BE
 ## :cow: Tech Stack
-
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 ## :guardsman: Authors:
 **Group members:**
 1. [Jutrzenka](https://github.com/Jutrzenka) **Jutrzenka#2251** kacperczaja1999@gmail.com
@@ -23,17 +27,39 @@ Application as a recruitment platform. It connects the participants of the MegaK
 
 ## :camel: Project structure
 ```
-
+HeadHunterG11-FR
+├── build
+├── public
+│   ├── img
+│   ├── favicon.png
+│   ├── index.html
+│   ├── manifest.json
+│   └── robots.txt
+├── src
+│   ├── components
+│   ├── redux
+│   ├── styles
+│   ├── utils
+│   ├── views
+│   ├── App.tsx
+│   └── config.env.ts
+├── .env
+├── .gitignore
+├── .npmrc
+├── package.json
+├── package-lock.json
+├── README.md
+└── tsconfig.json
 ```
 ## :dragon_face: Installation project
 
 **Clone the project:**
 ```
-git clone https://github.com/Jutrzenka/HeadHunterG11-BE.git
+git clone https://github.com/Jutrzenka/HeadHunterG11-FR.git
 ```
 **Go to the project directory:**
 ```
-cd HeadHunterG11-BE
+cd HeadHunterG11-FR
 ```
 **Install dependencies:**
 ```
