@@ -1,4 +1,4 @@
-# :construction_worker: HeadHunter MegaK v0.1.0 backend
+# :construction_worker: HeadHunter MegaK v0.1.0 frontend
 Application as a recruitment platform. It connects the participants of the MegaK course and potential employers. The purpose of the app is to help students find their first job as a developer.
 ## :bear: Resources
 **Live demo:** IN PROGRESS \
