@@ -7,9 +7,24 @@ Application as a recruitment platform. It connects the participants of the MegaK
 
 ## :cow: Tech Stack
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Chakra](https://img.shields.io/badge/chakra-%234ED1C5.svg?style=for-the-badge&logo=chakraui&logoColor=white)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+## :guardsman: Authors:
+**Group members:**
+1. [Jutrzenka](https://github.com/Jutrzenka) **Jutrzenka#2251** kacperczaja1999@gmail.com
+2. [iwanczakrafal](https://github.com/iwanczakrafal)
+3. [madridista5](https://github.com/madridista5)
+4. [Marcel998](https://github.com/Marcel998) **Marcel998#5607**
+5. [marooonio](https://github.com/marooonio)
+6. [NorGoz](https://github.com/NorGoz)
+7. [OllaWilk](https://github.com/OllaWilk)
+8. [RafalKuchta](https://github.com/RafalKuchta)
+
+**Additional roles in the team:**
+- SM: [Jutrzenka](https://github.com/Jutrzenka)
+- Author of demo films: [Marcel998](https://github.com/Marcel998)
 
 ## :camel: Project structure
 ```
