@@ -1,0 +1,67 @@
+@import '../../../styles/mixins';
+
+div.component-AdminStudentRecord {
+  @include flex(column, center, space-between);
+  padding: 8px 0;
+  position: relative;
+
+  .top-wrap {
+    @include flex(row, center, space-between);
+    width: 100%;
+
+    .user-name-wrap {
+      width: 50%;
+      @include flex(row, center, space-between);
+      padding: 0 24px;
+      min-height: 70px;
+      .component-Form{
+        form{
+          display: flex;
+
+        }
+      }
+
+      p {
+        font-size: var(--s-font-size);
+        color: var(--text-rating-color);
+      }
+    }
+
+    .status-wrap {
+      @include flex(row, center, center);
+
+      .active-user,
+      .no-active-user {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        margin-right: 26px;
+      }
+
+      .active-user {
+        background-color: var(--active-color);
+      }
+
+      .no-active-user {
+        background-color: var(--first-color);
+      }
+    }
+
+    .action-wrap {
+      @include flex(row, column, column);
+      button {
+        background-color: var(--first-color);
+        height: 38px;
+        padding: 0 10px;
+        color: var(--main-color);
+        margin-right: 28px;
+      }
+    }
+  }
+
+  .bottom-border {
+    background-color: var(--section-background-color);
+    width: 100%;
+    height: 16px;
+  }
+}

@@ -1,0 +1,35 @@
+@mixin modal-mixin {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 999;
+  overflow: auto;
+}
+
+div.component-Modal {
+  @include modal-mixin;
+  .overlay {
+    @include modal-mixin;
+  }
+
+  .overlay {
+    background: var(--modal-background-color);
+    opacity: 0.1;
+  }
+
+  .modal-content {
+    position: absolute;
+    width: 570px;
+    height: 806px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--modal-background-color);
+    z-index: 9999;
+    padding: 15px;
+  }
+}

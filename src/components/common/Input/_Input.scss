@@ -1,0 +1,8 @@
+@import '../../../styles/mixins';
+div.component-Input {
+  input{
+  margin: 5px;
+  background-color: var(--form-background-color);
+  color: var(--input-text-color);
+  }
+}

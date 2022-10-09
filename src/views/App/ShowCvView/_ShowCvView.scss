@@ -1,0 +1,66 @@
+@import '../../../styles/mixins';
+
+main.view-ShowCvView {
+    .view-ShowCvView-wrap {
+        margin: 20px 9% 0 4%;
+        @include flex('row', 'start', 'space-arround');
+        h3 {
+            font-size: var(--base-font-size);
+            padding: 15px 25px;
+            background: var(--form-background-color);
+        }
+
+        .student-rating-wrap {
+            margin-left: 3px;
+            .student-rating {
+                .ratings {
+                    @include flex(row, center, space-between);
+                    padding: 10px 25px;
+                }
+            }
+        }
+
+        .student-expectations-wrap {
+            background: var(--raiting-acordion-background-color);
+            .expectations {
+                @include flex(row, center, space-between);
+                padding: 25px;
+            }
+        }
+
+        .student-education-wrap,
+        .student-courses-wrap,
+        .student-experience-wrap {
+            background: var(--raiting-acordion-background-color);
+            p {
+                padding: 25px;
+            }
+        }
+
+        .student-portfolio-wrap {
+            background: var(--raiting-acordion-background-color);
+            .student-portfolio-wrap--link {
+                margin: 20px
+            }
+        }
+        .student-portfolio-wrap:last-child {
+            margin-bottom: 70px;
+        }
+
+    }
+}
+
+main.view-ShowCvView{
+    @media only screen and (min-width: 1200px) and (max-width: 1610px){
+        .view-ShowCvView-wrap {
+            .student-education-wrap,
+            .student-courses-wrap,
+            .student-experience-wrap {
+                background: var(--raiting-acordion-background-color);
+                p {
+                    font-size: var(--s-font-size);
+                }
+            }
+        }
+    }
+}

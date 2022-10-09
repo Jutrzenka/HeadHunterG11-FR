@@ -1,0 +1,35 @@
+@import '../../../styles/mixins';
+
+div.component-Expectations {
+  width: 15%;
+  .expectations-wrap {
+    @include flex(column, flex-start, space-between);
+    .description {
+      @include flex(row, flex-start, space-around);
+      height: 60px;
+      line-height: 20px;
+      flex-grow: 1;
+      align-items: center;
+      p {
+        font-size: var(--xs-font-size);
+        color: var(--rate-text-color);
+        margin-bottom: 15px;
+      }
+    }
+
+    .value {
+      margin-top: 10px;
+      font-size: var(--base-font-size);
+    }
+  }
+}
+
+div.component-Expectations {
+  @media only screen and (min-width: 1200px) and (max-width: 1610px){
+    .expectations-wrap {
+      .value {
+        font-size: var(--s-font-size);
+        }
+      }
+  }
+}

@@ -9,18 +9,31 @@
 
 body {
   background: var(--background-main-color);
-  font-family: var(--main-font-family);
-  font-size: var(--main-font-size);
+  font-family: var(--base-font-family);
+  font-size: var(--base-font-size);
   line-height: var(--base-line-height);
-  font-weight: var(--base-font-weight);
+  font-weight: var(--regular-font-weight);
   color: var(--main-color);
   text-align: left;
+  overflow: auto;
 }
 
-a,
-a:hover {
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 80%;
+}
+
+a {
+  color: var(--main-color);
   text-decoration: none;
-  color: red;
+  transition: var(--transition);
+  letter-spacing: 0.7px;
+
+  &:hover {
+    text-decoration: none;
+    color: var(--main-color);
+  }
 }
 
 ul {
@@ -33,4 +46,31 @@ ul {
 li {
   text-decoration: none;
   list-style-type: none;
+}
+
+input {
+  border: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+.active-btn {
+  border-bottom: 2px solid var(--first-color);
+  color: var(--main-color);
+
+  &:hover {
+    text-decoration: none;
+    color: var(--main-color);
+  }
+}
+
+.notactive {
+  color: var(--text-rating-color);
+  &:hover {
+    text-decoration: none;
+    color: var(--text-rating-color);
+  }
 }

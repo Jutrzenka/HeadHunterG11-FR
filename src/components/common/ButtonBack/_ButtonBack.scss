@@ -1,0 +1,18 @@
+@import '../../../styles/mixins';
+
+div.component-ButtonBack {
+  @include flex(row, flex-start, space-around);
+  margin: 10px 25px 0 10px;
+  .button-back-ico {
+    vertical-align: middle;
+    color: var(--input-raiting-text-color);
+    font-size: var(--base-font-size);
+  }
+  .button-back {
+    vertical-align: middle;
+    font-size: var(--base-font-size);
+    margin-left: 5px;
+    background: transparent;
+    color: var(--main-color);
+  }
+}

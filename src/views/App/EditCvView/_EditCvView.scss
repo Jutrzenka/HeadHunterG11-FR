@@ -1,0 +1,271 @@
+@import '../../../styles/mixins';
+main.view-EditCvView {
+  .component-Header{
+    margin-bottom: 20px;
+  }
+  section{
+    .title-wrap {
+      background-color: var(--form-background-color);
+      @include flex(row, center, space-between);
+      padding: 14px 20px;
+      //border-bottom: 2px solid var(--underline-color);
+
+      h3{
+        font-size: var(--base-font-size)
+      }
+
+      //.input-icons {
+      //  svg {
+      //    position: absolute;
+      //    top: 50%;
+      //    transform: translateY(-50%);
+      //    margin-left: 12.4px;
+      //    width: 15px;
+      //    //color: var(--input-raiting-text-color);
+      //  }
+    }
+
+    .component-Button{
+      .edit-button{
+        background-color: var(--first-color);
+        padding: 6px 10px;
+        color: var(--main-color);
+        width: 91px;
+        height: 39px;
+      }
+
+      .save-button{
+        background-color: var(--active-color);
+        padding: 6px 10px;
+        color: var(--main-color);
+        width: 91px;
+        height: 39px;
+      }
+
+      .edit-button:active{
+        background: var(--underline-btn-active-color);
+      }
+    }
+
+
+
+    .content-wrap{
+      padding: 0 0 15px;
+      font-size: var(--s-font-size);
+
+      div:nth-last-child(1){
+        border-bottom: none;
+      }
+
+      .component-Input {
+        padding: 5px 0;
+        border-bottom: 1px solid var(--form-background-color);
+
+        label {
+          display: flex;
+          align-items: flex-start;
+
+          p {
+            flex-basis: 40%;
+            //height: 38px;
+            //width: 365px;
+            //color: var(--main-color);
+            padding: 0 12px 0 36px;
+            letter-spacing: 0.7px;
+            line-height: 38px;
+          }
+
+          input {
+            flex-grow: 1;
+            //flex-basis: 70%;
+            background-color: var(--section-background-color);
+            height: 38px;
+            //width: 365px;
+            color: var(--main-color);
+            //color: var(--input-text-color);
+            padding: 0 12px 0 36px;
+            letter-spacing: 0.7px;
+
+            //&:focus {
+            //  outline: none;
+            //}
+
+            &:disabled{
+              color: var(--input-text-color);
+            }
+          }
+        }
+      }
+
+
+      .component-Textarea{
+        padding: 5px 0;
+        border-bottom: 1px solid var(--form-background-color);
+
+        label {
+          display: flex;
+          margin: 0;
+          //justify-items: flex-end;
+          //justify-content: space-between;
+
+          p {
+            flex-basis: 40%;
+            //height: 38px;
+            //width: 365px;
+            //color: var(--main-color);
+            padding: 0 12px 0 36px;
+            letter-spacing: 0.7px;
+            line-height: 38px;
+          }
+
+          textarea {
+            flex-grow: 1;
+            //flex-basis: 70%;
+            background-color: var(--section-background-color);
+
+            line-height: 38px;
+
+            //height: 38px;
+            //width: 365px;
+            color: var(--main-color);
+            padding: 0 12px 0 36px;
+            letter-spacing: 0.7px;
+
+            //&:focus {
+            //  outline: none;
+            //}
+
+            &:disabled{
+              color: var(--input-text-color);
+            }
+          }
+        }
+      }
+
+      .component-Textarea.one-column{
+        padding: unset;
+      }
+
+      .component-Select{
+        display: flex;
+        margin: 0;
+        padding: 5px 0;
+        border-bottom: 1px solid var(--form-background-color);
+
+        p{
+          flex-basis: 40%;
+          padding: 0 12px 0 36px;
+          letter-spacing: 0.7px;
+          line-height: 38px;
+        }
+        .select-wrap{
+          flex-basis: 60%;
+          flex-wrap: wrap;
+          //align-items: flex-start;
+          align-items: center;
+          gap: 4px;
+          margin: 0;
+          .select{
+            margin: 0;
+            padding: 0;
+            .component-Button{
+              button{
+
+                padding: 9px 10px;
+                //color: var(--input-text-color);
+                //line-height: 38px;
+
+                &:disabled{
+                  color: var(--input-text-color);
+                }
+              }
+            }
+          }
+          .select.active{
+            .component-Button{
+              button{
+                color: var(--first-color);
+              }
+            }
+          }
+        }
+      }
+
+      .component-Radio{
+        display: flex;
+        border-bottom: 1px solid var(--form-background-color);
+        margin: 0;
+        padding: 5px 0;
+        p{
+          flex-basis: 40%;
+          padding: 0 12px 0 36px;
+          letter-spacing: 0.7px;
+          line-height: 38px;
+        }
+        .radio-wrap{
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+          div{
+
+            .component-Input {
+              label {
+                align-items: center;
+                height: 38px;
+
+
+                //color: var(--input-text-color);
+                //&:disabled{
+                //  color: var(--input-text-color);
+                //}
+                p {
+                  font-size: var(--xs-font-size);
+                  padding: 0;
+                  line-height: normal;
+                  //color: var(--input-text-color);
+
+                  //&:disabled{
+                  //  color: var(--input-text-color);
+                  //}
+                }
+                input {
+                  flex-grow: 0;
+                  height: 25px;
+                  width: 25px;
+                  padding: 0;
+
+                  &:disabled {
+                    color: var(--input-text-color);
+                  }
+                }
+              }
+            }
+            .component-Input.disabled{
+              label{
+                p{
+                  color: var(--input-text-color);}
+                input{}
+              }
+            }
+          }
+        }
+      }
+      //Radio[disabled=true]{
+      //  background-color: red;
+      //}
+    }
+
+
+
+  }
+}
+
+
+
+
+  //.hireExpectations{
+  //  background-color: var(--form-background-color);
+  //  @include flex(row, center, space-between);
+  //  padding: 14px 20px;
+  //  border-bottom: 2px solid var(--underline-color);
+  //}

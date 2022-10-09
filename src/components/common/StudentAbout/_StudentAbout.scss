@@ -1,0 +1,133 @@
+@import '../../../styles/mixins';
+
+div.component-StudentAbout {
+  width: 250px;
+  .student-about-wrap {
+    @include flex(column, center, space-between);
+    padding: 10px;
+    background: var(--form-background-color);
+    font-family: var(--base-font-family);
+
+    .img-wrap {
+      @include flex(column, center, space-around);
+      padding: 20px;
+
+      img {
+        height: 140px;
+      }
+
+      h3 {
+        margin-top: 12px;
+        padding-bottom: 0;
+        font-size: var(--l-font-size);
+        font-weight: normal;
+      }
+
+      .github-ico {
+        font-size: var(--l-font-size);
+      }
+
+      .name-github{
+        @include flex(row, center, space-around);
+        color: var(--link-color);
+        p {
+          margin-left: 8px;
+        }
+      }
+    }
+
+    .contact-wrap {
+      margin-top: 15px;
+      .contact-phone, .contact-email{
+        margin-top: 5px;
+        @include flex(row, center, none);
+        .contact-ico {
+          color: var(--icon-contact-color);
+        }
+        .email {
+          font-size: var(--l-font-size);
+        }
+
+        p {
+          color: var(--main-color);
+          margin-left: 9px;
+          font-size: 0.9em;
+        }
+      }
+    }
+
+    .about-me-wrap {
+      padding: 0 15px 0 15px;
+        .about-me-title {
+          color: var(--icon-contact-color);
+          font-weight: var(--bold-font-weight);
+        }
+    }
+
+    .action-wrap {
+      width: 100%;
+      margin-top: 30px;
+      Button {
+        padding: 10px;
+        margin-bottom: 15px;
+        font-size: var(--xs-font-size);
+        width: 100%;
+        color: var(--main-color);
+        background: var(--first-color);
+      }
+      Button:active {
+        background: var(--underline-btn-active-color);
+      }
+    }
+  }
+}
+
+div.component-StudentAbout{
+  @media only screen and (min-width: 1200px) and (max-width: 1610px){
+    width: 220px;
+    .student-about-wrap {
+      @include flex(column, center, space-between);
+
+      .img-wrap {
+        @include flex(column, center, space-around);
+        padding: 15px;
+
+        img {
+          height: 120px;
+        }
+
+        h3 {
+          margin-top: 10px;
+          font-size: var(--md-font-size);
+        }
+
+        .github-ico {
+          font-size: var(--md-font-size);
+        }
+      }
+
+      .contact-wrap {
+        .contact-phone, .contact-email{
+          margin-top: 5px;
+          .email {
+            font-size: var(--md-font-size);
+          }
+
+          p {
+            font-size: var(--s-font-size);
+          }
+        }
+      }
+
+      .about-me-wrap {
+        .about-me-title {
+          font-size: 0.9em;
+        }
+        p {
+          font-size: var(--s-font-size);
+        }
+      }
+
+    }
+  }
+}

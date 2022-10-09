@@ -1,0 +1,27 @@
+@import '../../../styles/mixins';
+
+div.component-Select {
+  margin-top: 15px;
+
+  p {
+    font-size: var(--s-font-sizes);
+  }
+
+  .select-wrap {
+    @include flex(row, center, flex-start);
+    margin-top: 4px;
+
+    .select {
+      padding: 4px 10px;
+      background-color: var(--form-background-color);
+      cursor: pointer;
+      margin-right: 8px;
+
+      button {
+        color: var(--main-color);
+        background-color: transparent;
+        font-size: 12px;
+      }
+    }
+  }
+}

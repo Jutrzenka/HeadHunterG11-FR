@@ -1,0 +1,69 @@
+@import './../../../styles/mixins';
+
+main.view-AdminImportView {
+  .import-file-wrap {
+    height: 72px;
+    @include flex(row, center, flex-start);
+    background-color: var(--form-background-color);
+    position: relative;
+    margin: 26px auto 2px auto;
+    border-bottom: 1px solid var(--background-main-color);
+
+    .select-file {
+      @include flex(row, center, center);
+      background-color: transparent;
+      height: 100%;
+      padding: 6px 34px;
+      transition: var(--transition);
+      width: 160px;
+      cursor: pointer;
+
+      svg {
+        width: 25px;
+        height: 25px;
+        margin: 6px;
+      }
+    }
+  }
+
+  .active {
+    border-bottom: 1px solid var(--first-color);
+  }
+
+  .form-wrap {
+    margin-top: 20px;
+
+    label {
+      z-index: -1;
+      width: 480px;
+      height: 40px;
+      margin-bottom: 15px;
+      background-color: var(--main-color);
+      padding: 6.5px 17px;
+      color: var(--input-text-color);
+      cursor: pointer;
+
+      input[type='file'] {
+        opacity: 0;
+      }
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: var(--first-color);
+      height: 38px;
+      padding: 0 10px;
+      color: var(--main-color);
+      margin-right: 28px;
+    }
+  }
+}
+
+#file-input::-webkit-file-upload-button {
+  visibility: hidden;
+  user-select: none;
+}
+#file-input {
+  display: none;
+  user-select: none;
+}
