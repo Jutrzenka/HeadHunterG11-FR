@@ -1,9 +1,27 @@
 # :construction_worker: HeadHunter MegaK v0.1.0 frontend
 Application as a recruitment platform. It connects the participants of the MegaK course and potential employers. The purpose of the app is to help students find their first job as a developer.
 ## :bear: Resources
-**Live demo:** IN PROGRESS \
 **Github frontend:** https://github.com/Jutrzenka/HeadHunterG11-FR \
 **Github backend:** https://github.com/Jutrzenka/HeadHunterG11-BE
+
+
+## :framed_picture: Screenshots
+
+**Login view**  
+![Login view](public/img/app-overview/HeadHunter_login.png) 
+
+**Student profile**  
+![Student dashboard](public/img/app-overview/HeadHunter_sudentprofile.png) 
+
+**Student list (for students)** – adding and editing profile  
+![Student list employers](public/img/app-overview/HeadHunter_sudentsLinst_employers.png) 
+
+
+**Filtering students (for employers)**  
+![Filtering students](public/img/app-overview/HeadHunter_sudentsLinstFilter_employers.png)
+
+**Student list (for employers)**  
+![Student list for students](public/img/app-overview/HeadHunter_studentsList_studentView.png)
 
 ## :cow: Tech Stack
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
