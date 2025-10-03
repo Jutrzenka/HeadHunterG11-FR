@@ -1,4 +1,4 @@
-<img width="1580" height="886" alt="HeadHunter_sudentprofile" src="https://github.com/user-attachments/assets/819b2323-0c5e-4edf-bc55-bfc9b9b9ef9c" /># :construction_worker: HeadHunter MegaK v0.1.0 frontend
+:construction_worker: HeadHunter MegaK v0.1.0 frontend
 Application as a recruitment platform. It connects the participants of the MegaK course and potential employers. The purpose of the app is to help students find their first job as a developer.
 ## :bear: Resources
 **Github frontend:** https://github.com/Jutrzenka/HeadHunterG11-FR \
